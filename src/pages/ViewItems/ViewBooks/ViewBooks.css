@@ -1,0 +1,19 @@
+.myTable{
+    /* position: relative !important; */
+    display: block;
+    height: 78vh !important;
+    width: 100% !important;
+    overflow-y: auto;
+    table-layout: auto;
+}
+.myTable tbody tr:hover{
+    background: yellow;
+}
+
+.tableHeader tr {
+    position: sticky !important;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+}

@@ -1,0 +1,31 @@
+
+.myForm{
+    width: 60%;
+    box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
+-webkit-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
+-moz-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
+}
+.myForm input {
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    
+    
+}
+.myForm input::placeholder { 
+    color: rgba(223, 218, 218, 0.462);
+  
+  }
+
+.myForm .form-label{
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+@media (max-width: 575.98px) { 
+    .myForm{
+        width: 80%;
+    }
+ }
