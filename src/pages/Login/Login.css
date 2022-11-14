@@ -1,0 +1,10 @@
+@media (min-width: 768px) { 
+    .login-form{
+        height: 100vh ;
+        border-left: 1px solid blue;
+
+    }
+    .login-form input{
+        width: 75%;
+    }
+ }
