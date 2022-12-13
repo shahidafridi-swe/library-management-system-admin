@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import puLogo from "../../image/pu-logo.png";
 import './Header.css'
 
-function OffcanvasExample() {
+function Header() {
   return (
     <>
       {[false].map((expand) => (
@@ -147,7 +147,7 @@ function OffcanvasExample() {
   );
 }
 
-export default OffcanvasExample;
+export default Header;
 
 // import { Container, Nav, Navbar } from "react-bootstrap";
 // import { Link } from "react-router-dom";
