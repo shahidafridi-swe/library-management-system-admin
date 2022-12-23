@@ -5,7 +5,7 @@
 -webkit-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
 -moz-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
 }
-.myForm input {
+.myForm select, .myForm input{
     background-color: transparent;
     font-weight: bold;
     font-size: 20px;

@@ -137,7 +137,7 @@ function AddBook() {
                 </Row>
 
                 <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-success w-100 p-2 mt-3' type='submit' >ADD BOOK</button>
+                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD BOOK</button>
 
                 </Form.Group>
 
