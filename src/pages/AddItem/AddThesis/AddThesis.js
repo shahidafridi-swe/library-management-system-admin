@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FormTitle from '../../Shared/FormTitle';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
 function AddThesis() {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
@@ -16,7 +17,8 @@ function AddThesis() {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    alert("Thesis item is successfully added!!")
+                    Swal.fire('Thesis Added Successfully')
+
                     reset()
                 }
             })
@@ -57,7 +59,7 @@ function AddThesis() {
                 <Row className=" mt-3">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Name </Form.Label>
-                        <Form.Control type="text" placeholder="Member1 Name"  required {...register("mem1name")} />
+                        <Form.Control type="text" placeholder="Member1 Name" required {...register("mem1name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Student ID</Form.Label>

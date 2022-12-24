@@ -7,6 +7,8 @@ import './AddBook.css';
 import Button from 'react-bootstrap/Button';
 import ModalForTen from './ModalForTen';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
+
 function AddBook() {
     const [tenCategory, setTenCategory] = useState([])
     const [modalShow, setModalShow] = useState(false);
@@ -23,7 +25,7 @@ function AddBook() {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    alert("The product is successfully added!!")
+                    Swal.fire('Book Added Successfully')
                     reset()
                 }
             })

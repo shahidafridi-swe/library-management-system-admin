@@ -28,17 +28,11 @@ const AdminProfile = () => {
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Personal Email:</span> {admin.personalEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {admin.presentAddress}</p>
                     </Card.Text>
-
-
-
-
-
                     <div className='d-flex justify-content-between'>
-                        {/* <Link
-                            to={'/updateProfile/' + institute_Id}
+                        <Link
+                            to={`/updateProfile/${admin._id}`}
                             className='btn btn-primary'
-                        >Update Profile</Link> */}
-
+                        >Update Profile</Link>
                         <Button variant="danger">Delete Profile</Button>
                     </div>
                 </Card.Body>

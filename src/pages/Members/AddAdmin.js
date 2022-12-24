@@ -2,28 +2,11 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FormTitle from '../Shared/FormTitle';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2'
 
 
 const AddAdmin = () => {
-
-    // const handleSubmit = event => {
-    //     event.preventDefault();
-
-    //     const newAdminData = {
-    //         name: event.target.name.value,
-    //         instituteId: event.target.instituteId.value,
-    //         designation: event.target.designation.value,
-    //         phone: event.target.phone.value,
-    //         email1: event.target.email1.value,
-    //         email2: event.target.email2.value,
-    //         address: event.target.address.value,
-    //         password: event.target.password.value,
-    //     }
-    //     console.log(newAdminData)
-    //     event.target.reset();
-    // };
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5000/addAdmin', {
@@ -36,7 +19,8 @@ const AddAdmin = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    alert("The product is successfully added!!")
+                    Swal.fire('Admin Added Successfully')
+
                     reset()
                 }
             })
