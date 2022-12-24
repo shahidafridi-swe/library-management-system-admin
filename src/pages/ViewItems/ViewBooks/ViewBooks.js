@@ -106,9 +106,12 @@ function ViewBooks() {
                                             <td>{book.copies}</td>
                                             <td>-</td>
                                             <td>
-                                                <Link to='/'
-                                                    className='btn btn-dark'
+                                                <Link to={`/adminList`}
+                                                    className='btn btn-warning btn-sm '
                                                 >View</Link>
+                                                <Link to={`/adminList`}
+                                                    className='btn btn-success btn-sm mt-1'
+                                                >Issue</Link>
                                             </td>
                                         </tr>
                                     )

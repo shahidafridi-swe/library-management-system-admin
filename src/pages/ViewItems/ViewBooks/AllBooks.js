@@ -37,11 +37,11 @@ const AllBooks = () => {
                                     <td>{book.copies}</td>
                                     <td>-</td>
                                     <td>
-                                        <Link to={`/adminList`}
-                                            className='m-2 link_design'
+                                        <Link to={`/viewBooks/${book._id}`}
+                                            className='btn btn-warning btn-sm'
                                         >View</Link>
                                         <Link to={`/adminList`}
-                                            className=''
+                                            className='btn btn-success btn-sm mt-1'
                                         >Issue</Link>
                                     </td>
                                 </tr>
