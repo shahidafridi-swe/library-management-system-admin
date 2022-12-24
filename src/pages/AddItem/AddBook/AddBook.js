@@ -80,25 +80,21 @@ function AddBook() {
                         <Form.Control type="text" placeholder="ISBN10" required {...register("ISBN10")}/>
                     </Form.Group>
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Author</Form.Label>
                         <Form.Control type="text" placeholder="Author Name" required {...register("authors")}/>
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>ISBN13</Form.Label>
                         <Form.Control type="text" placeholder="ISBN13"required {...register("ISBN13")}/>
                     </Form.Group>
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Publisher</Form.Label>
                         <Form.Control type="text" placeholder="Publisher Name"required  {...register("publisher")}/>
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="number" placeholder="Price"required {...register("price")}/>
