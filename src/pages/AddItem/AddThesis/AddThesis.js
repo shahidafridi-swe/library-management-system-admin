@@ -31,25 +31,19 @@ function AddThesis() {
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="text" name='description' placeholder="Description" required />
                     </Form.Group>
-
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Instructor</Form.Label>
                         <Form.Control type="text" name='instructor' placeholder="Insrtuctor Name" required />
                     </Form.Group>
-
-
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Semester</Form.Label>
                         <Form.Control type="text" name='semester' placeholder="Semester" required />
                     </Form.Group>
                 </Row>
-
                 <Row className=" text-center mt-5">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Team Members</Form.Label>
