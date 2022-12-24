@@ -3,7 +3,7 @@ import React from 'react';
 const Dashboard = () => {
     return (
         <div>
-            <h2>Dashboard Page check memberlist branch</h2>
+            <h2>Dashboard Page check member branch</h2>
         </div>
     );
 };
