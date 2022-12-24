@@ -8,6 +8,10 @@ import AddAdmin from "./pages/Members/AddAdmin";
 import AddUser from "./pages/Members/AddUser";
 import AdminList from "./pages/Members/AdminList";
 import AdminProfile from "./pages/Members/AdminProfile";
+import UpdateAdminProfile from "./pages/Members/UpdateAdminProfile";
+import UpdateUserProfile from "./pages/Members/UpdateUserProfile";
+import UserList from "./pages/Members/UserList";
+import UserProfile from "./pages/Members/userProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
@@ -33,6 +37,12 @@ function App() {
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
         <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
+        <Route path="/userList" element={<UserList/>}></Route>
+        <Route path="/userList/:id" element={<UserProfile/>}></Route>
+        <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>
+        <Route path="/updateAdminProfile/:id" element={<UpdateAdminProfile/>}></Route>
+
+
         
       </Routes>
     </div>

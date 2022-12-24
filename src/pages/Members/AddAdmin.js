@@ -48,11 +48,11 @@ const AddAdmin = () => {
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Designation</Form.Label>
-                        <Form.Control type="text" name='designation' placeholder="Phone Number" required {...register("Designation")} />
+                        <Form.Control type="text" name='designation' placeholder="Designation" required {...register("Designation")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Password for admin login</Form.Label>
-                        <Form.Control type="text" name='password' placeholder="Phone Number" required {...register("password")} />
+                        <Form.Control type="text" name='password' placeholder="Password" required {...register("password")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
