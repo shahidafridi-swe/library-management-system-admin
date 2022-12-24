@@ -4,7 +4,11 @@
 // // https://firebase.google.com/docs/web/setup#available-libraries
 // import { getAuth } from "firebase/auth";
 
+<<<<<<< HEAD
 // // Your web app's Firebase configuration
+=======
+// Your web app's Firebase configuration
+>>>>>>> tonni
 // const firebaseConfig = {
 //   apiKey: process.env.REACT_APP_API_KEY,
 //   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -13,9 +17,23 @@
 //   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 //   appId: process.env.REACT_APP_APP_ID,
 // };
+<<<<<<< HEAD
 
 // // Initialize Firebase
 // const app = initializeApp(firebaseConfig);
+=======
+const firebaseConfig = {
+  apiKey: "AIzaSyCOV5-px6kjmWUX9E8MFsNRYd_zQrMrs9Y",
+  authDomain: "library-management-syste-a20ea.firebaseapp.com",
+  projectId: "library-management-syste-a20ea",
+  storageBucket: "library-management-syste-a20ea.appspot.com",
+  messagingSenderId: "479513072976",
+  appId: "1:479513072976:web:47a3e83f5811ed0f1d0855",
+  measurementId: "G-YJ6YGPQ3TW"
+};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+>>>>>>> tonni
 
 // const auth = getAuth(app);
 

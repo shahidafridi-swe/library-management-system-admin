@@ -34,7 +34,7 @@ function App() {
         <Route path="/addNewUser" element={<AddUser/>}></Route>
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
-        <Route path="/adminProfile/:institute_Id" element={<AdminProfile/>}></Route>
+        <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
         
       </Routes>
     </div>
