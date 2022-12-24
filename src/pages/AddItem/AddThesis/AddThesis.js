@@ -28,25 +28,25 @@ function AddThesis() {
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" name='title' placeholder="Write the title of the thesis..."  {...register("ThesisTitle")} />
+                        <Form.Control type="text" name='title' required placeholder="Write the title of the thesis..."  {...register("ThesisTitle")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" name='description' placeholder="Description"  {...register("description")} />
+                        <Form.Control type="text" name='description' placeholder="Description" required  {...register("description")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Instructor</Form.Label>
-                        <Form.Control type="text" name='instructor' placeholder="Insrtuctor Name"  {...register("instructor")} />
+                        <Form.Control type="text" name='instructor' required placeholder="Insrtuctor Name"  {...register("instructor")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Semester</Form.Label>
-                        <Form.Control type="text" name='semester' placeholder="Semester"  {...register("semester")} />
+                        <Form.Control type="text" name='semester' placeholder="Semester" required {...register("semester")} />
                     </Form.Group>
                 </Row>
                 <Row className=" text-center mt-5">
@@ -57,49 +57,49 @@ function AddThesis() {
                 <Row className=" mt-3">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Name </Form.Label>
-                        <Form.Control type="text" placeholder="Member1 Name"  {...register("mem1name")} />
+                        <Form.Control type="text" placeholder="Member1 Name"  required {...register("mem1name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Student ID</Form.Label>
-                        <Form.Control type="text" placeholder="Member1 ID"  {...register("mem1id")} />
+                        <Form.Control type="text" placeholder="Member1 ID" required {...register("mem1id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member2 Name"  {...register("mem2name")} />
+                        <Form.Control type="text" placeholder="Member2 Name" required {...register("mem2name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member2 ID"  {...register("mem2id")} />
-                    </Form.Group>
-                </Row>
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member3 Name"  {...register("mem3name")} />
-                    </Form.Group>
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member3 ID"  {...register("mem3id")} />
+                        <Form.Control type="text" placeholder="Member2 ID" required {...register("mem2id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member4 Name"  {...register("mem4name")} />
+                        <Form.Control type="text" placeholder="Member3 Name" required {...register("mem3name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member4 ID"  {...register("mem4id")} />
+                        <Form.Control type="text" placeholder="Member3 ID" required {...register("mem3id")} />
+                    </Form.Group>
+                </Row>
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 Name" required {...register("mem4name")} />
+                    </Form.Group>
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 ID" required {...register("mem4id")} />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member5 Name"  {...register("mem5name")} />
+                        <Form.Control type="text" placeholder="Member5 Name" required {...register("mem5name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member5 ID"  {...register("mem5id")} />
+                        <Form.Control type="text" placeholder="Member5 ID" required  {...register("mem5id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" {...register("branch")} />
+                        <Form.Control type="text" placeholder="Branch" required {...register("branch")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Cover Photo</Form.Label>

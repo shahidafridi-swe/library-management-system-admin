@@ -1,24 +1,16 @@
 import { useEffect, useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
-
 function AdminList() {
-
     const adminListTitle = ['name', "institute_Id", "phone", "designation", "email", "action"]
     const [adminList, setAdminList] = useState([]);
 
     useEffect(() => {
-        fetch("adminList.json")
+        fetch("http://localhost:5000/adminList")
             .then(res => res.json())
             .then((data) => setAdminList(data))
     }, []);
-
-
-
     const forTitle = adminList[0];
-
     return (forTitle) && (
         <div className='px-3 '>
             <div>
@@ -46,7 +38,6 @@ function AdminList() {
                     </form>
                 </div>
             </div>
-
             <div className="tableFixHead d-flex justify-content-center" >
                 <Table responsive='sm' striped bordered hover variant="success" className='myTable mx-auto w-100' >
                     <thead className='tableHeader text-uppercase '>
@@ -59,32 +50,30 @@ function AdminList() {
 
                     <tbody>
                         {
-                            adminList.map((admin) => (
-                                <tr key={admin.institute_id}>
-                                    {
-                                        adminListTitle.map((title) => {
-                                            if (title in admin) {
-                                                return <td>{admin[title]}</td>
-                                            }
-                                            else if (title === "action") {
-                                                console.log('admin is', admin,)
-                                                return <td><Link 
-                                                to={'/adminProfile/'+admin.institute_Id}
-                                                className='btn btn-warning'
-                                                >View</Link></td>
-                                            }
-                                        })
-                                    }
+                            adminList.map(listAdmin =>
+                                <tr key={listAdmin._id}>
+                                    <td>
+                                        <p>{listAdmin.FullName}</p>
+                                    </td>
+                                    <td>
+                                        <p>{listAdmin.InstituteId}</p>
+                                    </td>
+                                    <td>{listAdmin.PhoneNo}</td>
+                                    <td>{listAdmin.Designation}</td>
+                                    <td>{listAdmin.instituteEmail}</td>
+                                      <td> 
+                <Link to={`/adminList/${listAdmin._id}`}
+                                        className='btn btn-dark'
+                                    >View</Link> </td>
                                 </tr>)
-                            )
                         }
-
                     </tbody>
                 </Table>
             </div>
 
-        </div>
+        </div >
     );
 }
 
 export default AdminList;
+

@@ -63,72 +63,72 @@ function AddBook() {
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Call No</Form.Label>
-                        <Form.Control type="text" placeholder="Call Number" {...register("callNo")} />
+                        <Form.Control type="text" placeholder="Call Number" required {...register("callNo")} />
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" placeholder="Title"  {...register("title")}/>
+                        <Form.Control type="text" placeholder="Title"  required {...register("title")}/>
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>ISBN10</Form.Label>
-                        <Form.Control type="text" placeholder="ISBN10" {...register("ISBN10")}/>
+                        <Form.Control type="text" placeholder="ISBN10" required {...register("ISBN10")}/>
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Author</Form.Label>
-                        <Form.Control type="text" placeholder="Author Name"  {...register("authors")}/>
+                        <Form.Control type="text" placeholder="Author Name" required {...register("authors")}/>
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>ISBN13</Form.Label>
-                        <Form.Control type="text" placeholder="ISBN13" {...register("ISBN13")}/>
+                        <Form.Control type="text" placeholder="ISBN13"required {...register("ISBN13")}/>
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Publisher</Form.Label>
-                        <Form.Control type="text" placeholder="Publisher Name"  {...register("publisher")}/>
+                        <Form.Control type="text" placeholder="Publisher Name"required  {...register("publisher")}/>
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Price</Form.Label>
-                        <Form.Control type="number" placeholder="Price" {...register("price")}/>
+                        <Form.Control type="number" placeholder="Price"required {...register("price")}/>
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Publish Year</Form.Label>
-                        <Form.Control type="number" placeholder="Publish Year"  {...register("publicationYear")}/>
+                        <Form.Control type="number" placeholder="Publish Year" required {...register("publicationYear")}/>
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Accession Number</Form.Label>
-                        <Form.Control type="text" placeholder="Accession Number"  {...register("accessionNo")}/>
+                        <Form.Control type="text" placeholder="Accession Number" required {...register("accessionNo")}/>
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Edition</Form.Label>
-                        <Form.Control type="text" placeholder="Edition"  {...register("edition")}/>
+                        <Form.Control type="text" placeholder="Edition" required {...register("edition")}/>
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Tags</Form.Label>
-                        <Form.Control type="text" placeholder="Tags" {...register("tags")}/>
+                        <Form.Control type="text" placeholder="Tags" required {...register("tags")}/>
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" {...register("library")}/>
+                        <Form.Control type="text" placeholder="Branch" required {...register("library")}/>
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Cover Photo</Form.Label>
