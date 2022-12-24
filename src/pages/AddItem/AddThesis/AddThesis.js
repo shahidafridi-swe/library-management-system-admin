@@ -2,46 +2,51 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FormTitle from '../../Shared/FormTitle';
-import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
-
-function AddThesis() {   
-   
-
-    const handleSubmit = event => {
-        event.preventDefault();
-        event.target.reset();
+import { useForm } from "react-hook-form";
+function AddThesis() {
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        fetch('http://localhost:5000/addThesis', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result.acknowledged) {
+                    alert("Thesis item is successfully added!!")
+                    reset()
+                }
+            })
     };
-
     return (
         <div className='d-flex justify-content-center'>
-            <Form onSubmit={handleSubmit} className='p-4 rounded bg-secondary myForm'>
+            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary myForm'>
                 <FormTitle>add thesis form</FormTitle>
                 <Row className="">
-
-
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" name='title' placeholder="Write the title of the thesis..." required />
+                        <Form.Control type="text" name='title' placeholder="Write the title of the thesis..."  {...register("ThesisTitle")} />
                     </Form.Group>
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text" name='description' placeholder="Description" required />
+                        <Form.Control type="text" name='description' placeholder="Description"  {...register("description")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Instructor</Form.Label>
-                        <Form.Control type="text" name='instructor' placeholder="Insrtuctor Name" required />
+                        <Form.Control type="text" name='instructor' placeholder="Insrtuctor Name"  {...register("instructor")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Semester</Form.Label>
-                        <Form.Control type="text" name='semester' placeholder="Semester" required />
+                        <Form.Control type="text" name='semester' placeholder="Semester"  {...register("semester")} />
                     </Form.Group>
                 </Row>
                 <Row className=" text-center mt-5">
@@ -49,87 +54,69 @@ function AddThesis() {
                         <Form.Label>Team Members</Form.Label>
                     </Form.Group>
                 </Row>
-
-                <Row className="">
+                <Row className=" mt-3">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Name </Form.Label>
-                        <Form.Control type="text" placeholder="Member Name" required />
+                        <Form.Control type="text" placeholder="Member1 Name"  {...register("mem1name")} />
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>ID</Form.Label>
-                        <Form.Control type="text" placeholder="Member ID" required />
-                    </Form.Group>
-                </Row>
-
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member Name"  />
-                    </Form.Group>
-
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member ID"  />
+                        <Form.Label>Student ID</Form.Label>
+                        <Form.Control type="text" placeholder="Member1 ID"  {...register("mem1id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member Name"  />
+                        <Form.Control type="text" placeholder="Member2 Name"  {...register("mem2name")} />
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member ID"  />
+                        <Form.Control type="text" placeholder="Member2 ID"  {...register("mem2id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member Name"  />
+                        <Form.Control type="text" placeholder="Member3 Name"  {...register("mem3name")} />
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member ID"  />
+                        <Form.Control type="text" placeholder="Member3 ID"  {...register("mem3id")} />
+                    </Form.Group>
+                </Row>
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 Name"  {...register("mem4name")} />
+                    </Form.Group>
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 ID"  {...register("mem4id")} />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member Name"  />
+                        <Form.Control type="text" placeholder="Member5 Name"  {...register("mem5name")} />
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member ID"  />
+                        <Form.Control type="text" placeholder="Member5 ID"  {...register("mem5id")} />
                     </Form.Group>
                 </Row>
-
-
-               
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" />
+                        <Form.Control type="text" placeholder="Branch" {...register("branch")} />
                     </Form.Group>
-
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Cover Photo</Form.Label>
                         <Form.Control
                             type="file"
-                            required
+
                             name="file"
                         />
                     </Form.Group>
                 </Row>
-
                 <Form.Group as={Col} sm='12' md='12' >
                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD THESIS</button>
-
                 </Form.Group>
-
-
-
             </Form>
         </div>
-
     );
 }
-
 export default AddThesis;
 
 

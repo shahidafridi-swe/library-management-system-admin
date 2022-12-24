@@ -7,9 +7,7 @@ import './AddBook.css';
 import Button from 'react-bootstrap/Button';
 import ModalForTen from './ModalForTen';
 import { useForm } from "react-hook-form";
-
 function AddBook() {
-
     const [tenCategory, setTenCategory] = useState([])
     const [modalShow, setModalShow] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -27,12 +25,9 @@ function AddBook() {
                 if (result.acknowledged) {
                     alert("The product is successfully added!!")
                     reset()
-
                 }
             })
-
     };
-
     useEffect(() => {
         fetch("ten.json")
             .then(res => res.json())
