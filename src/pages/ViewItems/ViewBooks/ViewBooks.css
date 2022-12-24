@@ -5,6 +5,7 @@
     width: 100% !important;
     overflow-y: auto;
     table-layout: auto;
+    margin: 0 auto !important;
 }
 .myTable tbody tr:hover{
     background: yellow;

@@ -4,114 +4,109 @@ import Row from 'react-bootstrap/Row';
 import FormTitle from '../../Shared/FormTitle';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import ModalForTen from '../AddBook/ModalForTen';
 
-function AddThesis() {
-
-    const [modalShow, setModalShow] = useState(false);
-    const [ selectedCategory, setSelectedCategory] = useState(null);
-
-
+function AddThesis() {   
+   
 
     const handleSubmit = event => {
         event.preventDefault();
-
         event.target.reset();
     };
-
-
 
     return (
         <div className='d-flex justify-content-center'>
             <Form onSubmit={handleSubmit} className='p-4 rounded bg-secondary myForm'>
-
                 <FormTitle>add thesis form</FormTitle>
-
                 <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Category</Form.Label>
-                        <br />
-                        <>
-                                                <Button as={Col} sm='12' md='12'  variant="primary" onClick={() => setModalShow(true)}>
-                                                    {
-                                                        selectedCategory === null ?
-                                                        "Select the category" : selectedCategory
-                                                    }
-                                                </Button>
-                                                
-                                                <ModalForTen
-                                                    show={modalShow}
-                                                    onHide={() => setModalShow(false)}
-                                                    setSelectedCategory={setSelectedCategory}
-                                                    setModalShowTen={setModalShow}
-                                                />
-                                            </>
-                    </Form.Group>
 
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Call No</Form.Label>
-                        <Form.Control type="text" placeholder="Call Number" required />
-                    </Form.Group>
-                </Row>
 
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
+                    <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" placeholder="Title" required />
+                        <Form.Control type="text" name='title' placeholder="Write the title of the thesis..." required />
+                    </Form.Group>
+                </Row>
+
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='12'>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" name='description' placeholder="Description" required />
                     </Form.Group>
 
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>ISBN</Form.Label>
-                        <Form.Control type="text" placeholder="ISBN" />
+                </Row>
+
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='12'>
+                        <Form.Label>Instructor</Form.Label>
+                        <Form.Control type="text" name='instructor' placeholder="Insrtuctor Name" required />
+                    </Form.Group>
+
+
+                </Row>
+
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='12'>
+                        <Form.Label>Semester</Form.Label>
+                        <Form.Control type="text" name='semester' placeholder="Semester" required />
+                    </Form.Group>
+                </Row>
+
+                <Row className=" text-center mt-5">
+                    <Form.Group as={Col} sm='12' md='12'>
+                        <Form.Label>Team Members</Form.Label>
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Author</Form.Label>
-                        <Form.Control type="text" placeholder="Author Name" required />
+                        <Form.Label>Name </Form.Label>
+                        <Form.Control type="text" placeholder="Member Name" required />
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>ISSN</Form.Label>
-                        <Form.Control type="text" placeholder="ISSN" />
+                        <Form.Label>ID</Form.Label>
+                        <Form.Control type="text" placeholder="Member ID" required />
                     </Form.Group>
                 </Row>
 
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Publisher</Form.Label>
-                        <Form.Control type="text" placeholder="Publisher Name" required />
+                        <Form.Control type="text" placeholder="Member Name"  />
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Price</Form.Label>
-                        <Form.Control type="number" placeholder="Price" />
-                    </Form.Group>
-                </Row>
-
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Publish Year</Form.Label>
-                        <Form.Control type="number" placeholder="Publish Year" required />
-                    </Form.Group>
-
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Accession Number</Form.Label>
-                        <Form.Control type="text" placeholder="Accession Number" required />
+                        <Form.Control type="text" placeholder="Member ID"  />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Edition</Form.Label>
-                        <Form.Control type="text" placeholder="Edition" required />
+                        <Form.Control type="text" placeholder="Member Name"  />
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Tags</Form.Label>
-                        <Form.Control type="text" placeholder="Tags" />
+                        <Form.Control type="text" placeholder="Member ID"  />
                     </Form.Group>
                 </Row>
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member Name"  />
+                    </Form.Group>
+
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member ID"  />
+                    </Form.Group>
+                </Row>
+                <Row className="mb-5">
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member Name"  />
+                    </Form.Group>
+
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member ID"  />
+                    </Form.Group>
+                </Row>
+
+
+               
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
@@ -129,7 +124,7 @@ function AddThesis() {
                 </Row>
 
                 <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-success w-100 p-2 mt-3' type='submit' >ADD THESIS</button>
+                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD THESIS</button>
 
                 </Form.Group>
 
