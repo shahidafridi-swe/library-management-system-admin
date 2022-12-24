@@ -26,7 +26,7 @@ function AddThesis() {
     return (
         <div className='d-flex justify-content-center'>
             <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary myForm'>
-                <FormTitle>add thesis form</FormTitle>
+                <FormTitle className='text-light'>add thesis form</FormTitle>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Title</Form.Label>
@@ -51,11 +51,21 @@ function AddThesis() {
                         <Form.Control type="text" name='semester' placeholder="Semester" required {...register("semester")} />
                     </Form.Group>
                 </Row>
-                <Row className=" text-center mt-5">
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='12'>
+                        <Form.Label>Branch</Form.Label>
+                        <Form.Select className='text-light' name='userType' aria-label="Default select example" {...register("branch")}>
+                            <option className='text-dark' value="choose">Choose..</option>
+                            <option className='text-dark' value="baridhara">Baridhara</option>
+                            <option className='text-dark' value="gulshan">Gulshan</option>
+                        </Form.Select>
+                    </Form.Group>
+                </Row>
+                <Row className="text-center mt-5">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Team Members</Form.Label>
                     </Form.Group>
-                </Row>
+                </Row>               
                 <Row className=" mt-3">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Name </Form.Label>
@@ -98,20 +108,7 @@ function AddThesis() {
                         <Form.Control type="text" placeholder="Member5 ID" required  {...register("mem5id")} />
                     </Form.Group>
                 </Row>
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" required {...register("branch")} />
-                    </Form.Group>
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Cover Photo</Form.Label>
-                        <Form.Control
-                            type="file"
-
-                            name="file"
-                        />
-                    </Form.Group>
-                </Row>
+             
                 <Form.Group as={Col} sm='12' md='12' >
                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD THESIS</button>
                 </Form.Group>

@@ -11,8 +11,7 @@ import AdminProfile from "./pages/Members/AdminProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
-
-
+import AllBooks from './pages/ViewItems/ViewBooks/AllBooks';
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -20,22 +19,21 @@ function App() {
   return (
     <div className="bg-light" >
       {
-        withoutNavbarLocation !== location.pathname && <Header/>
+        withoutNavbarLocation !== location.pathname && <Header />
       }
-     
       <Routes>
-        <Route path="/" element={<Dashboard/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/addBook" element={<AddBook/>}></Route>
-        <Route path="/addThesis" element={<AddThesis/>}></Route>
-        <Route path="/addJournal" element={<AddJournal/>}></Route>
-        <Route path="/viewBooks" element={<ViewBooks/>}></Route>
-        <Route path="/viewTheses" element={<ViewThesis/>}></Route>
-        <Route path="/addNewUser" element={<AddUser/>}></Route>
-        <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
-        <Route path="/adminList" element={<AdminList/>}></Route>
-        <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
-        
+        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/addBook" element={<AddBook />}></Route>
+        <Route path="/addThesis" element={<AddThesis />}></Route>
+        <Route path="/addJournal" element={<AddJournal />}></Route>
+        <Route path="/viewBooks" element={<ViewBooks />}></Route>
+        <Route path="/viewTheses" element={<ViewThesis />}></Route>
+        <Route path="/addNewUser" element={<AddUser />}></Route>
+        <Route path="/addNewAdmin" element={<AddAdmin />}></Route>
+        <Route path="/adminList" element={<AdminList />}></Route>
+        <Route path="/adminList/:id" element={<AdminProfile />}></Route>
+
       </Routes>
     </div>
   );
