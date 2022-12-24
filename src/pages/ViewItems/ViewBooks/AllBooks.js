@@ -43,7 +43,6 @@ const AllBooks = () => {
                                         <Link to={`/adminList`}
                                             className=''
                                         >Issue</Link>
-
                                     </td>
                                 </tr>
                             )
