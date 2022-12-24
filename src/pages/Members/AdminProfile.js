@@ -30,7 +30,7 @@ const AdminProfile = () => {
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
-                            to={`/updateProfile/${admin._id}`}
+                            to={`/updateAdminProfile/${admin._id}`}
                             className='btn btn-primary'
                         >Update Profile</Link>
                         <Button variant="danger">Delete Profile</Button>
