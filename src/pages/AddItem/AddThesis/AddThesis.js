@@ -18,7 +18,6 @@ function AddThesis() {
             .then(result => {
                 if (result.acknowledged) {
                     Swal.fire('Thesis Added Successfully')
-
                     reset()
                 }
             })
@@ -68,34 +67,34 @@ function AddThesis() {
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member2 Name" required {...register("mem2name")} />
+                        <Form.Control type="text" placeholder="Member2 Name"  {...register("mem2name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member2 ID" required {...register("mem2id")} />
-                    </Form.Group>
-                </Row>
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member3 Name" required {...register("mem3name")} />
-                    </Form.Group>
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member3 ID" required {...register("mem3id")} />
+                        <Form.Control type="text" placeholder="Member2 ID"  {...register("mem2id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member4 Name" required {...register("mem4name")} />
+                        <Form.Control type="text" placeholder="Member3 Name"  {...register("mem3name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member4 ID" required {...register("mem4id")} />
+                        <Form.Control type="text" placeholder="Member3 ID"  {...register("mem3id")} />
+                    </Form.Group>
+                </Row>
+                <Row className="">
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 Name"  {...register("mem4name")} />
+                    </Form.Group>
+                    <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Control type="text" placeholder="Member4 ID"  {...register("mem4id")} />
                     </Form.Group>
                 </Row>
                 <Row className="mb-5">
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member5 Name" required {...register("mem5name")} />
+                        <Form.Control type="text" placeholder="Member5 Name"  {...register("mem5name")} />
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Control type="text" placeholder="Member5 ID" required  {...register("mem5id")} />
+                        <Form.Control type="text" placeholder="Member5 ID"   {...register("mem5id")} />
                     </Form.Group>
                 </Row>
                 <Row className="">
@@ -107,7 +106,6 @@ function AddThesis() {
                         <Form.Label>Cover Photo</Form.Label>
                         <Form.Control
                             type="file"
-
                             name="file"
                         />
                     </Form.Group>
