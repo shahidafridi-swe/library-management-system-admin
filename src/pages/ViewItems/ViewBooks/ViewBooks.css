@@ -1,7 +1,7 @@
 .myTable{
     /* position: relative !important; */
     display: block;
-    height: 78vh !important;
+    /* height: 78vh !important; */
     width: 100% !important;
     overflow-y: auto;
     table-layout: auto;
