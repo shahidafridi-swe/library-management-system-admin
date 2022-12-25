@@ -19,7 +19,6 @@ import AllBooks from './pages/ViewItems/ViewBooks/AllBooks';
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
-import IssueRequest from "./pages/Issue/IssueRequest";
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
