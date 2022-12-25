@@ -35,7 +35,7 @@ const BookDetails = () => {
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
-                            to={`/updateBookInfo/${book._id}`}
+                            to={`/updateBook/${book._id}`}
                             className='btn btn-primary'
                         >Update Book Info</Link>
                         <Button variant="danger">Delete Book</Button>
