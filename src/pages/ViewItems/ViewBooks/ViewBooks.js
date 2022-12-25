@@ -106,12 +106,12 @@ function ViewBooks() {
                                             <td>{book.copies}</td>
                                             <td>-</td>
                                             <td>
-                                            <Link to={`/viewBooks/${book._id}`}
-                                            className='btn btn-warning btn-sm'
-                                        >View</Link>
-                                        <Link to={`/issueBook/${book._id}`}
-                                            className='btn btn-success btn-sm mt-1'
-                                        >Issue</Link>
+                                                <Link to={`/viewBooks/${book._id}`}
+                                                    className='btn btn-warning btn-sm'
+                                                >View</Link>
+                                                <Link to={`/issueBook/${book._id}`}
+                                                    className='btn btn-success btn-sm mt-1'
+                                                >Issue</Link>
                                             </td>
                                         </tr>
                                     )
@@ -119,11 +119,7 @@ function ViewBooks() {
                                     }
                                 </tbody>
                             </Table>
-
                             )}
-
-
-
                     </tbody>
                 </Table>
             </div>
