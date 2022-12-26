@@ -19,6 +19,7 @@ import AllBooks from './pages/ViewItems/ViewBooks/AllBooks';
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
+import AdminData from './pages/Members/AdminData';
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -42,6 +43,7 @@ function App() {
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
         <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
+        <Route path="/updateAdminProfile/:id" element={<AdminData/>}></Route>
         <Route path="/userList" element={<UserList/>}></Route>
         <Route path="/userList/:id" element={<UserProfile/>}></Route>
         <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ViewAdminList from './ViewAdminList';
+import Button from 'react-bootstrap/Button';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 function AdminList() {
     const adminListTitle = ['name', "institute_Id", "phone", "designation", "email", "action"]
-
     // const forTitle = adminList[0];
-
     const [state, setState] = useState({ search_field1: "FullName", search_text: "" });
     const [searchValue, setSearchValue] = useState([])
-
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -31,6 +31,30 @@ function AdminList() {
             .then((data) => {
                 setSearchValue(data.data)
             });
+    }
+    const handleDeletBtn = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/admin/search/${id}`)
+                    .then(res => {
+                        const remaining = searchValue.filter(admin => admin._id !== id)
+                        setSearchValue(remaining)
+                    });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
     }
     return (
         <div className='px-3 '>
@@ -76,25 +100,27 @@ function AdminList() {
                                     <tbody>
                                         {searchValue.map(admin => (
                                             <tr key={admin._id} >
-                                            <td>{admin.FullName}</td>
-                                            <td>{admin.InstituteId}</td>
-                                            <td>{admin.PhoneNo}</td>
-                                            <td>{admin.Designation}</td>
-                                            <td>{admin.instituteEmail}</td>
-                                            <td>
-                                                <Link to={`/adminList/${admin._id}`}
-                                                    className='btn btn-dark'
-                                                >View</Link>
-                                            </td>
-                                        </tr>
-                                    ))
-                                    }
-                                </tbody>
-                            </Table>
-                )
+                                                <td>{admin.FullName}</td>
+                                                <td>{admin.InstituteId}</td>
+                                                <td>{admin.PhoneNo}</td>
+                                                <td>{admin.Designation}</td>
+                                                <td>{admin.instituteEmail}</td>
+                                                <td>
+                                                    <Link to={`/adminList/${admin._id}`}
+                                                        className='btn btn-dark'
+                                                    >View</Link>
+                                                    <Button variant="danger" onClick={() => handleDeletBtn(admin._id)}>Delete Profile</Button>
+
+                                                </td>
+                                            </tr>
+                                        ))
+                                        }
+                                    </tbody>
+                                </Table>
+                            )
                         }
-            </tbody>
-        </Table>
+                    </tbody>
+                </Table>
             </div >
 
         </div >

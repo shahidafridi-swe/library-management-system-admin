@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useParams } from 'react-router-dom';
 import adminImg from '../../image/user.png';
@@ -7,22 +6,55 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FormTitle from '../Shared/FormTitle';
-import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
-
+import axios from 'axios';
 const UpdateUserProfile = () => {
+    // const { id } = useParams();
+    // const [user, setUser] = useState({});
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/userList/${id}`;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setUser(data))
+    // }, [id]);
+    // const { register, handleSubmit, reset } = useForm();
+    // const onSubmit = data => {
+    // };
     const { id } = useParams();
     const [user, setUser] = useState({});
+    const [data, setData] = useState({
+        FullName: user?.FullName,
+        instituteId: user?.instituteId,
+        phoneNo: user?.phoneNo,
+        userType: user?.userType,
+        password: user?.password,
+        instituteEmail: user?.instituteEmail,
+        personalEmail: user?.personalEmail,
+        presentAddress: user?.presentAddress,
+        department: user?.department,
+    })
     useEffect(() => {
         const url = `http://localhost:5000/userList/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setUser(data))
     }, [id]);
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => {
 
+    const handleChange = (e) => {
+        setData({
+            ...data,
+            [e.target.name]: e.target.value
+        })
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .put(
+                `http://localhost:5000/updateUserProfile/${id}`,
+                data
+            );
     };
+    console.log(user);
     return (
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white py-3">
@@ -30,35 +62,35 @@ const UpdateUserProfile = () => {
                 <Card.Body>
                     <Card.Text>
                         <div className='d-flex justify-content-center w-100'>
-                            <Form onSubmit={handleSubmit(onSubmit)} className='w-75 rounded bg-secondary myForm'>
-                                <FormTitle>Information of NAME/ID</FormTitle>
+                            <Form onSubmit={handleSubmit} className='w-75 rounded bg-secondary myForm'>
+                                <FormTitle>Information of {user.FullName}</FormTitle>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Full Name</Form.Label>
-                                        <Form.Control type="text" name='name' value={user.FullName} required {...register("FullName")} />
+                                        <Form.Control type="text" name='FullName' defaultValue={user.FullName} required  onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Institute ID</Form.Label>
-                                        <Form.Control type="text" name='instituteId' value={user.instituteId} required {...register("InstituteId")} />
+                                        <Form.Control type="text" name='instituteId' defaultValue={user.instituteId} required  onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Phone Number</Form.Label>
-                                        <Form.Control type="text" name='phone' value={user.phoneNo} required {...register("PhoneNo")} />
+                                        <Form.Control type="text" name='phoneNo' defaultValue={user.phoneNo} required   onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>User Type</Form.Label>
-                                        <Form.Select name='userType' aria-label="Default select example" {...register("userType")}>
+                                        <Form.Select name='userType' aria-label="Default select example" defaultValue={user.userType}   onChange={handleChange}>
                                             <option value="student">Student</option>
                                             <option value="faculty">Faculty</option>
                                         </Form.Select>
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Department</Form.Label>
-                                        <Form.Select name='department' aria-label="Default select example" {...register("department")}>
+                                        <Form.Select name='department' aria-label="Default select example" defaultValue={user.department}   onChange={handleChange}>
                                             <option value="cse">CSE</option>
                                             <option value="eee">EEE</option>
                                             <option value="bba">BBA</option>
@@ -72,23 +104,23 @@ const UpdateUserProfile = () => {
                                 <Row>
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Password for admin login</Form.Label>
-                                        <Form.Control type="text" name='password' value={user.password} required {...register("password")} />
+                                        <Form.Control type="text" name='password' defaultValue={user.password} required  onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Institute Email</Form.Label>
-                                        <Form.Control type="email" name='email1' value={user.instituteEmail} required {...register("instituteEmail")} />
+                                        <Form.Control type="email" name='instituteEmail' defaultValue={user.instituteEmail} required  onChange={handleChange}/>
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Personal Email</Form.Label>
-                                        <Form.Control type="email" name='email2' value={user.personalEmail} required {...register("personalEmail")} />
+                                        <Form.Control type="email" name='personalEmail' defaultValue={user.personalEmail} required   onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Present Address </Form.Label>
-                                        <Form.Control type="text" name='address' value={user.presentAddress} required {...register("presentAddress")} />
+                                        <Form.Control type="text" name='presentAddress' defaultValue={user.presentAddress} required  onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row>
