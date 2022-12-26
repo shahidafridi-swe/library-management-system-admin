@@ -54,7 +54,6 @@ function AddBook() {
                                         "Select the category" : `${selectedCategory.key}. ${selectedCategory.title}`
                                 }
                             </Button>
-
                             <ModalForTen
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}

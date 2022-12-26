@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import ViewUserList from './ViewUserList';
+import Button from 'react-bootstrap/Button';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 function UserList() {
     const userListTitle = ['name', "institute_Id", "phone", "user_type", "department", "email", "action"]
     const [state, setState] = useState({ search_field2: "FullName", search_text: "" });
@@ -28,6 +31,32 @@ function UserList() {
                 setSearchValue(data.data)
             });
     }
+
+    const handleDeletBtn = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/user/search/${id}`)
+                    .then(res => {
+                        const remaining = searchValue.filter(admin => admin._id !== id)
+                        setSearchValue(remaining)
+                    });
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+    }
+
     return (
         <div className='px-3 '>
             <div>
@@ -74,18 +103,19 @@ function UserList() {
                                     <tbody>
                                         {searchValue.map(user => (
                                             <tr key={user._id}>
-                                            <td>{user.FullName}</td>
-                                            <td>{user.instituteId}</td>
-                                            <td>{user.phoneNo}</td>
-                                            <td>{user.userType}</td>
-                                            <td>{user.department}</td>
-                                            <td>{user.instituteEmail}</td>
-                                            <td>
-                                                <Link to={`/userList/${user._id}`}
-                                                    className='btn btn-dark'
-                                                >View</Link>
-                                            </td>
-                                        </tr>
+                                                <td>{user.FullName}</td>
+                                                <td>{user.instituteId}</td>
+                                                <td>{user.phoneNo}</td>
+                                                <td>{user.userType}</td>
+                                                <td>{user.department}</td>
+                                                <td>{user.instituteEmail}</td>
+                                                <td>
+                                                    <Link to={`/userList/${user._id}`}
+                                                        className='btn btn-dark'
+                                                    >View</Link>
+                                                    <Button variant="danger" onClick={() => handleDeletBtn(user._id)}>Delete Profile</Button>
+                                                </td>
+                                            </tr>
                                         ))
                                         }
                                     </tbody>

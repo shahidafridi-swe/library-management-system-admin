@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams,useNavigate  } from 'react-router-dom';
 import adminImg from '../../image/user.png';
 
 const AdminProfile = () => {
     const { id } = useParams();
     const [admin, setAdmin] = useState({});
+    const [adminData, setAdminData] = useState([]);
+    let navigate = useNavigate();
+    useEffect(() => {
+        fetch("http://localhost:5000/adminList")
+            .then(res => res.json())
+            .then((data) => setAdminData(data))
+    })
     useEffect(() => {
         const url = `http://localhost:5000/adminList/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setAdmin(data))
     }, [id])
+   
     return (
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white p-3">
@@ -33,7 +40,7 @@ const AdminProfile = () => {
                             to={`/updateAdminProfile/${admin._id}`}
                             className='btn btn-primary'
                         >Update Profile</Link>
-                        <Button variant="danger">Delete Profile</Button>
+                       
                     </div>
                 </Card.Body>
             </Card>
