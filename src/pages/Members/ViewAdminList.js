@@ -38,6 +38,9 @@ const ViewAdminList = () => {
                     }
                 </tbody>
             </Table>
+
+          
+
         </div>
     );
 };

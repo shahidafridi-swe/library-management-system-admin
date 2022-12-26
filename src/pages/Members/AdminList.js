@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import ViewAdminList from './ViewAdminList';
 function AdminList() {
     const adminListTitle = ['name', "institute_Id", "phone", "designation", "email", "action"]
-
     // const forTitle = adminList[0];
-
     const [state, setState] = useState({ search_field1: "FullName", search_text: "" });
     const [searchValue, setSearchValue] = useState([])
 

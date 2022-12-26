@@ -16,6 +16,7 @@ import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
 import AllBooks from './pages/ViewItems/ViewBooks/AllBooks';
+import AdminData from "./pages/Members/AdminData";
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
         <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
+        <Route path="/updateAdminProfile/:id" element={<AdminData/>}></Route>
         <Route path="/userList" element={<UserList/>}></Route>
         <Route path="/userList/:id" element={<UserProfile/>}></Route>
         <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>
