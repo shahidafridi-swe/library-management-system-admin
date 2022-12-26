@@ -25,7 +25,7 @@ const AllBooks = () => {
                     <tbody>
                         {
                             allBooks.map(book => (
-                                <tr>
+                                <tr key={book._id}>
                                     <td>1</td>
                                     <td>{book.title}</td>
                                     <td>{book.authors}</td>

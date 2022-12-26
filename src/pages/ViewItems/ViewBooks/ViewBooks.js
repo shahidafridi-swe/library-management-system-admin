@@ -12,7 +12,7 @@ function ViewBooks() {
             .then((data) => setBookList(data))
     }, []);
     const forTitle = bookList[0];
-    const [state, setState] = useState({ type: '', branch: '', search_field: "title", search_text: "" });
+    const [state, setState] = useState({ branch: '', search_field: "title", search_text: "" });
     const [searchValue, setSearchValue] = useState([])
     const handleChange = (e) => {
         const name = e.target.name;
@@ -23,7 +23,7 @@ function ViewBooks() {
     }
     const handleSearch = (e) => {
         e.preventDefault();
-        const url = `http://localhost:5000/search`;
+        const url = `http://localhost:5000/adminBookSearch`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -41,12 +41,11 @@ function ViewBooks() {
             <div className='searchSection '>
                 <div className="input-group mb-3 ">
                     <form onSubmit={handleSearch} className='d-flex justify-content-between w-100 flex-1 px-5 row'>
-
                         <div className='col-md-3 d-flex mb-3 mb-md-0'>
                             <select onChange={handleChange} name='branch' className="form-select" id="branch">
-                                <option value="1">Gulshan</option>
-                                <option value="2">Baridhara</option>
-                                <option value="3" selected>ALL</option>
+                                <option value="Gulshan">Gulshan</option>
+                                <option value="Baridhara">Baridhara</option>
+                                <option value="" selected>ALL</option>
                             </select>
                             <label className="input-group-text px-2" for="branch">Branch</label>
                         </div>
@@ -70,7 +69,8 @@ function ViewBooks() {
                         </div>
 
                         <div className='col-md-6 d-flex'>
-                            <input onChange={handleChange} type="text" className="form-control" name="search_text" placeholder="Search Text" />
+                            <input onChange={handleChange} type="text" className="form-control" name="search_text" 
+                            placeholder="Search Text" />
                             <div className="submit  input_margin">
                                 <button className='btn-sm btn btn-dark' type="submit" >Search</button>
                             </div>

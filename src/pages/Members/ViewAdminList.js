@@ -7,10 +7,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 const ViewAdminList = () => {
     const adminListTitle = ['name', "institute_Id", "phone", "designation", "email", "action"]
-    // const [adminList, setAdminList] = useState([]);
     const [adminData, setAdminData] = useState([]);
-    // let navigate = useNavigate();
-
     useEffect(() => {
         fetch("http://localhost:5000/adminList")
             .then(res => res.json())
