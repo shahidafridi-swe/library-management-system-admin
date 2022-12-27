@@ -20,6 +20,7 @@ import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
 import IssueRequest from "./pages/Issue/IssueRequest";
+import SingleRequestDetails from "./pages/Issue/SingleRequestDetails";
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -50,6 +51,7 @@ function App() {
         <Route path="/issueBook/:id" element={<IssueBook/>}></Route>
         <Route path="/issueBook" element={<IssueBook/>}></Route>
         <Route path="/issueRequest" element={<IssueRequest/>}></Route>
+        <Route path="/issueRequest/:id" element={<SingleRequestDetails/>}></Route>
 
 
 
