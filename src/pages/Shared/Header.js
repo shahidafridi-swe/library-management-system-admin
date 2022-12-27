@@ -55,10 +55,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/addThesis">
                       Add Thesis
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/addJournal">
-                      Add Journal
-                    </NavDropdown.Item>
+                    
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -74,10 +71,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/viewTheses">
                       View Thesis
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/viewJournals">
-                      View Journals
-                    </NavDropdown.Item>
+                   
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -93,10 +87,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/issueThesis">
                       Thesis Issue
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/issueJournal">
-                      Journal Issue
-                    </NavDropdown.Item>
+                   
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -131,11 +122,8 @@ function Header() {
 
                   <hr className="p-0 m-0" />
 
-                  <Nav.Link as={Link} to="/newMemberRequest">
-                    NEW MEMBER REQUEST
-                  </Nav.Link>
+                  
 
-                  <hr className="p-0 m-0" />
 
                 </Nav>
               </Offcanvas.Body>
