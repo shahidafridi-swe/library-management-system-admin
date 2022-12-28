@@ -7,6 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
 import puLogo from "../../image/pu-logo.png";
+import NoticeBoard from "../Dashboard/NoticeBoard";
 import './Header.css'
 
 function Header() {
@@ -19,7 +20,7 @@ function Header() {
               <img style={{ width: "7%" }} src={puLogo} alt="" /> <span>Presidency
                 University</span>
             </Navbar.Brand>
-            
+           
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -30,7 +31,9 @@ function Header() {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   <img style={{ width: "7%" }} src={puLogo} alt="" /> Presidency
                   University
+
                 </Offcanvas.Title>
+
               </Offcanvas.Header>
 
               <Offcanvas.Body>
@@ -55,7 +58,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/addThesis">
                       Add Thesis
                     </NavDropdown.Item>
-                    
+
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -71,7 +74,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/viewTheses">
                       View Thesis
                     </NavDropdown.Item>
-                   
+
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -87,7 +90,7 @@ function Header() {
                     <NavDropdown.Item as={Link} to="/issueThesis">
                       Thesis Issue
                     </NavDropdown.Item>
-                   
+
                   </NavDropdown>
 
                   <hr className="p-0 m-0" />
@@ -113,18 +116,11 @@ function Header() {
                       Add New User
                     </NavDropdown.Item>
                   </NavDropdown>
-
                   <hr className="p-0 m-0" />
-
                   <Nav.Link as={Link} to="/issueRequest">
                     ISSUE REQUEST
                   </Nav.Link>
-
                   <hr className="p-0 m-0" />
-
-                  
-
-
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

@@ -1,0 +1,8 @@
+.my-card{
+    transition: 0.3s;
+}
+.total-link:hover .my-card{
+    background-color: gray !important;
+    color: black !important;
+    transition: 0.3s;
+}
