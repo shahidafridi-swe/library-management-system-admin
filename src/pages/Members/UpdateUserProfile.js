@@ -6,20 +6,9 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import FormTitle from '../Shared/FormTitle';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import axios from 'axios';
 const UpdateUserProfile = () => {
-    // const { id } = useParams();
-    // const [user, setUser] = useState({});
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/userList/${id}`;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setUser(data))
-    // }, [id]);
-    // const { register, handleSubmit, reset } = useForm();
-    // const onSubmit = data => {
-    // };
     const { id } = useParams();
     const [user, setUser] = useState({});
     const [data, setData] = useState({

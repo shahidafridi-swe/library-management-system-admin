@@ -7,14 +7,11 @@ const IssueRequest = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Issue Date", "Return Date", "Actions"];
     const [issueRequests, setIssueRequests] = useState([]);
     useEffect(() => {
-        fetch('issueRequestList.json')
+        fetch('http://localhost:5000/issueBook')
             .then(res => res.json())
             .then(data => setIssueRequests(data))
 
     }, []);
-
-
-
     return (
         <div className='px-3 '>
             <FormTitle>Issue Requests</FormTitle>
@@ -30,11 +27,10 @@ const IssueRequest = () => {
                     <tbody>
                         {issueRequests.map(singleRequest => (
                             <tr>
-
-                                <td>{singleRequest.user}</td>
-                                <td>{singleRequest.userId}</td>
+                                <td>{singleRequest.FullName}</td>
+                                <td>{singleRequest.InstituteId}</td>
                                 <td>{singleRequest.userType}</td>
-                                <td>{singleRequest.bookTitle}</td>
+                                <td>{singleRequest.title}</td>
                                 <td>{singleRequest.author}</td>
                                 <td>{singleRequest.edition}</td>
                                 <td>{singleRequest.issueDate}</td>

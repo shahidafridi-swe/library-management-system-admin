@@ -36,6 +36,9 @@ function ViewBooks() {
                 setSearchValue(data.data)
             });
     }
+
+
+    
     return (forTitle) && (
         <div className='px-3 '>
             <div className='searchSection '>
@@ -93,9 +96,9 @@ function ViewBooks() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {searchValue.map(book => (
+                                    {searchValue.map((book,index) => (
                                         <tr>
-                                            <td>1</td>
+                                            <td>{index}</td>
                                             <td>{book.title}</td>
                                             <td>{book.authors}</td>
                                             <td>{book.publisher}</td>

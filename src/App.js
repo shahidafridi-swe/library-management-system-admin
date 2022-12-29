@@ -2,7 +2,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import AddBook from "./pages/AddItem/AddBook/AddBook";
 import AddJournal from "./pages/AddItem/AddJournal/AddJournal";
 import AddThesis from "./pages/AddItem/AddThesis/AddThesis";
-import Login from "./pages/Login/Login";
 import AddAdmin from "./pages/Members/AddAdmin";
 import AddUser from "./pages/Members/AddUser";
 import AdminList from "./pages/Members/AdminList";
@@ -14,7 +13,6 @@ import UserProfile from "./pages/Members/userProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
-import AllBooks from './pages/ViewItems/ViewBooks/AllBooks';
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
@@ -41,6 +39,7 @@ function App() {
         <Route path="/viewBooks" element={<ViewBooks/>}></Route>
         <Route path="/viewBooks/:id" element={<BookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
+        
         <Route path="/viewTheses" element={<ViewThesis/>}></Route>
         <Route path="/addNewUser" element={<AddUser/>}></Route>
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
@@ -51,7 +50,9 @@ function App() {
         <Route path="/userList/:id" element={<UserProfile/>}></Route>
         <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>
         <Route path="/updateAdminProfile/:id" element={<UpdateAdminProfile/>}></Route>
+        
         <Route path="/issueBook/:id" element={<IssueBook/>}></Route>
+
         <Route path="/issueBook" element={<IssueBook/>}></Route>
         <Route path="/issueRequest" element={<IssueRequest/>}></Route>
         <Route path="/issueRequest/:id" element={<SingleRequestDetails/>}></Route>
