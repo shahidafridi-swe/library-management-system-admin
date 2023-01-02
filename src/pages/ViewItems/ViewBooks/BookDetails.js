@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useParams } from 'react-router-dom';
 import bookImg from '../../../image/book.png';
-
+import axios from 'axios';
+import Swal from 'sweetalert2';
 const BookDetails = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
@@ -12,7 +13,31 @@ const BookDetails = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
-    }, [id])
+    }, [id]);
+
+
+
+    // handle delet button===
+const handleDeletBtn = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        // text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.delete(`http://localhost:5000/viewBooks/${id}`)
+            Swal.fire(
+                'Returned!',
+                'User returned the book',
+                'success'
+            )
+        }
+    })
+}
     return (
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white p-3">
@@ -38,7 +63,7 @@ const BookDetails = () => {
                             to={`/updateBook/${book._id}`}
                             className='btn btn-primary'
                         >Update Book Info</Link>
-                        <Button variant="danger">Delete Book</Button>
+                        <Button variant="danger"  onClick={() => handleDeletBtn(book._id)}>Delete Book</Button>
                     </div>
                 </Card.Body>
             </Card>

@@ -26,26 +26,6 @@ const IssueRequest = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {issueRequests.map(singleRequest => (
-                            <tr>
-                                <td>{singleRequest.FullName}</td>
-                                <td>{singleRequest.InstituteId}</td>
-                                <td>{singleRequest.userType}</td>
-                                <td>{singleRequest.title}</td>
-                                <td>{singleRequest.author}</td>
-                                <td>{singleRequest.edition}</td>
-                                <td>{singleRequest.issueDate}</td>
-                                <td>{singleRequest.returnDate}</td>
-                                <td>
-                                    <Link to={`/issueRequestForABook/${singleRequest._id}`}
-                                        className='btn btn-warning btn-sm'
-                                    >View</Link>
-
-                                </td>
-                            </tr>
-                        )
-                        )
-                        } */}
                         {
                             issueRequests.map((singleRequest) => {
                                 const hasStatus = 'status' in singleRequest;

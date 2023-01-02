@@ -16,25 +16,7 @@ const SingleRequestDetails = () => {
             .then(res => res.json())
             .then(data => setSingleRequest(data))
     }, [id]);
-    // const handleRequest = (e) => {
-    //     // const user = { email };
-    //     fetch("http://localhost:5000/issueRequestForABook/requestStatus", {
-    //       method: "put",
-    //       headers: {
-    //         "content-type": "application/json",
-    //       },
-    //       body: JSON.stringify(),
-    //     //   body: JSON.stringify(user),
-    //     })
-    //       .then((res) => res.json())
-    //       .then((data) => {
-    //         if (data.modifiedCount) {
-    //         //   setEmail("");
-    //         //   setSuccess(true);
-    //         }
-    //       });
-    //     e.preventDefault();
-    //   };
+
     const updateStatus = (id, uid) => {
         axios.put(`http://localhost:5000/issueRequestForABook/${id}`)
             .then(() => {
@@ -49,6 +31,27 @@ const SingleRequestDetails = () => {
             setAccept([findItem, ...reamingData])
         }
     }
+
+    // handle delet button===
+const handleDeletBtn = (id) => {
+    Swal.fire({
+        title: 'Are you sure?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axios.delete(`http://localhost:5000/issueRequestForABook/${id}`)
+            Swal.fire(
+                'Returned!',
+                'User returned the book',
+                'success'
+            )
+        }
+    })
+}
     return (
         <div className='d-flex justify-content-center'>
 
@@ -78,7 +81,7 @@ const SingleRequestDetails = () => {
                     <div className='d-flex justify-content-between'>
                       
                         <Button variant="danger" type='submit' onClick={() => updateStatus(singleRequest._id)}>Accept Request</Button>
-                        <Button variant="danger">Deny Request</Button>
+                        <Button variant="danger"  onClick={() => handleDeletBtn(singleRequest._id)}>Deny Request</Button>
                     </div>
                 </Card.Body>
             </Card>

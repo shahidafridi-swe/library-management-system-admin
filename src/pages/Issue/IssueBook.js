@@ -14,7 +14,7 @@ const IssueBook = () => {
     const [book, setBook] = useState({});
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/issueRequestForABook', {
+        fetch('http://localhost:5000/viewBooks', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -30,7 +30,7 @@ const IssueBook = () => {
             })
     };
     useEffect(() => {
-        const url = `http://localhost:5000/issueRequestForABook/${id}`;
+        const url = `http://localhost:5000/viewBooks/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))

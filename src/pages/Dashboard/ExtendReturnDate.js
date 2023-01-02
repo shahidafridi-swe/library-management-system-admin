@@ -60,10 +60,6 @@ const handleDeletBtn = (id) => {
     }).then((result) => {
         if (result.isConfirmed) {
             axios.delete(`http://localhost:5000/returnBook/${id}`)
-                // .then(res => {
-                //     const remaining = searchValue.filter(admin => admin._id !== id)
-                //     setSearchValue(remaining)
-                // });
             Swal.fire(
                 'Returned!',
                 'User returned the book',
