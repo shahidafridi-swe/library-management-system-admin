@@ -39,7 +39,6 @@ function App() {
         <Route path="/viewBooks" element={<ViewBooks/>}></Route>
         <Route path="/viewBooks/:id" element={<BookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
-        
         <Route path="/viewTheses" element={<ViewThesis/>}></Route>
         <Route path="/addNewUser" element={<AddUser/>}></Route>
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
@@ -55,7 +54,9 @@ function App() {
 
         <Route path="/issueBook" element={<IssueBook/>}></Route>
         <Route path="/issueRequest" element={<IssueRequest/>}></Route>
-        <Route path="/issueRequest/:id" element={<SingleRequestDetails/>}></Route>
+        <Route path="/issueRequestForABook/:id" element={<SingleRequestDetails/>}></Route>
+
+        
         <Route path="/extendReturnDate/:id" element={<ExtendReturnDate/>}></Route>
         
 

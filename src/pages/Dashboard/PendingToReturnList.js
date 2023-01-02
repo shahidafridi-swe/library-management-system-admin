@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
-
 const PendingToReturnList = () => {
-    const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition","Accession", "Issue Date", "Return Date", "Actions"];
+    const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Accession", "Issue Date", "Return Date", "Actions"];
     const [pendingList, setPendingList] = useState([]);
     useEffect(() => {
-        fetch('issueRequestList.json')
+        fetch('http://localhost:5000/issueRequestForABook')
             .then(res => res.json())
             .then(data => setPendingList(data))
-
     }, []);
     return (
         <section className='px-5 mb-2'>
@@ -20,11 +17,11 @@ const PendingToReturnList = () => {
                 <Card.Header as="h5">Pending To Return Book List</Card.Header>
                 <Card.Body>
                     <Card.Text>
-                        <div className="tableFixHead d-flex justify-content-center " 
-                        style={{
-                            "height": "400px",
-                            "overflow-y": "auto"
-                        }} >
+                        <div className="tableFixHead d-flex justify-content-center "
+                            style={{
+                                "height": "400px",
+                                "overflow-y": "auto"
+                            }} >
                             <Table responsive='sm' striped bordered hover variant="success" className='myTable ' >
                                 <thead className='tableHeader text-uppercase '>
                                     <tr className='justify-content-center align-items-center'>
@@ -34,33 +31,37 @@ const PendingToReturnList = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {pendingList.map(singlePending => (
-                                        <tr>
+                                    {
+                                        pendingList.map((singlePending) => {
+                                            if (singlePending?.status === "acceptRequest") {
+                                                return (
+                                                    <tr>
+                                                        <td>{singlePending.FullName}</td>
+                                                        <td>{singlePending.InstituteId}</td>
+                                                        <td>{singlePending.userType}</td>
+                                                        <td>{singlePending.title}</td>
+                                                        <td>{singlePending.author}</td>
+                                                        <td>{singlePending.edition}</td>
+                                                        <td>{singlePending.accessionNumber}</td>
+                                                        <td>{singlePending.issueDate}</td>
+                                                        <td>{singlePending.returnDate}</td>
+                                                        <td>
+                                                            <Link to={`/extendReturnDate/${singlePending._id}`}
+                                                                className='btn btn-warning btn-sm'
+                                                            >View</Link>
+                                                        </td>
+                                                    </tr>
+                                                )
 
-                                            <td>{singlePending.user}</td>
-                                            <td>{singlePending.userId}</td>
-                                            <td>{singlePending.userType}</td>
-                                            <td>{singlePending.bookTitle}</td>
-                                            <td>{singlePending.author}</td>
-                                            <td>{singlePending.edition}</td>
-                                            <td>{singlePending.accessionNumber}</td>
-                                            <td>{singlePending.issueDate}</td>
-                                            <td>{singlePending.returnDate}</td>
-                                            <td>
-                                                <Link to={`/extendReturnDate/${singlePending._id}`}
-                                                    className='btn btn-warning btn-sm'
-                                                >View</Link>
-
-                                            </td>
-                                        </tr>
-                                    )
-                                    )
+                                            }
+                                            return null
+                                        }
+                                        )
                                     }
                                 </tbody>
                             </Table>
                         </div>
                     </Card.Text>
-
                 </Card.Body>
             </Card>
         </section>

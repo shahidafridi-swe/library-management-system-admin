@@ -14,7 +14,7 @@ const IssueBook = () => {
     const [book, setBook] = useState({});
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/issueBook', {
+        fetch('http://localhost:5000/issueRequestForABook', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -24,13 +24,13 @@ const IssueBook = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.acknowledged) {
-                    Swal.fire('Book Added Successfully')
+                    Swal.fire('Request Sent Successfully')
                     reset()
                 }
             })
     };
     useEffect(() => {
-        const url = `http://localhost:5000/issueBook/${id}`;
+        const url = `http://localhost:5000/issueRequestForABook/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))

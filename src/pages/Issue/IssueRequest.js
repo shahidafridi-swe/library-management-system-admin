@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import FormTitle from '../Shared/FormTitle';
+import Swal from 'sweetalert2'
 
 const IssueRequest = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Issue Date", "Return Date", "Actions"];
     const [issueRequests, setIssueRequests] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/issueBook')
+        fetch('http://localhost:5000/issueRequestForABook')
             .then(res => res.json())
             .then(data => setIssueRequests(data))
 
@@ -25,7 +26,7 @@ const IssueRequest = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {issueRequests.map(singleRequest => (
+                        {/* {issueRequests.map(singleRequest => (
                             <tr>
                                 <td>{singleRequest.FullName}</td>
                                 <td>{singleRequest.InstituteId}</td>
@@ -36,7 +37,7 @@ const IssueRequest = () => {
                                 <td>{singleRequest.issueDate}</td>
                                 <td>{singleRequest.returnDate}</td>
                                 <td>
-                                    <Link to={`/issueRequest/${singleRequest._id}`}
+                                    <Link to={`/issueRequestForABook/${singleRequest._id}`}
                                         className='btn btn-warning btn-sm'
                                     >View</Link>
 
@@ -44,6 +45,34 @@ const IssueRequest = () => {
                             </tr>
                         )
                         )
+                        } */}
+                        {
+                            issueRequests.map((singleRequest) => {
+                                const hasStatus = 'status' in singleRequest;
+                                if (hasStatus) {
+                                    return null
+                                }
+                                else{
+                                return <tr>
+                                    <td>{singleRequest.FullName}</td>
+                                    <td>{singleRequest.InstituteId}</td>
+                                    <td>{singleRequest.userType}</td>
+                                    <td>{singleRequest.title}</td>
+                                    <td>{singleRequest.author}</td>
+                                    <td>{singleRequest.edition}</td>
+                                    <td>{singleRequest.issueDate}</td>
+                                    <td>{singleRequest.returnDate}</td>
+                                    <td>
+                                        <Link to={`/issueRequestForABook/${singleRequest._id}`}
+                                            className='btn btn-warning btn-sm'
+                                        >View</Link>
+    
+                                    </td>
+                                </tr> 
+                                }
+                            }
+
+                            )
                         }
                     </tbody>
                 </Table>
@@ -53,3 +82,22 @@ const IssueRequest = () => {
 };
 
 export default IssueRequest;
+/* 
+<tr>
+                                            <td>{singleRequest.FullName}</td>
+                                            <td>{singleRequest.InstituteId}</td>
+                                            <td>{singleRequest.userType}</td>
+                                            <td>{singleRequest.title}</td>
+                                            <td>{singleRequest.author}</td>
+                                            <td>{singleRequest.edition}</td>
+                                            <td>{singleRequest.accessionNumber}</td>
+                                            <td>{singleRequest.issueDate}</td>
+                                            <td>{singleRequest.returnDate}</td>
+                                            <td>
+                                                <Link to={`/extendReturnDate/${singleRequest._id}`}
+                                                    className='btn btn-warning btn-sm'
+                                                >View</Link>
+                                            </td>
+                                        </tr>
+
+*/

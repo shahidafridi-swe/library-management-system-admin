@@ -11,7 +11,6 @@ import axios from 'axios';
 const UpdateAdminProfile = () => {
     const { id } = useParams();
     const [admin, setAdmin] = useState({});
-  
     const [data, setData] = useState({
         FullName: admin?.FullName,
         InstituteId: admin?.InstituteId,
@@ -44,9 +43,6 @@ const UpdateAdminProfile = () => {
             );
     };
     // console.log(admin);
-
- 
-
     return (
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white py-3">
