@@ -14,7 +14,7 @@ const IssueBook = () => {
     const [book, setBook] = useState({});
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/viewBooks', {
+        fetch('http://localhost:5000/issueRequestForABook', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -34,7 +34,11 @@ const IssueBook = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
-    }, [id])
+    }, [id]);
+
+
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     return (
         <div className='d-flex justify-content-center w-100'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white  py-3">
@@ -103,7 +107,11 @@ const IssueBook = () => {
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Issue Date</Form.Label>
                                         {/* <Form.Control> */}
-                                        <input type="date" id="birthday" className='datepicker' name="birthday" {...register("issueDate")} />
+                                        <input id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} />
+                                        {/* <input id="startDate" class="form-control" type="date" /> */}
+                                        {/* <input type="date" id="date" name="trip-start" /> */}
+
+
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -117,7 +125,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                 </Row>
                                 <Form.Group as={Col} sm='12' md='12' >
-                                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ISSUE</button>
+                                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ISSUE</button>
                                 </Form.Group>
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <Link

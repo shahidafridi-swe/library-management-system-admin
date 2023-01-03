@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ViewAdminList from './ViewAdminList';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
@@ -70,14 +70,14 @@ function AdminList() {
                                 <option value="FullName">Full Name</option>
                                 <option value="InstituteId">Institute_Id</option>
                                 <option value="PhoneNo">Phone</option>
-                                <option value="instituteEmail" >Email</option>
+                                <option value="instituteEmail">Email</option>
                                 <option value="Designation" >Designation</option>
                             </select>
                             <label className="input-group-text px-1" for="searchCategory">Category</label>
                         </div>
                         <div className='col-md-6 d-flex'>
                             <input type="text" onChange={handleChange} name="search_text" className="form-control" placeholder="Search Text" />
-                            <button className="btn btn-primary" type="submit"  >Search</button>
+                            <button className="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
                 </div>

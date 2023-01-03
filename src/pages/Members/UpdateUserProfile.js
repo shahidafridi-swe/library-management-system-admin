@@ -41,7 +41,7 @@ const UpdateUserProfile = () => {
             .put(
                 `http://localhost:5000/updateUserProfile/${id}`,
                 data
-            );
+            ); Swal.fire('Profile Update Successfully')
     };
     console.log(user);
     return (

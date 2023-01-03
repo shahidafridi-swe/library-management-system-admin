@@ -41,6 +41,7 @@ const UpdateAdminProfile = () => {
                 `http://localhost:5000/updateProfile/${id}`,
                 data
             );
+            Swal.fire('Profile Update Successfully')
     };
     // console.log(admin);
     return (
