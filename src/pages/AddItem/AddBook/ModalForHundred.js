@@ -52,7 +52,7 @@ const ModalForHundred = ({setModalShowTen,setModalShowHundred,setSelectedCategor
                                 setModalShowTen={setModalShowTen}
                                 setModalShowHundred={setModalShowHundred}
                                 setModalShowThousand={setModalShow}
-                                selectedKeyFromHundred={selectedKeyFromHundred}
+                                selectedKeyFromHundred={parseInt(selectedKeyFromHundred)/10}
                             />
                                 <br />
                             </div>

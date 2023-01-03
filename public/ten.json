@@ -1,10 +1,46 @@
-[{"key":0,"title":"Armadillo, nine-banded"},
-{"key":1,"title":"Baleen whale"},
-{"key":2,"title":"Baleen whale"},
-{"key":3,"title":"Yellow-bellied marmot"},
-{"key":4,"title":"Sociable weaver"},
-{"key":5,"title":"Otter, giant"},
-{"key":6,"title":"American alligator"},
-{"key":7,"title":"Weaver, red-billed buffalo"},
-{"key":8,"title":"Bird, pied butcher"},
-{"key":9,"title":"Burmese brown mountain tortoise"}]
+[
+    {
+        "key":"000",
+        "title":"Computer science, information & general works"
+    },
+    {
+        "key":"100",
+        "title": "Philosophy & psychology"
+    },
+    {
+        "key":"200",
+        "title": "Religion"
+    },
+    {
+        "key":"300",
+        "title": "Social sciences"
+    },
+    {
+        "key":"400",
+        "title": "Language"
+    },
+    {
+        "key":"500",
+        "title": "Science"
+    },
+    {
+        "key":"600",
+        "title": "Technology"
+    },
+    {
+        "key":"700",
+        "title": "Arts & recreation"
+    },
+    {
+        "key":"800",
+        "title": "Literature"
+    },
+    {
+        "key":"900",
+        "title": "History & geography"
+    }
+]
+
+
+
+

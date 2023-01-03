@@ -48,7 +48,7 @@ const ModalForTen = ({setModalShowTen,setSelectedCategory,...props}) => {
                                  setSelectedCategory={setSelectedCategory}
                                  setModalShowTen={setModalShowTen}
                                  setModalShowHundred={setModalShow}
-                                 selectedKey= {selectedKey}
+                                 selectedKey= {parseInt(selectedKey)/100}
                             />
                                 
                                 <br />
