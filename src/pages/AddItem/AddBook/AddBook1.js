@@ -6,7 +6,6 @@ import FormTitle from '../../Shared/FormTitle';
 import './AddBook.css';
 import ModalForTen from './ModalForTen';
 import Swal from 'sweetalert2';
-
 import './AddBook.css';
 function AddBook1() {
     const [tenCategory, setTenCategory] = useState([])
@@ -48,9 +47,6 @@ function AddBook1() {
             return
         }
       
-
-
-
         fetch('http://localhost:5000/addBooks', {
             method: 'post',
             headers: {
