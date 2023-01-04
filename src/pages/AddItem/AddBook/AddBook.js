@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 import ModalForTen from './ModalForTen';
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
-
 function AddBook() {
     const [tenCategory, setTenCategory] = useState([])
     const [modalShow, setModalShow] = useState(false);
@@ -52,6 +51,7 @@ function AddBook() {
                                     selectedCategory === null ?
                                         "Select the category" : `${selectedCategory.key}. ${selectedCategory.title}`
                                 }
+                                
                             </Button>
                             <ModalForTen
                                 show={modalShow}

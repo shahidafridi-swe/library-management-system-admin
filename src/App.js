@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import AddBook from "./pages/AddItem/AddBook/AddBook";
+// import AddBook from "./pages/AddItem/AddBook/AddBook";
 import AddJournal from "./pages/AddItem/AddJournal/AddJournal";
 import AddThesis from "./pages/AddItem/AddThesis/AddThesis";
 import AddAdmin from "./pages/Members/AddAdmin";
@@ -21,6 +21,7 @@ import IssueRequest from "./pages/Issue/IssueRequest";
 import SingleRequestDetails from "./pages/Issue/SingleRequestDetails";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
+import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -33,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard/>}></Route>
         {/* <Route path="/login" element={<Login/>}></Route> */}
-        <Route path="/addBook" element={<AddBook/>}></Route>
+        <Route path="/addBook" element={<AddBook1/>}></Route>
         <Route path="/addThesis" element={<AddThesis/>}></Route>
         <Route path="/addJournal" element={<AddJournal/>}></Route>
         <Route path="/viewBooks" element={<ViewBooks/>}></Route>
