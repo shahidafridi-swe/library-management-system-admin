@@ -7,7 +7,7 @@ function ViewBooks() {
     const bookListTitle = ["Accession Number", "Title", "Author", "Publisher", "Published Year", "Edition", "Call No", "ISBN", "Copies", "Available", "Actions"];
     const [bookList, setBookList] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/allBooks")
+        fetch("http://localhost:5000/addBooks1")
             .then(res => res.json())
             .then((data) => setBookList(data))
     }, []);
@@ -38,7 +38,7 @@ function ViewBooks() {
     }
 
 
-    
+
     return (forTitle) && (
         <div className='px-3 '>
             <div className='searchSection '>
@@ -58,22 +58,20 @@ function ViewBooks() {
                                 <option value="title">Default</option>
                                 <option value="title">Title</option>
                                 <option value="callNo">Call No</option>
-                                <option value="ISBN10">ISBN</option>
-                                <option value="ISBN13">ISSN</option>
-                                <option value="authors">Author</option>
+                                <option value="isbn">ISBN</option>
+                                <option value="author">Author</option>
                                 <option value="publisher">Publisher</option>
-                                <option value="category">Category</option>
+                                <option value="cateory">Category</option>
                                 <option value="tags">Tags</option>
-                                <option value="category">Subject</option>
-                                <option value="abstract">Abstract</option>
                                 <option value="description">Description</option>
+                                <option value="publishYear">Publish Year</option>
                             </select>
                             <label className="input-group-text px-1" for="searchCategory">Category</label>
                         </div>
 
                         <div className='col-md-6 d-flex'>
-                            <input onChange={handleChange} type="text" className="form-control" name="search_text" 
-                            placeholder="Search Text" />
+                            <input onChange={handleChange} type="text" className="form-control" name="search_text"
+                                placeholder="Search Text" />
                             <div className="submit  input_margin">
                                 <button className='btn-sm btn btn-dark' type="submit" >Search</button>
                             </div>
@@ -96,18 +94,18 @@ function ViewBooks() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {searchValue.map((book,index) => (
+                                    {searchValue.map((book, index) => (
                                         <tr>
                                             <td>{index}</td>
                                             <td>{book.title}</td>
-                                            <td>{book.authors}</td>
+                                            <td>{book.author}</td>
                                             <td>{book.publisher}</td>
-                                            <td>{book.publicationYear}</td>
+                                            <td>{book.publishYear}</td>
                                             <td>{book.edition}</td>
                                             <td>{book.callNo}</td>
-                                            <td>{book.ISBN10}</td>
-                                            <td>{book.copies}</td>
-                                            <td>-</td>
+                                            <td>{book.isbn}</td>
+                                            <td>{book.price}</td>
+                                            <td>{book.cateory}</td>
                                             <td>
                                                 <Link to={`/viewBooks/${book._id}`}
                                                     className='btn btn-warning btn-sm'

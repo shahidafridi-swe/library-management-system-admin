@@ -107,21 +107,9 @@ function AddThesis() {
                         <Form.Control type="text" placeholder="Member5 ID"   {...register("mem5id")} />
                     </Form.Group>
                 </Row>
-                <Row className="">
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Branch</Form.Label>
-                        <Form.Control type="text" placeholder="Branch" required {...register("branch")} />
-                    </Form.Group>
-                    <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Cover Photo</Form.Label>
-                        <Form.Control
-                            type="file"
-                            name="file"
-                        />
-                    </Form.Group>
-                </Row>
+               
                 <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD THESIS</button>
+                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ADD THESIS</button>
                 </Form.Group>
             </Form>
         </div>

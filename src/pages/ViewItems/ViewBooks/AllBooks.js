@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/esm/Table';
 import { Link } from 'react-router-dom';
 const AllBooks = () => {
-    const bookListTitle = ["Accession Number", "Title", "Author", "Publication", "Publish Year", "Edition", "Call No", "ISBN", "Copies", "Available", "Actions"];
+    const bookListTitle = ["Accession Number", "Title", "Author", "Publication", "Publish Year", "Edition", "Call No", "ISBN", "Price", "Category", "Actions"];
 
     const [allBooks, setAllBooks] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/allBooks`;
+        const url = `http://localhost:5000/addBooks1`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAllBooks(data));
@@ -28,14 +28,14 @@ const AllBooks = () => {
                                 <tr key={book._id}>
                                     <td>{index}</td>
                                     <td>{book.title}</td>
-                                    <td>{book.authors}</td>
+                                    <td>{book.author}</td>
                                     <td>{book.publisher}</td>
-                                    <td>{book.publicationYear}</td>
+                                    <td>{book.publishYear}</td>
                                     <td>{book.edition}</td>
                                     <td>{book.callNo}</td>
-                                    <td>{book.ISBN10}</td>
-                                    <td>{book.copies}</td>
-                                    <td>-</td>
+                                    <td>{book.isbn}</td>
+                                    <td>{book.price}</td>
+                                    <td>{book.cateory}</td>
                                     <td>
                                         <Link to={`/viewBooks/${book._id}`}
                                             className='btn btn-warning btn-sm'
