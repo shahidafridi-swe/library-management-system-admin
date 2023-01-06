@@ -27,7 +27,7 @@ const AddAdmin = () => {
     };
     return (
         <div className='d-flex justify-content-center'>
-            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary myForm'>
+            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary '>
                 <FormTitle>Add a new Admin</FormTitle>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>

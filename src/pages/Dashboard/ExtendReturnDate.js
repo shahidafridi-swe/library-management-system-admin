@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import FormTitle from '../Shared/FormTitle';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 const ExtendReturnDate = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [extendDate, setExtendDate] = useState({});
 
     const [data, setData] = useState({
@@ -18,7 +19,7 @@ const ExtendReturnDate = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-            setBook(data)
+                setBook(data)
             })
     }, [id]);
 
@@ -27,7 +28,7 @@ const ExtendReturnDate = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-            setExtendDate(data)
+                setExtendDate(data)
             })
     }, [id]);
     const handleChange = (e) => {
@@ -44,30 +45,31 @@ const ExtendReturnDate = () => {
                 `http://localhost:5000/issueBook/${id}`,
                 data,
             );
-            Swal.fire('Return Date Updated Successfully')
-        };
+        Swal.fire('Return Date Updated Successfully')
+        navigate("/")
+    };
 
-// handle delet button===
-const handleDeletBtn = (id) => {
-    Swal.fire({
-        title: 'Are you sure?',
-        // text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            axios.delete(`http://localhost:5000/returnBook/${id}`)
-            Swal.fire(
-                'Returned!',
-                'User returned the book',
-                'success'
-            )
-        }
-    })
-}
+    // handle delet button
+    const handleDeletBtn = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/returnBook/${id}`)
+                Swal.fire(
+                    'Returned!',
+                    'User returned the book',
+                    'success'
+                )
+                navigate("/")
+            }
+        })
+    }
 
 
     return (
@@ -104,7 +106,7 @@ const handleDeletBtn = (id) => {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Extend Date of Return</Form.Label>
-                                        <input  onChange={handleChange} type="date" id="returnDate" className='datepicker' name="returnDate" />
+                                        <input onChange={handleChange} type="date" id="returnDate" className='datepicker' name="returnDate" />
                                     </Form.Group>
                                 </Row>
                                 <Form.Group as={Col} sm='12' md='6' >

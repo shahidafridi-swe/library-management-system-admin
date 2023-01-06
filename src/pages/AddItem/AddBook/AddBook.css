@@ -1,6 +1,6 @@
 
 .myForm{
-    width: 60%;
+    width: 70%;
     box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
 -webkit-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
 -moz-box-shadow: 2px 3px 22px 5px rgba(106,120,120,0.66);
@@ -34,6 +34,16 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+
+/* reg a user classes */
+.reguserInput{
+    width: 100% !important;
+    
+}
+
+
+
+
 @media (max-width: 575.98px) { 
     .myForm{
         width: 80%;

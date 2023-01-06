@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 function UserList() {
     const userListTitle = ['name', "institute_Id", "phone", "user_type", "department", "email", "action"]
-    const [state, setState] = useState({ search_field2: "FullName", search_text: "" });
+    const [state, setState] = useState({ search_field2: "fullName", search_text: "" });
     const [searchValue, setSearchValue] = useState([])
     const handleChange = (e) => {
         const name = e.target.name;
@@ -67,9 +67,9 @@ function UserList() {
                     <form onSubmit={handleSearch} className='d-flex justify-content-center w-100 flex-1 px-5 row'>
                         <div className='col-md-3 d-flex mb-3 mb-md-0'>
                             <select className="form-select" id="searchCategory" onChange={handleChange} name="search_field2" >
-                                <option value="FullName">Full Name</option>
+                                <option value="fullName">Full Name</option>
                                 <option value="instituteId">Institute Id</option>
-                                <option value="phoneNo">Phone</option>
+                                <option value="phoneNumber">Phone</option>
                                 <option value="instituteEmail">Email</option>
                                 <option value="userType">UserType</option>
                                 <option value="department">Department</option>
@@ -103,9 +103,9 @@ function UserList() {
                                     <tbody>
                                         {searchValue.map(user => (
                                             <tr key={user._id}>
-                                                <td>{user.FullName}</td>
+                                                <td>{user.fullName}</td>
                                                 <td>{user.instituteId}</td>
-                                                <td>{user.phoneNo}</td>
+                                                <td>{user.phoneNumber}</td>
                                                 <td>{user.userType}</td>
                                                 <td>{user.department}</td>
                                                 <td>{user.instituteEmail}</td>

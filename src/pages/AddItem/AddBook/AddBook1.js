@@ -106,14 +106,11 @@ function AddBook1() {
                             setModalShowTen={setModalShow}
                         />
                     </Form.Group>
-
-
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Call No</Form.Label>
                         <Form.Control ref={callNoRef} type="text" placeholder="Call Number" required />
                     </Form.Group>
                 </Row>
-
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Title</Form.Label>

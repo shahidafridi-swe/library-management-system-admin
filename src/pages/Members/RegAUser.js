@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Swal from 'sweetalert2';
 export default class RegAUser extends Component {
     constructor(props) {
         super(props);
@@ -45,29 +46,26 @@ export default class RegAUser extends Component {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data, "userRegister");
+                Swal.fire('User Create Successfully')
             });
     }
     render() {
         return (
-
             <div className='d-flex justify-content-center'>
-                <Form onSubmit={this.handleSubmit} className='p-4 rounded '>
+                <Form onSubmit={this.handleSubmit} className='p-4 bg-secondary rounded myform'>
                     <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Full Name</Form.Label> <br /> */} <br />
-                            <input type="text" name='name' placeholder="Full Name" onChange={(e) => this.setState({ fullName: e.target.value })} />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Full Name</Form.Label> <br />
+                            <input className="reguserInput" type="text" name='name' placeholder="Full Name" onChange={(e) => this.setState({ fullName: e.target.value })} />
                         </Form.Group>
-                    </Row>
-
-                    <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Institute ID</Form.Label> <br /> */} <br />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Institute ID</Form.Label> <br />
                             <input type="text" name='instituteId' placeholder="Institute ID" onChange={(e) => this.setState({ instituteId: e.target.value })} />
                         </Form.Group>
                     </Row>
                     <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Department</Form.Label> */} <br />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Department</Form.Label> <br />
                             <Form.Select name='department' aria-label="Default select example"
                                 onChange={(e) => this.setState({ department: e.target.value })}>
                                 <option value="cse">All</option>
@@ -80,48 +78,46 @@ export default class RegAUser extends Component {
                                 <option value="other">Other</option>
                             </Form.Select>
                         </Form.Group>
-
-                    </Row>
-
-                    <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>User Type</Form.Label> */} <br />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>User Type</Form.Label> <br />
                             <Form.Select name='userType' aria-label="Default select example" onChange={(e) => this.setState({ userType: e.target.value })}>
                                 <option value="student">All</option>
                                 <option value="student">Student</option>
                                 <option value="faculty">Faculty</option>
                             </Form.Select>
                         </Form.Group>
+
                     </Row>
                     <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Phone Number</Form.Label> */} <br />
-                            <input type="text" name='phone' placeholder="Phone Number" onChange={(e) => this.setState({ phoneNumber: e.target.value })} />
-                        </Form.Group>
+
                     </Row>
+                    {/*  */}
 
                     <Row className="">
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Institute Email</Form.Label> */} <br />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Institute Email</Form.Label> <br />
                             <input type="email" name='email1' placeholder="Institute Email Address" onChange={(e) => this.setState({ instituteEmail: e.target.value })} />
                         </Form.Group>
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Personal Email</Form.Label> */} <br />
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Password for User Login</Form.Label> <br />
+                            <input type="text" name='password' placeholder="Password for User Login" onChange={(e) => this.setState({ password: e.target.value })} />
+                        </Form.Group>
+                    </Row>
+                    <Row className="">
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Present Address </Form.Label> <br />
+                            <input type="text" name='address' placeholder="Present Address" onChange={(e) => this.setState({ presentAdd: e.target.value })} />
+                        </Form.Group>
+
+                        <Form.Group as={Col} sm='12' md='6'>
+                            <Form.Label>Personal Email</Form.Label> <br />
                             <input type="email" name='email2' placeholder="Personal Email Address" onChange={(e) => this.setState({ personalEmail: e.target.value })} />
                         </Form.Group>
                     </Row>
-
                     <Row className="">
                         <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Present Address </Form.Label> */} <br />
-                            <input type="text" name='address' placeholder="Present Address" onChange={(e) => this.setState({ presentAdd: e.target.value })} />
-                        </Form.Group>
-                    </Row>
-                    <Row className="">
-
-                        <Form.Group as={Col} sm='12' md='12'>
-                            {/* <Form.Label>Password for User Login</Form.Label> */} <br />
-                            <input type="text" name='password' placeholder="Password for User Login" onChange={(e) => this.setState({ password: e.target.value })} />
+                            <Form.Label>Phone Number</Form.Label> <br />
+                            <input type="text" name='phone' placeholder="Phone Number" onChange={(e) => this.setState({ phoneNumber: e.target.value })} />
                         </Form.Group>
                     </Row>
 

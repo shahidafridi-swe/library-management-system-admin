@@ -21,6 +21,7 @@ import IssueRequest from "./pages/Issue/IssueRequest";
 import SingleRequestDetails from "./pages/Issue/SingleRequestDetails";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
+import RegAUser from "./pages/Members/RegAUser";
 // import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 // import Imageupload from './pages/AddItem/AddBook/Imageupload';
 function App() {
@@ -42,7 +43,7 @@ function App() {
         <Route path="/viewBooks/:id" element={<BookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
         <Route path="/viewTheses" element={<ViewThesis/>}></Route>
-        <Route path="/addNewUser" element={<AddUser/>}></Route>
+        <Route path="/addNewUser" element={<RegAUser/>}></Route>
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
         <Route path="/adminList/:id" element={<AdminProfile/>}></Route>

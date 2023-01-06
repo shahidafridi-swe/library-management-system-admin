@@ -50,9 +50,9 @@ const ViewUserList = () => {
                 <tbody>
                     {userList.map(user => (
                         <tr key={user._id}>
-                            <td>{user.FullName}</td>
+                            <td>{user.fullName}</td>
                             <td>{user.instituteId}</td>
-                            <td>{user.phoneNo}</td>
+                            <td>{user.phoneNumber}</td>
                             <td>{user.userType}</td>
                             <td>{user.department}</td>
                             <td>{user.instituteEmail}</td>
