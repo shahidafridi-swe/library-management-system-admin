@@ -9,12 +9,12 @@ import Total from './Total';
 const Dashboard = () => {
     return (
         <div>
-            {/* <NoticeBoard ></NoticeBoard> */}
-            {/* <PendingToReturnList></PendingToReturnList>
+            <NoticeBoard ></NoticeBoard>
+            <PendingToReturnList></PendingToReturnList>
             <OverdueToReturnList></OverdueToReturnList>
-            <Total></Total> */}
+            <Total></Total>
             {/* <ShowImage /> */}
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
             <RegAUser/>
         </div>
     );
