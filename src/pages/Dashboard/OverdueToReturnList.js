@@ -15,11 +15,12 @@ const OverdueToReturnList = () => {
     }, []);
     // const [date,setDate]=useState(new Date())
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    const date = current.getTime();
     return (
         <section className='px-5 vh-50'>
             <Card bg={"danger"}>
-                <Card.Header as="h5">Overdue To Return Book List {date}</Card.Header>
+                <Card.Header as="h5">Overdue To Return Book List {currentDate}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <div className="tableFixHead d-flex justify-content-center "
@@ -39,7 +40,12 @@ const OverdueToReturnList = () => {
                                  
                                      {
                                         overdueList.map((singlePending) => {
-                                            if (date>singlePending.returnDate) {
+                                                                                
+                                            const rt = new Date(singlePending.returnDate);
+
+                                            console.log(date, rt.getTime(), date >= rt.getTime())
+                                            if (date >= rt.getTime()) {
+                                           
                                                 return (
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>

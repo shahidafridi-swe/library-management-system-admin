@@ -5,12 +5,25 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import puLogo from "../../image/pu-logo.png";
 import NoticeBoard from "../Dashboard/NoticeBoard";
 import './Header.css'
 
 function Header() {
+
+  const navigate = useNavigate();
+
+  const loginUser = JSON.parse(localStorage.getItem("user"));
+
+  // signoutHandler
+  const signoutHandler = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  }
+
+
   return (
     <>
       {[false].map((expand) => (
@@ -20,7 +33,7 @@ function Header() {
               <img style={{ width: "7%" }} src={puLogo} alt="" /> <span>Presidency
                 University</span>
             </Navbar.Brand>
-           
+
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -99,18 +112,29 @@ function Header() {
                     title="MEMBERS"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item as={Link} to="/adminList">
-                      Admin List
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
+                    {loginUser.adminType === 'root-admin' &&
+                      <>
+                        <NavDropdown.Item as={Link} to="/adminList">
+                          Admin List
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+
+                      </>
+                    }
                     <NavDropdown.Item as={Link} to="/userList">
                       User List
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item as={Link} to="/addNewAdmin">
-                      Add New Admin
-                    </NavDropdown.Item>
+
+                    {
+                      loginUser.adminType === 'root-admin' &&
+                      <>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={Link} to="/addNewAdmin">
+                          Add New Admin
+                        </NavDropdown.Item>
+                      </>
+                    }
                     <NavDropdown.Divider />
                     <NavDropdown.Item as={Link} to="/addNewUser">
                       Add New User
@@ -125,10 +149,12 @@ function Header() {
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
                   <Nav.Link as={Link} to="/profile">
-                    ADMIN NAME
+                    {
+                      loginUser ? loginUser.name : "Admin name"
+                    }
                   </Nav.Link>
                   <hr className="p-0 m-0" />
-                  <Nav.Link as={Link} to="/login">
+                  <Nav.Link as={"button"} onClick={signoutHandler}>
                     SIGN OUT
                   </Nav.Link>
                   <hr className="p-0 m-0" />
@@ -143,29 +169,3 @@ function Header() {
 }
 
 export default Header;
-
-// import { Container, Nav, Navbar } from "react-bootstrap";
-// import { Link } from "react-router-dom";
-// import puLogo from "../../image/pu-logo.png";
-
-// const Header = () => {
-//   return (
-//     <Navbar bg="primary" variant="dark">
-//       <Container>
-//         <Navbar.Brand as={Link} to="/">
-//           <img style={{width: '7%'}} src={puLogo} alt="" /> Presidency University
-//         </Navbar.Brand>
-//         <Nav className="me-auto">
-//           <Nav.Link as={Link} to="/">Dashboard</Nav.Link>
-//           <Nav.Link as={Link} to="/catalogs">Catalogs</Nav.Link>
-//           <Nav.Link as={Link} to="/members">Members</Nav.Link>
-//         </Nav>
-//         <Nav>
-
-//         </Nav>
-//       </Container>
-//     </Navbar>
-//   );
-// };
-
-// export default Header;

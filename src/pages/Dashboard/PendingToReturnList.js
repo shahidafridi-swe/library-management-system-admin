@@ -10,6 +10,12 @@ const PendingToReturnList = () => {
             .then(res => res.json())
             .then(data => setPendingList(data))
     }, []);
+
+    const current = new Date();
+    // const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    const date = current.getTime();
+
+
     return (
         <section className='px-5 mb-2'>
 
@@ -33,7 +39,17 @@ const PendingToReturnList = () => {
                                 <tbody>
                                     {
                                         pendingList.map((singlePending) => {
-                                            if (singlePending?.status === "acceptRequest") {
+
+                                            const rt = new Date(singlePending.returnDate);
+                                            console.log("cd",date)
+                                            console.log("rd",rt.getTime())
+                                            console.log("status", singlePending?.status);
+
+                                            const status = singlePending?.status ? singlePending.status === "acceptRequest" ? true : false : true;
+
+                                            if (status && date <= rt.getTime() ) {
+                                            //    console.log(date, 'and', singlePending.returnDate)
+                                               
                                                 return (
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>

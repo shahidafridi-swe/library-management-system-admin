@@ -5,9 +5,22 @@ import Col from 'react-bootstrap/Col';
 import puLogo from '../../image/pu-logo.png';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    // login token
+    const token = localStorage.getItem("token");
+
+    // redirect login use
+    React.useEffect(() => {
+        if(token) {
+            navigate("/");
+        }
+    }, [token]);
 
     // error state
     const [error, setError] = React.useState(undefined);
@@ -35,7 +48,9 @@ const Login = () => {
                 console.log(result);
                 // set token
                 localStorage.setItem('token', result.success.token);
-                setError("")
+                localStorage.setItem('user', result.success.user);
+                setError("");
+                navigate("/");
 
             } else {
                 console.log(result);

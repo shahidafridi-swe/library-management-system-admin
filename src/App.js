@@ -26,6 +26,32 @@ import NoticeBoard from "./pages/Dashboard/NoticeBoard";
 import Login from "./pages/Login/Login";
 // import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 // import Imageupload from './pages/AddItem/AddBook/Imageupload';
+
+// wrapper
+import ProtectedWrapper from "./protecetd-wrapper/protected-wrapper";
+
+const ProtectedDashboard = ProtectedWrapper(Dashboard);
+const ProtectedAddBook = ProtectedWrapper(AddBook);
+const ProtectedAddThesis = ProtectedWrapper(AddThesis);
+const ProtectedViewBooks = ProtectedWrapper(ViewBooks);
+const ProtectedBookDetails = ProtectedWrapper(BookDetails);
+const ProtectedUpdateBook = ProtectedWrapper(UpdateBook);
+const ProtectedViewThesis = ProtectedWrapper(ViewThesis);
+const ProtectedRegAUser = ProtectedWrapper(RegAUser);
+const ProtectedAddAdmin = ProtectedWrapper(AddAdmin);
+const ProtectedAdminList = ProtectedWrapper(AdminList);
+const ProtectedAdminProfile = ProtectedWrapper(AdminProfile);
+const ProtectedAdminData = ProtectedWrapper(AdminData);
+const ProtectedUserList = ProtectedWrapper(UserList);
+const ProtectedUserProfile = ProtectedWrapper(UserProfile);
+const ProtectedUpdateUserProfile = ProtectedWrapper(UpdateUserProfile);
+const ProtectedNoticeBoard = ProtectedWrapper(NoticeBoard);
+const ProtectedUpdateAdminProfile = ProtectedWrapper(UpdateAdminProfile);
+const ProtectedIssueBook = ProtectedWrapper(IssueBook);
+const ProtectedIssueRequest = ProtectedWrapper(IssueRequest);
+const ProtectedSingleRequestDetails = ProtectedWrapper(SingleRequestDetails);
+const ProtectedExtendReturnDate = ProtectedWrapper(ExtendReturnDate);
+
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -36,34 +62,34 @@ function App() {
         withoutNavbarLocation !== location.pathname && <Header />
       }
       <Routes>
-        <Route path="/" element={<Dashboard/>}></Route>
+        <Route path="/" element={<ProtectedDashboard />}></Route>
+        {/* <Route path="/" element={<Dashboard/>}></Route> */}
         <Route path="/login" element={<Login/>}></Route>
-        <Route path="/addBook" element={<AddBook/>}></Route>
-        <Route path="/addThesis" element={<AddThesis/>}></Route>
-        <Route path="/addJournal" element={<AddJournal/>}></Route>
-        <Route path="/viewBooks" element={<ViewBooks/>}></Route>
-        <Route path="/viewBooks/:id" element={<BookDetails/>}></Route>
-        <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
-        <Route path="/viewTheses" element={<ViewThesis/>}></Route>
-        <Route path="/addNewUser" element={<RegAUser/>}></Route>
-        <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
-        <Route path="/adminList" element={<AdminList/>}></Route>
-        <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
-        <Route path="/updateAdminProfile/:id" element={<AdminData/>}></Route>
-        <Route path="/userList" element={<UserList/>}></Route>
-        <Route path="/userList/:id" element={<UserProfile/>}></Route>
-        <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>
-        <Route path="/updateNotice/:id" element={<NoticeBoard/>}></Route>
-        <Route path="/updateAdminProfile/:id" element={<UpdateAdminProfile/>}></Route>
+        <Route path="/addBook" element={<ProtectedAddBook/>}></Route>
+        <Route path="/addThesis" element={<ProtectedAddThesis/>}></Route>
+        <Route path="/viewBooks" element={<ProtectedViewBooks/>}></Route>
+        <Route path="/viewBooks/:id" element={<ProtectedBookDetails/>}></Route>
+        <Route path="/updateBook/:id" element={<ProtectedUpdateBook/>}></Route>
+        <Route path="/viewTheses" element={<ProtectedViewThesis/>}></Route>
+        <Route path="/addNewUser" element={<ProtectedRegAUser/>}></Route>
+        <Route path="/addNewAdmin" element={<ProtectedAddAdmin/>}></Route>
+        <Route path="/adminList" element={<ProtectedAdminList/>}></Route>
+        <Route path="/adminList/:id" element={<ProtectedAdminProfile/>}></Route>
+        <Route path="/updateAdminProfile/:id" element={<ProtectedAdminData/>}></Route>
+        <Route path="/userList" element={<ProtectedUserList/>}></Route>
+        <Route path="/userList/:id" element={<ProtectedUserProfile/>}></Route>
+        <Route path="/updateUserProfile/:id" element={<ProtectedUpdateUserProfile/>}></Route>
+        <Route path="/updateNotice/:id" element={<ProtectedNoticeBoard/>}></Route>
+        <Route path="/updateAdminProfile/:id" element={<ProtectedUpdateAdminProfile/>}></Route>
         
-        <Route path="/issueBook/:id" element={<IssueBook/>}></Route>
+        <Route path="/issueBook/:id" element={<ProtectedIssueBook/>}></Route>
 
-        <Route path="/issueBook" element={<IssueBook/>}></Route>
-        <Route path="/issueRequest" element={<IssueRequest/>}></Route>
-        <Route path="/issueRequestForABook/:id" element={<SingleRequestDetails/>}></Route>
+        <Route path="/issueBook" element={<ProtectedIssueBook/>}></Route>
+        <Route path="/issueRequest" element={<ProtectedIssueRequest/>}></Route>
+        <Route path="/issueRequestForABook/:id" element={<ProtectedSingleRequestDetails/>}></Route>
 
         
-        <Route path="/extendReturnDate/:id" element={<ExtendReturnDate/>}></Route>
+        <Route path="/extendReturnDate/:id" element={<ProtectedExtendReturnDate/>}></Route>
         
 
 

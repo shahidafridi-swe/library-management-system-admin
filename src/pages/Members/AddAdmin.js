@@ -25,10 +25,12 @@ const AddAdmin = () => {
                 }
             })
     };
+    
     return (
         <div className='d-flex justify-content-center'>
             <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary '>
                 <FormTitle>Add a new Admin</FormTitle>
+                <Form.Control type="hidden" name='adminType' value="admin" required {...register("adminType")} />
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Full Name</Form.Label>
