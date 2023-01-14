@@ -28,14 +28,14 @@ const AllBooks = () => {
                                 <tr key={book._id}>
                                     <td>{index}</td>
                                     <td>{book.title}</td>
-                                    <td>{book.author}</td>
+                                    <td>{book.authors}</td>
                                     <td>{book.publisher}</td>
-                                    <td>{book.publishYear}</td>
+                                    <td>{book.publicationYear}</td>
                                     <td>{book.edition}</td>
                                     <td>{book.callNo}</td>
-                                    <td>{book.isbn}</td>
+                                    <td>{book.ISBN10}</td>
                                     <td>{book.price}</td>
-                                    <td>{book.cateory}</td>
+                                    <td>{book.category}</td>
                                     <td>
                                         <Link to={`/viewBooks/${book._id}`}
                                             className='btn btn-warning btn-sm'

@@ -7,7 +7,7 @@ function ViewBooks() {
     const bookListTitle = ["Accession Number", "Title", "Author", "Publisher", "Published Year", "Edition", "Call No", "ISBN", "Copies", "Available", "Actions"];
     const [bookList, setBookList] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/addBooks1")
+        fetch("http://localhost:5000/viewBooks")
             .then(res => res.json())
             .then((data) => setBookList(data))
     }, []);
@@ -58,13 +58,13 @@ function ViewBooks() {
                                 <option value="title">Default</option>
                                 <option value="title">Title</option>
                                 <option value="callNo">Call No</option>
-                                <option value="isbn">ISBN</option>
-                                <option value="author">Author</option>
+                                <option value="ISBN10">ISBN</option>
+                                <option value="authors">Author</option>
                                 <option value="publisher">Publisher</option>
-                                <option value="cateory">Category</option>
+                                <option value="category">Category</option>
                                 <option value="tags">Tags</option>
                                 <option value="description">Description</option>
-                                <option value="publishYear">Publish Year</option>
+                                <option value="publicationYear">Publish Year</option>
                             </select>
                             <label className="input-group-text px-1" for="searchCategory">Category</label>
                         </div>
@@ -98,12 +98,12 @@ function ViewBooks() {
                                         <tr>
                                             <td>{index}</td>
                                             <td>{book.title}</td>
-                                            <td>{book.author}</td>
+                                            <td>{book.authors}</td>
                                             <td>{book.publisher}</td>
-                                            <td>{book.publishYear}</td>
+                                            <td>{book.publicationYear}</td>
                                             <td>{book.edition}</td>
                                             <td>{book.callNo}</td>
-                                            <td>{book.isbn}</td>
+                                            <td>{book.ISBN10}</td>
                                             <td>{book.price}</td>
                                             <td>{book.cateory}</td>
                                             <td>
