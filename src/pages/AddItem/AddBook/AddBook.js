@@ -165,7 +165,7 @@ function AddBook1() {
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Cover Photo</Form.Label>
-                        <input className='category' required
+                        <input className='category'
                             accept='image/*'
                             type="file"
                             name="file"
