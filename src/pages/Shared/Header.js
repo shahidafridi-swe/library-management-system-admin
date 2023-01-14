@@ -121,6 +121,17 @@ function Header() {
                     ISSUE REQUEST
                   </Nav.Link>
                   <hr className="p-0 m-0" />
+                  <hr className="p-0 m-0" />
+                  <hr className="p-0 m-0" />
+                  <hr className="p-0 m-0" />
+                  <Nav.Link as={Link} to="/profile">
+                    ADMIN NAME
+                  </Nav.Link>
+                  <hr className="p-0 m-0" />
+                  <Nav.Link as={Link} to="/login">
+                    SIGN OUT
+                  </Nav.Link>
+                  <hr className="p-0 m-0" />
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
