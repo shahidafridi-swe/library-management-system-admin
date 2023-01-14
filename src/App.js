@@ -21,6 +21,7 @@ import IssueRequest from "./pages/Issue/IssueRequest";
 import SingleRequestDetails from "./pages/Issue/SingleRequestDetails";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
+import ThesisDetails from "./pages/ViewItems/ViewTheses/ThesisDetails";
 function App() {
   const location = useLocation();
   const withoutNavbarLocation = '/login';
@@ -40,6 +41,7 @@ function App() {
         <Route path="/viewBooks/:id" element={<BookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
         <Route path="/viewTheses" element={<ViewThesis/>}></Route>
+        <Route path="/viewTheses/:id" element={<ThesisDetails/>}></Route>
         <Route path="/addNewUser" element={<AddUser/>}></Route>
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>

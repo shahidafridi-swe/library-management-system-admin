@@ -54,7 +54,6 @@ function AddThesis() {
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Branch</Form.Label>
                         <Form.Select className='text-light' name='userType' aria-label="Default select example" {...register("branch")}>
-                            <option className='text-dark' value="choose">Choose...</option>
                             <option className='text-dark' value="baridhara">Baridhara</option>
                             <option className='text-dark' value="gulshan">Gulshan</option>
                         </Form.Select>
