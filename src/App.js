@@ -23,6 +23,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
 import RegAUser from "./pages/Members/RegAUser";
 import NoticeBoard from "./pages/Dashboard/NoticeBoard";
+import Login from "./pages/Login/Login";
 // import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 // import Imageupload from './pages/AddItem/AddBook/Imageupload';
 function App() {
@@ -36,7 +37,7 @@ function App() {
       }
       <Routes>
         <Route path="/" element={<Dashboard/>}></Route>
-        {/* <Route path="/login" element={<Login/>}></Route> */}
+        <Route path="/login" element={<Login/>}></Route>
         <Route path="/addBook" element={<AddBook/>}></Route>
         <Route path="/addThesis" element={<AddThesis/>}></Route>
         <Route path="/addJournal" element={<AddJournal/>}></Route>
