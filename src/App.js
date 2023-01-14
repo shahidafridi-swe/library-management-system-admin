@@ -22,6 +22,7 @@ import SingleRequestDetails from "./pages/Issue/SingleRequestDetails";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
 import RegAUser from "./pages/Members/RegAUser";
+import NoticeBoard from "./pages/Dashboard/NoticeBoard";
 // import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 // import Imageupload from './pages/AddItem/AddBook/Imageupload';
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/userList" element={<UserList/>}></Route>
         <Route path="/userList/:id" element={<UserProfile/>}></Route>
         <Route path="/updateUserProfile/:id" element={<UpdateUserProfile/>}></Route>
+        <Route path="/updateNotice/:id" element={<NoticeBoard/>}></Route>
         <Route path="/updateAdminProfile/:id" element={<UpdateAdminProfile/>}></Route>
         
         <Route path="/issueBook/:id" element={<IssueBook/>}></Route>
