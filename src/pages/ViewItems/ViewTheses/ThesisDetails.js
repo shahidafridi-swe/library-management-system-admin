@@ -62,7 +62,7 @@ const handleDeletBtn = (id) => {
                 </Card.Text>
                     <div className='d-flex justify-content-end'>
                        
-                        <Button variant="danger"  onClick={() => handleDeletBtn(thesis._id)}>Delete Book</Button>
+                        <Button variant="danger"  onClick={() => handleDeletBtn(thesis._id)}>Delete Thesis</Button>
                     </div>
                 </Card.Body>
             </Card>
