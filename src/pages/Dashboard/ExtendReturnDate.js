@@ -76,7 +76,7 @@ const ExtendReturnDate = () => {
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '80%' }} className="text-white p-3">
                 <Card.Body>
-                    <FormTitle>Details of the issue of USERNAME</FormTitle>
+                    <FormTitle>Details of the issue of {book.FullName}</FormTitle>
                     <Card.Text>
                         <div className='d-flex justify-content-between my-5' >
                             <div className='w-50'>

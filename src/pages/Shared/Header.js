@@ -148,13 +148,13 @@ function Header() {
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
-                  <Nav.Link as={Link} to="/profile">
+                  <Nav.Link className="fw-bold text-uppercase text-center" as={Link} to="/profile">
                     {
                       loginUser ? loginUser.name : "Admin name"
                     }
                   </Nav.Link>
                   <hr className="p-0 m-0" />
-                  <Nav.Link as={"button"} onClick={signoutHandler}>
+                  <Nav.Link className="btn btn-secondary text-white" as={"button"} onClick={signoutHandler}>
                     SIGN OUT
                   </Nav.Link>
                   <hr className="p-0 m-0" />

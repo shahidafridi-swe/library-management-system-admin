@@ -33,6 +33,7 @@ const NoticeBoard = () => {
             );
 
         Swal.fire('Updated Successfully')
+        handleClose()
     };
     return (
         <div className='d-flex justify-content-center align-items-center mb-1'>
@@ -53,7 +54,7 @@ const NoticeBoard = () => {
                         <Form onSubmit={handleSubmit}>
                             <Form.Group className="mb-3">
                                 <Form.Label>New Notice</Form.Label>
-                                <input as="textarea" onChange={handleChange} type="text" name='notice' autoFocus rows={3} required placeholder='Please write here the new notice...' />
+                                <Form.Control as="textarea" onChange={handleChange} type="text" name='notice' autoFocus rows={3} required placeholder='Please write here the new notice...' />
                             </Form.Group>
                             <Form.Group
                                 className="mb-3">
