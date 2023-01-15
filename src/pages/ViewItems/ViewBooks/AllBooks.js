@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/esm/Table';
 import { Link } from 'react-router-dom';
+import './ViewBooks.css';
 const AllBooks = () => {
     const bookListTitle = ["Accession Number", "Title", "Author", "Publication", "Publish Year", "Edition", "Call No", "ISBN", "Price", "Category", "Actions"];
 
@@ -18,19 +19,12 @@ const AllBooks = () => {
             });
 
     }, []);
-    if (isLoaded) {
-        return (
-            <div className="spinner-border text-secondary d-flex justify-content-center text-center" role="status">
-                <span className="sr-only">Loading...</span>
-            </div>
-        );
-    }
     return (
         <div>
             <div className="tableFixHead " >
                 {
                     isLoaded ? (
-                        <div className="spinner-border text-secondary d-flex justify-content-center" role="status">
+                        <div className="spinner-border text-secondary  spinner ">
                             <span className="sr-only">Loading...</span>
                         </div>
                     ) :

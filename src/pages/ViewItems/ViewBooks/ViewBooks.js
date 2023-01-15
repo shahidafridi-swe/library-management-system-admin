@@ -3,9 +3,7 @@ import Table from 'react-bootstrap/Table';
 import AllBooks from './AllBooks';
 import './ViewBooks.css';
 import { Link } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
 function ViewBooks() {
-    // const [isLoaded, setIsLoaded] = useState(true);
     const bookListTitle = ["Accession Number", "Title", "Author", "Publisher", "Published Year", "Edition", "Call No", "ISBN", "Copies", "Available", "Actions"];
     const [bookList, setBookList] = useState([]);
     useEffect(() => {
@@ -14,7 +12,6 @@ function ViewBooks() {
 
             .then((data) => setBookList(data))
     }, []);
-    const forTitle = bookList[0];
     const [state, setState] = useState({ branch: '', search_field: "title", search_text: "" });
     const [searchValue, setSearchValue] = useState([])
     const handleChange = (e) => {
@@ -37,7 +34,6 @@ function ViewBooks() {
             .then((res) => res.json())
             .then((data) => {
                 setSearchValue(data.data)
-                // setIsLoaded(false)
             });
     }
     return  (
@@ -85,9 +81,7 @@ function ViewBooks() {
                     <tbody>
                         {
                             searchValue.length === 0 ? (
-
                                 <AllBooks />
-
                             ) : (<Table responsive='sm' striped bordered hover variant="success" className='myTable ' >
                                 <thead className='tableHeader text-uppercase '>
                                     <tr className='justify-content-center align-items-center'>
