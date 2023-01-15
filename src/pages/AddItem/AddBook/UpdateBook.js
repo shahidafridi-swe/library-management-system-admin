@@ -42,7 +42,8 @@ function UpdateBook() {
                 `http://localhost:5000/updateBookInfo/${id}`,
                 data
             );
-            Swal.fire('Updated Successfully')
+        Swal.fire('Updated Successfully')
+        window.location.href = "/viewBooks";
     };
     console.log(book);
     return (
@@ -56,72 +57,72 @@ function UpdateBook() {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Category</Form.Label>
-                                        <Form.Control name='category' type="text"  defaultValue="category" required  onChange={handleChange} />
+                                        <Form.Control name='category' type="text" defaultValue={book.category} required onChange={handleChange} />
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Call No</Form.Label>
-                                        <Form.Control name='callNo' type="text" defaultValue={book.callNo}  required  onChange={handleChange} />
+                                        <Form.Control name='callNo' type="text" defaultValue={book.callNo} required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
 
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Title</Form.Label>
-                                        <Form.Control name='title' type="text" defaultValue={book.title} required  onChange={handleChange} />
+                                        <Form.Control name='title' type="text" defaultValue={book.title} required onChange={handleChange} />
                                     </Form.Group>
 
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>ISBN10</Form.Label>
-                                        <Form.Control name='ISBN10' type="text" disabled defaultValue={book.ISBN10? book.ISBN10:book.ISBN13} required  onChange={handleChange} />
+                                        <Form.Control name='ISBN10' type="text" disabled defaultValue={book.ISBN10 ? book.ISBN10 : book.ISBN13} required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Author</Form.Label>
-                                        <Form.Control name='authors' type="text"  defaultValue={book.authors} required  onChange={handleChange} />
+                                        <Form.Control name='authors' type="text" defaultValue={book.authors} required onChange={handleChange} />
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>ISBN13</Form.Label>
-                                        <Form.Control name='ISBN13' type="text" disabled defaultValue={book.ISBN13} required  onChange={handleChange} />
+                                        <Form.Control name='ISBN13' type="text" disabled defaultValue={book.ISBN13} required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Publisher</Form.Label>
-                                        <Form.Control name='publisher' type="text" defaultValue={book.publisher} required   onChange={handleChange} />
+                                        <Form.Control name='publisher' type="text" defaultValue={book.publisher} required onChange={handleChange} />
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Price</Form.Label>
-                                        <Form.Control name='price' type="number" defaultValue="550" required  onChange={handleChange} />
+                                        <Form.Control name='price' type="number" defaultValue="550" required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
 
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Publish Year</Form.Label>
-                                        <Form.Control name='publicationYear' type="number" disabled defaultValue={book.publicationYear} required   onChange={handleChange} />
+                                        <Form.Control name='publicationYear' type="number" disabled defaultValue={book.publicationYear} required onChange={handleChange} />
                                     </Form.Group>
 
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Accession Number</Form.Label>
-                                        <Form.Control name='accessionNo' type="text" defaultValue="1" required  onChange={handleChange} />
+                                        <Form.Control name='accessionNo' type="text" defaultValue="1" required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Edition</Form.Label>
-                                        <Form.Control name='edition' type="text" defaultValue={book.edition} required  onChange={handleChange} />
+                                        <Form.Control name='edition' type="text" defaultValue={book.edition} required onChange={handleChange} />
                                     </Form.Group>
 
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Tags</Form.Label>
-                                        <Form.Control name='tags' type="text" defaultValue={book.tags?book.tags:"hello this is tags"} required  onChange={handleChange} />
+                                        <Form.Control name='tags' type="text" defaultValue={book.tags ? book.tags : "hello this is tags"} required onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Branch</Form.Label>
-                                        <Form.Control name='library' type="text" defaultValue={book.library} required  onChange={handleChange} />
+                                        <Form.Control name='library' type="text" defaultValue={book.library} required onChange={handleChange} />
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Cover Photo</Form.Label>
@@ -132,7 +133,7 @@ function UpdateBook() {
                                     </Form.Group>
                                 </Row>
                                 <Form.Group as={Col} sm='12' md='12' >
-                                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >Update Book</button>
+                                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>Update Book</button>
                                 </Form.Group>
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <Link

@@ -5,51 +5,72 @@ const AllBooks = () => {
     const bookListTitle = ["Accession Number", "Title", "Author", "Publication", "Publish Year", "Edition", "Call No", "ISBN", "Price", "Category", "Actions"];
 
     const [allBooks, setAllBooks] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(true);
+
     useEffect(() => {
+
         const url = `http://localhost:5000/viewBooks`;
         fetch(url)
             .then((res) => res.json())
-            .then((data) => setAllBooks(data));
+            .then((data) => {
+                setAllBooks(data)
+                setIsLoaded(false)
+            });
+
     }, []);
+    if (isLoaded) {
+        return (
+            <div className="spinner-border text-secondary d-flex justify-content-center text-center" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+        );
+    }
     return (
         <div>
             <div className="tableFixHead " >
-                <Table responsive='sm' striped bordered hover variant="success" className='myTable ' >
-                    <thead className='tableHeader text-uppercase '>
-                        <tr className='justify-content-center align-items-center'>
-                            {bookListTitle.map((title) => (
-                                <th className='uppercase align-items-center' key={title}>{title}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            allBooks.map((book,index) => (
-                                <tr key={book._id}>
-                                    <td>{index}</td>
-                                    <td>{book.title}</td>
-                                    <td>{book.authors}</td>
-                                    <td>{book.publisher}</td>
-                                    <td>{book.publicationYear}</td>
-                                    <td>{book.edition}</td>
-                                    <td>{book.callNo}</td>
-                                    <td>{book.ISBN10}</td>
-                                    <td>{book.price}</td>
-                                    <td>{book.category}</td>
-                                    <td>
-                                        <Link to={`/viewBooks/${book._id}`}
-                                            className='btn btn-warning btn-sm'
-                                        >View</Link>
-                                        <Link to={`/issueBook/${book._id}`}
-                                            className='btn btn-success btn-sm mt-1'
-                                        >Issue</Link>
-                                    </td>
+                {
+                    isLoaded ? (
+                        <div className="spinner-border text-secondary d-flex justify-content-center" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    ) :
+                        <Table responsive='sm' striped bordered hover variant="success" className='myTable ' >
+                            <thead className='tableHeader text-uppercase '>
+                                <tr className='justify-content-center align-items-center'>
+                                    {bookListTitle.map((title) => (
+                                        <th className='uppercase align-items-center' key={title}>{title}</th>
+                                    ))}
                                 </tr>
-                            )
-                            )
-                        }
-                    </tbody>
-                </Table>
+                            </thead>
+                            <tbody>
+                                {
+                                    allBooks.map((book, index) => (
+                                        <tr key={book._id}>
+                                            <td>{index}</td>
+                                            <td>{book.title}</td>
+                                            <td>{book.authors}</td>
+                                            <td>{book.publisher}</td>
+                                            <td>{book.publicationYear}</td>
+                                            <td>{book.edition}</td>
+                                            <td>{book.callNo}</td>
+                                            <td>{book.ISBN10}</td>
+                                            <td>{book.price}</td>
+                                            <td>{book.category}</td>
+                                            <td>
+                                                <Link to={`/viewBooks/${book._id}`}
+                                                    className='btn btn-warning btn-sm'
+                                                >View</Link>
+                                                <Link to={`/issueBook/${book._id}`}
+                                                    className='btn btn-success btn-sm mt-1'
+                                                >Issue</Link>
+                                            </td>
+                                        </tr>
+                                    )
+                                    )
+                                }
+                            </tbody>
+                        </Table>
+                }
             </div>
 
 

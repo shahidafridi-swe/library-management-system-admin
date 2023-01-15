@@ -73,8 +73,19 @@ function App() {
         <Route path="/viewBooks" element={<ProtectedViewBooks/>}></Route>
         <Route path="/viewBooks/:id" element={<ProtectedBookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<ProtectedUpdateBook/>}></Route>
+
+
+
+
+
         <Route path="/viewTheses" element={<ProtectedViewThesis/>}></Route>
         <Route path="/viewTheses/:id" element={<ProtectedThesisDetails/>}></Route>
+
+
+
+
+
+
         <Route path="/addNewUser" element={<ProtectedRegAUser/>}></Route>
         <Route path="/addNewAdmin" element={<ProtectedAddAdmin/>}></Route>
         <Route path="/adminList" element={<ProtectedAdminList/>}></Route>

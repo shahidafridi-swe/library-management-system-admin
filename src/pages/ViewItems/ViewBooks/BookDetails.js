@@ -35,6 +35,7 @@ const handleDeletBtn = (id) => {
                 'User returned the book',
                 'success'
             )
+            window.location.href = "/viewBooks";
         }
     })
 }

@@ -19,6 +19,7 @@ function AddThesis() {
                 if (result.acknowledged) {
                     Swal.fire('Thesis Added Successfully')
                     reset()
+                    window.location.href = "/viewTheses";
                 }
             })
     };

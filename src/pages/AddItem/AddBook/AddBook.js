@@ -7,7 +7,7 @@ import './AddBook.css';
 import ModalForTen from './ModalForTen';
 import Swal from 'sweetalert2';
 import './AddBook.css';
-function AddBook1() {
+function AddBook() {
     const [tenCategory, setTenCategory] = useState([])
     const [modalShow, setModalShow] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -25,7 +25,7 @@ function AddBook1() {
     const [tags, setTags] = useState('');
     const [branch, setBranch] = useState('');
     const [description, setDescription] = useState('');
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!image) {
@@ -37,12 +37,12 @@ function AddBook1() {
         formData.append('category', category1)
         formData.append('callNo', callNo)
         formData.append('title', title)
-        formData.append('isbn', isbn)
-        formData.append('author', author)
+        formData.append('ISBN10', isbn)
+        formData.append('authors', author)
         formData.append('publisher', publisher)
         formData.append('edition', edition)
         formData.append('price', price)
-        formData.append('publishYear', publishYear)
+        formData.append('publicationYear', publishYear)
         formData.append('accessionNumber', accessionNumber)
         formData.append('tags', tags)
         formData.append('branch', branch)
@@ -57,7 +57,7 @@ function AddBook1() {
             .then((data) => {
                 if (data.insertedId) {
                     Swal.fire('Book Added Successfully')
-
+                    window.location.href = "/viewBooks";
                 }
             })
             .catch((error) => {
@@ -154,14 +154,22 @@ function AddBook1() {
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Description</Form.Label>
-                        <input className='category' required onChange={e => setDescription(e.target.value)} type="text" placeholder="Description" />
+                        <Form.Label>Location</Form.Label>
+                        <input className='category' required onChange={e => setDescription(e.target.value)} type="text" placeholder="Location" />
                     </Form.Group>
                 </Row>
                 <Row className="">
+                    {/* <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Label>Branch</Form.Label>
+                        
+                        <input className='category' required onChange={e => setBranch(e.target.value)} type="text" placeholder="Branch" />
+                    </Form.Group> */}
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
-                        <input className='category' required onChange={e => setBranch(e.target.value)} type="text" placeholder="Branch" />
+                        <Form.Select className='text-light' name='userType' aria-label="Default select example" onChange={e => setBranch(e.target.value)}>
+                            <option className='text-dark' value="baridhara">Baridhara</option>
+                            <option className='text-dark' value="gulshan">Gulshan</option>
+                        </Form.Select>
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Cover Photo</Form.Label>
@@ -182,7 +190,7 @@ function AddBook1() {
     );
 }
 
-export default AddBook1;
+export default AddBook;
 
 
 

@@ -9,10 +9,10 @@ const ThesisDetails = () => {
     const { id } = useParams();
     const [thesis, setThesis] = useState({});
     useEffect(() => {
-        const url = ``;
+        const url = `http://localhost:5000/viewTheses/${id}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setThesis(data))
+            .then(data => console.log(data))
     }, [id]);
 
 
@@ -40,7 +40,8 @@ const handleDeletBtn = (id) => {
 }
     return (
         <div className='d-flex justify-content-center'>
-            <Card bg='secondary' style={{ width: '60%' }} className="text-white p-3">
+            <h1>helllo </h1>
+            {/* <Card bg='secondary' style={{ width: '60%' }} className="text-white p-3">
                 <Card.Img variant="top" src={bookImg} className="w-25 mx-auto rounded" />
                 <Card.Body>
                     <Card.Text>
@@ -65,7 +66,7 @@ const handleDeletBtn = (id) => {
                         <Button variant="danger"  onClick={() => handleDeletBtn(thesis._id)}>Delete Thesis</Button>
                     </div>
                 </Card.Body>
-            </Card>
+            </Card> */}
         </div>
     );
 };

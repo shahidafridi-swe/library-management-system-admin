@@ -42,6 +42,7 @@ const UpdateUserProfile = () => {
                 `http://localhost:5000/updateUserProfile/${id}`,
                 data
             ); Swal.fire('Profile Update Successfully')
+            window.location.href = "/userList";
     };
     console.log(user);
     return (

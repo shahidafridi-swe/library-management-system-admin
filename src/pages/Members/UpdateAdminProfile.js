@@ -42,6 +42,7 @@ const UpdateAdminProfile = () => {
                 data
             );
             Swal.fire('Profile Update Successfully')
+            window.location.href = "/adminList";
     };
     // console.log(admin);
     return (
