@@ -45,6 +45,11 @@ function App() {
         <Route path="/updateBook/:id" element={<UpdateBook/>}></Route>
         <Route path="/viewTheses" element={<ViewThesis/>}></Route>
         <Route path="/addNewUser" element={<RegAUser/>}></Route>
+
+        <Route path="/addAUser" element={<AddUser/>}></Route>
+
+
+
         <Route path="/addNewAdmin" element={<AddAdmin/>}></Route>
         <Route path="/adminList" element={<AdminList/>}></Route>
         <Route path="/adminList/:id" element={<AdminProfile/>}></Route>
@@ -60,12 +65,8 @@ function App() {
         <Route path="/issueBook" element={<IssueBook/>}></Route>
         <Route path="/issueRequest" element={<IssueRequest/>}></Route>
         <Route path="/issueRequestForABook/:id" element={<SingleRequestDetails/>}></Route>
-
-        
         <Route path="/extendReturnDate/:id" element={<ExtendReturnDate/>}></Route>
-        
-
-
+      
 
 
         
