@@ -19,15 +19,15 @@ const UserProfile = () => {
                 <Card.Img variant="top" src={adminImg} className="w-25 mx-auto rounded" />
                 <Card.Body>
                     <Card.Text>
-                        <h2><span className='text-dark fw-bold'>Name:</span> {user.FullName}</h2>
+                        <h2><span className='text-dark fw-bold'>Name:</span> {user.fullName}</h2>
                         <h3><span className='text-dark fw-bold'>ID:</span> {user.instituteId}</h3>
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>User Type:</span> {user.userType}</p>
                         <p className='m-0 fs-4 text-uppercase'><span className='text-dark fw-bold text-capitalize'>Department:</span> {user.department}</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Phone:</span> {user.phoneNo}</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Phone:</span> {user.phoneNumber}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Password:</span> {user.password}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span> {user.instituteEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Personal Email:</span> {user.personalEmail}</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {user.presentAddress}</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {user.presentAdd}</p>
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
