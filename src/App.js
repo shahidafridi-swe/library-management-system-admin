@@ -13,6 +13,7 @@ import UserProfile from "./pages/Members/userProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
+import ThesisDetails from "./pages/ViewItems/ViewTheses/ViewThesis";
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
@@ -24,6 +25,7 @@ import ExtendReturnDate from "./pages/Dashboard/ExtendReturnDate";
 import RegAUser from "./pages/Members/RegAUser";
 import NoticeBoard from "./pages/Dashboard/NoticeBoard";
 import Login from "./pages/Login/Login";
+
 // import AddBook1 from './pages/AddItem/AddBook/AddBook1';
 // import Imageupload from './pages/AddItem/AddBook/Imageupload';
 
@@ -37,6 +39,7 @@ const ProtectedViewBooks = ProtectedWrapper(ViewBooks);
 const ProtectedBookDetails = ProtectedWrapper(BookDetails);
 const ProtectedUpdateBook = ProtectedWrapper(UpdateBook);
 const ProtectedViewThesis = ProtectedWrapper(ViewThesis);
+const ProtectedThesisDetails = ProtectedWrapper(ThesisDetails);
 const ProtectedRegAUser = ProtectedWrapper(RegAUser);
 const ProtectedAddAdmin = ProtectedWrapper(AddAdmin);
 const ProtectedAdminList = ProtectedWrapper(AdminList);
@@ -71,6 +74,7 @@ function App() {
         <Route path="/viewBooks/:id" element={<ProtectedBookDetails/>}></Route>
         <Route path="/updateBook/:id" element={<ProtectedUpdateBook/>}></Route>
         <Route path="/viewTheses" element={<ProtectedViewThesis/>}></Route>
+        <Route path="/viewTheses/:id" element={<ProtectedThesisDetails/>}></Route>
         <Route path="/addNewUser" element={<ProtectedRegAUser/>}></Route>
         <Route path="/addNewAdmin" element={<ProtectedAddAdmin/>}></Route>
         <Route path="/adminList" element={<ProtectedAdminList/>}></Route>
