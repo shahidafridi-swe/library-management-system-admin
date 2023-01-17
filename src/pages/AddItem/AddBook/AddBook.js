@@ -18,6 +18,7 @@ function AddBook() {
     const [isbn, setisbn] = useState('');
     const [author, setauthor] = useState('');
     const [publisher, setPublisher] = useState('');
+    const [pageNumber, setPageNumber] = useState('');
     const [edition, setEdition] = useState('');
     const [price, setPrice] = useState('');
     const [publishYear, setPublishYear] = useState('');
@@ -43,6 +44,7 @@ function AddBook() {
         formData.append('edition', edition)
         formData.append('price', price)
         formData.append('publicationYear', publishYear)
+        formData.append('pageNumber', pageNumber)
         formData.append('accessionNumber', accessionNumber)
         formData.append('tags', tags)
         formData.append('branch', branch)
@@ -172,6 +174,12 @@ function AddBook() {
                         </Form.Select>
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
+                        <Form.Label>Page Number</Form.Label>
+                        <input className='category' required onChange={e => setPageNumber(e.target.value)} type="number" placeholder="Page Number" />
+                    </Form.Group>
+                </Row>
+                <Row className="">                   
+                    <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Cover Photo</Form.Label>
                         <input className='category'
                             accept='image/*'
@@ -184,7 +192,11 @@ function AddBook() {
                 <Form.Group as={Col} sm='12' md='12' >
                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ADD BOOK</button>
                 </Form.Group>
+                <Form.Group as={Col} sm='12' md='12' >
+                    <a href='/' className='btn btn-danger w-100 p-2 mt-3'>CANCEL</a>
+                </Form.Group>
             </Form>
+         
         </div >
 
     );

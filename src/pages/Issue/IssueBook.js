@@ -12,6 +12,7 @@ import './issuBook.css';
 const IssueBook = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
+    console.log("issue book", book)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5000/issueRequestForABook', {
@@ -63,7 +64,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Book Title</Form.Label>
-                                        <Form.Control type="text" name='title' defaultValue={book.title} placeholder="Books Title" required {...register("title")} />
+                                        <Form.Control type="text" name='title' disabled defaultValue={book.title}  {...register("title")} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -73,21 +74,20 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Author</Form.Label>
-                                        <Form.Control type="text" name='autor' defaultValue={book.authors} placeholder="Author Name" required {...register("author")} />
+                                        <Form.Control type="text" name='autor' disabled defaultValue={book.authors}  {...register("author")} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>User Type</Form.Label>
                                         <Form.Select className="text-light" name='userType' aria-label="Default select example" {...register("userType")}>
-                                            <option className='text-dark' value="all">All</option>
                                             <option className='text-dark' value="student">Student</option>
                                             <option className='text-dark' value="faculty">Faculty</option>
                                         </Form.Select>
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Accession Number</Form.Label>
-                                        <Form.Control type="text" name='accession' defaultValue="1" placeholder="Accession Number" required {...register("accessionNumber")} />
+                                        <Form.Control type="text" name='accession' defaultValue={book.accessionNumber} disabled {...register("accessionNumber")} />
                                     </Form.Group>
                                 </Row>
                                 <Row>
@@ -97,7 +97,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Edition</Form.Label>
-                                        <Form.Control type="text" name='editon' defaultValue={book.edition} placeholder="Edition" required {...register("edition")} />
+                                        <Form.Control type="text" name='editon' defaultValue={book.edition} disabled {...register("edition")} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -116,6 +116,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
+
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Present Address </Form.Label>
                                         <Form.Control type="text" name='address' placeholder="Present Address" required {...register("presentAddress")} />
@@ -125,15 +126,17 @@ const IssueBook = () => {
                                         <input type="date" id="birthday" className='datepicker' name="birthday" {...register("returnDate")} />
                                     </Form.Group>
                                 </Row>
-                                <Form.Group as={Col} sm='12' md='12' >
-                                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ISSUE</button>
-                                </Form.Group>
-                                <Form.Group as={Col} sm='12' md='12' >
-                                    <Link
-                                        className='btn btn-danger w-100 p-2 mt-3'
-                                        to={`/viewBooks`}
-                                    >CANCEL</Link>
-                                </Form.Group>
+                                <Row className="d-flex justify-content-between">
+                                    <Form.Group as={Col} sm='12' md='5' >
+                                        <Link
+                                            className='btn btn-danger w-100 p-2 mt-3'
+                                            to={`/viewBooks`}
+                                        >CANCEL</Link>
+                                    </Form.Group>
+                                    <Form.Group as={Col} sm='12' md='5' >
+                                        <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ISSUE</button>
+                                    </Form.Group>
+                                </Row>
                             </Form>
 
                         </div>
@@ -142,7 +145,7 @@ const IssueBook = () => {
 
                 </Card.Body>
             </Card>
-        </div>
+        </div >
     );
 };
 

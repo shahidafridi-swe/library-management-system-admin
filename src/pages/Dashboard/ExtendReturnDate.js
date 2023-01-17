@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import FormTitle from '../Shared/FormTitle';
 import axios from 'axios';
 import Swal from 'sweetalert2'
@@ -98,9 +98,11 @@ const ExtendReturnDate = () => {
                         </div>
                     </Card.Text>
                     <div className='d-flex justify-content-between align-items-center'>
+
                         <div className='w-50'>
-                            <button className='btn btn-success' onClick={() => handleDeletBtn(book._id)}>RETURNED</button>
+                            <Link className='btn btn-danger' to="/">  BACK</Link>
                         </div>
+                      
                         <div className='w-50'>
                             <Form className='w-100 rounded bg-secondary myForm' onSubmit={handleSubmit}>
                                 <Row className="">
@@ -112,7 +114,13 @@ const ExtendReturnDate = () => {
                                 <Form.Group as={Col} sm='12' md='6' >
                                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>EXTEND DATE</button>
                                 </Form.Group>
+                               
+                                
                             </Form>
+                            <Form.Group as={Col} sm='12' md='6' >
+                                <button className='btn btn-success w-100 p-2 mt-3' onClick={() => handleDeletBtn(book._id)}>RETURNED</button>
+
+                                </Form.Group>
                         </div>
                     </div>
                 </Card.Body>

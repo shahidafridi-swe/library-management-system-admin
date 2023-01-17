@@ -13,7 +13,7 @@ import UserProfile from "./pages/Members/userProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
-import ThesisDetails from "./pages/ViewItems/ViewTheses/ViewThesis";
+import ThesisDetails from "./pages/ViewItems/ViewTheses/ThesisDetails";
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";

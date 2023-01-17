@@ -24,8 +24,8 @@ const AddUser = () => {
             })
     };
     return (
-        <div className='d-flex justify-content-center'>
-            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary '>
+        <div className='d-flex w-100 justify-content-center'>
+            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 w-100 rounded bg-secondary '>
                 <FormTitle>Add a User</FormTitle>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>

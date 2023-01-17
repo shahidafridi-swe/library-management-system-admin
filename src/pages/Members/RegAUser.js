@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Swal from 'sweetalert2';
+import FormTitle from "../Shared/FormTitle";
 export default class RegAUser extends Component {
     constructor(props) {
         super(props);
@@ -47,20 +48,23 @@ export default class RegAUser extends Component {
             .then((data) => {
                 console.log(data, "userRegister");
                 Swal.fire('User Create Successfully')
+               
+                window.location.href = "/userList";
             });
     }
     render() {
         return (
             <div className='d-flex justify-content-center'>
-                <Form onSubmit={this.handleSubmit} className='p-4 bg-secondary rounded myform'>
-                    <Row className="">
-                        <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Full Name</Form.Label> <br />
-                            <input className="reguserInput" type="text" name='name' placeholder="Full Name" onChange={(e) => this.setState({ fullName: e.target.value })} />
+                <Form onSubmit={this.handleSubmit} className='p-4 w-50 bg-secondary rounded myform'>
+                <FormTitle>Add a User</FormTitle>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} sm='12' md='6' >
+                            <Form.Label>Full Name<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control className="reguserInput" type="text" name='name' placeholder="Full Name" onChange={(e) => this.setState({ fullName: e.target.value })} required/>
                         </Form.Group>
                         <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Institute ID</Form.Label> <br />
-                            <input type="text" name='instituteId' placeholder="Institute ID" onChange={(e) => this.setState({ instituteId: e.target.value })} />
+                            <Form.Label>Institute ID<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="text" name='instituteId' placeholder="Institute ID" onChange={(e) => this.setState({ instituteId: e.target.value })} required/>
                         </Form.Group>
                     </Row>
                     <Row className="">
@@ -88,36 +92,32 @@ export default class RegAUser extends Component {
                         </Form.Group>
 
                     </Row>
-                    <Row className="">
 
-                    </Row>
-                    {/*  */}
-
-                    <Row className="">
+                    <Row className="mb-3">
                         <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Institute Email</Form.Label> <br />
-                            <input type="email" name='email1' placeholder="Institute Email Address" onChange={(e) => this.setState({ instituteEmail: e.target.value })} />
+                            <Form.Label>Institute Email<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="email" name='email1' placeholder="Institute Email Address" onChange={(e) => this.setState({ instituteEmail: e.target.value })} required/>
                         </Form.Group>
                         <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Password for User Login</Form.Label> <br />
-                            <input type="text" name='password' placeholder="Password for User Login" onChange={(e) => this.setState({ password: e.target.value })} />
+                            <Form.Label>Password for User Login<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="text" name='password' placeholder="Password for User Login" onChange={(e) => this.setState({ password: e.target.value })} required/>
                         </Form.Group>
                     </Row>
-                    <Row className="">
+                    <Row className="mb-3">
                         <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Present Address </Form.Label> <br />
-                            <input type="text" name='address' placeholder="Present Address" onChange={(e) => this.setState({ presentAdd: e.target.value })} />
+                            <Form.Label>Present Address<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="text" name='address' placeholder="Present Address" onChange={(e) => this.setState({ presentAdd: e.target.value })} required/>
                         </Form.Group>
 
                         <Form.Group as={Col} sm='12' md='6'>
-                            <Form.Label>Personal Email</Form.Label> <br />
-                            <input type="email" name='email2' placeholder="Personal Email Address" onChange={(e) => this.setState({ personalEmail: e.target.value })} />
+                            <Form.Label>Personal Email<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="email" name='email2' placeholder="Personal Email Address" onChange={(e) => this.setState({ personalEmail: e.target.value })} required/>
                         </Form.Group>
                     </Row>
-                    <Row className="">
+                    <Row className="mb-3">
                         <Form.Group as={Col} sm='12' md='12'>
-                            <Form.Label>Phone Number</Form.Label> <br />
-                            <input type="text" name='phone' placeholder="Phone Number" onChange={(e) => this.setState({ phoneNumber: e.target.value })} />
+                            <Form.Label>Phone Number<span class="badge text-dark">*</span></Form.Label> <br />
+                            <Form.Control type="text" name='phone' placeholder="Phone Number" onChange={(e) => this.setState({ phoneNumber: e.target.value })} required/>
                         </Form.Group>
                     </Row>
 
@@ -129,55 +129,4 @@ export default class RegAUser extends Component {
         );
     }
 }
-    /*  <form onSubmit={this.handleSubmit}>
-<h3>Sign Up</h3>
- 
-<div className="mb-3">
-<label>First name</label>
-<input
-type="text"
-className="form-control"
-placeholder="First name"
-onChange={(e) => this.setState({ fname: e.target.value })}
-/>
-</div>
- 
-<div className="mb-3">
-<label>Last name</label>
-<input
-type="text"
-className="form-control"
-placeholder="Last name"
-onChange={(e) => this.setState({ lname: e.target.value })}
-/>
-</div>
- 
-<div className="mb-3">
-<label>Email address</label>
-<input
-type="email"
-className="form-control"
-placeholder="Enter email"
-onChange={(e) => this.setState({ email: e.target.value })}
-/>
-</div>
- 
-<div className="mb-3">
-<label>Password</label>
-<input
-type="password"
-className="form-control"
-placeholder="Enter password"
-onChange={(e) => this.setState({ password: e.target.value })}
-/>
-</div>
- 
-<div className="d-grid">
-<button type="submit" className="btn btn-primary">
-Sign Up
-</button>
-</div>
-<p className="forgot-password text-right">
-Already registered <a href="/sign-in">sign in?</a>
-</p>
-</form> */
+    

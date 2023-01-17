@@ -53,7 +53,7 @@ const UpdateUserProfile = () => {
                     <Card.Text>
                         <div className='d-flex justify-content-center w-100'>
                             <Form onSubmit={handleSubmit} className='w-75 rounded bg-secondary myForm'>
-                                <FormTitle>Information of {user.FullName}</FormTitle>
+                                <FormTitle>Information of {user.fullName}</FormTitle>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Full Name</Form.Label>
