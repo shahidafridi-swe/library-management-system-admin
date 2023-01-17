@@ -9,7 +9,6 @@ function ViewBooks() {
     useEffect(() => {
         fetch("http://localhost:5000/viewBooks")
             .then(res => res.json())
-
             .then((data) => setBookList(data))
     }, []);
     const [state, setState] = useState({ branch: '', search_field: "title", search_text: "" });

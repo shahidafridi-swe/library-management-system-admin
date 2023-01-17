@@ -60,7 +60,7 @@ function AddThesis() {
                         </Form.Select>
                     </Form.Group>
                 </Row>
-                <Row className="text-center mt-5">
+                <Row className="text-center mt-2">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Team Members</Form.Label>
                     </Form.Group>
@@ -109,7 +109,7 @@ function AddThesis() {
                 </Row>
                
                 <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ADD THESIS</button>
+                    <button className='btn btn-primary w-100 p-2 ' type='submit'>ADD THESIS</button>
                 </Form.Group>
             </Form>
         </div>
