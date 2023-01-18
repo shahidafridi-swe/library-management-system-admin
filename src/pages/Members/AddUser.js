@@ -69,9 +69,15 @@ const AddUser = () => {
                         <Form.Control type="text" name='address' placeholder="Present Address" required {...register("presentAdd")} />
                     </Form.Group>
                 </Row>
-                <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD ADMIN</button>
-                </Form.Group>
+                <Row className="d-flex justify-content-between">
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <a href='/' className='btn btn-primary w-100 p-2 mt-3'>CANCEL</a>
+                    </Form.Group>
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD ADMIN</button>
+                    </Form.Group>
+                </Row>
+
             </Form>
         </div>
 
