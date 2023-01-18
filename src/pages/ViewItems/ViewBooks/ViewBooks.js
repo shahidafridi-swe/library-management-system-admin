@@ -92,7 +92,7 @@ function ViewBooks() {
                                 <tbody>
                                     {searchValue.map((book, index) => (
                                         <tr>
-                                            <td>{index}</td>
+                                            <td>{book.accessionNumber}</td>
                                             <td>{book.title}</td>
                                             <td>{book.authors}</td>
                                             <td>{book.publisher}</td>
