@@ -1,36 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import FormTitle from '../Shared/FormTitle';
 import axios from 'axios';
 import Swal from 'sweetalert2'
 const ExtendReturnDate = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [extendDate, setExtendDate] = useState({});
-
-    const [data, setData] = useState({
-        returnDate: extendDate?.returnDate,
-    })
+    // const [extendDate, setExtendDate] = useState({});
     const [book, setBook] = useState({});
+    // console.log(extendDate.returnDate)
+    const [data, setData] = useState({
+        returnDate: book?.returnDate
+    });
+    console.log(data)
+
+    //get data show
     useEffect(() => {
         const url = `http://localhost:5000/extendReturnDate/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
+                console.log(data.returnDate);
                 setBook(data)
             })
     }, [id]);
 
-    useEffect(() => {
-        const url = `http://localhost:5000/issueBook/${id}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setExtendDate(data)
-            })
-    }, [id]);
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/adminIssueRequestBook/${id}`;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data.returnDate);
+    //             setExtendDate(data)
+    //         })
+    // }, [id]);
     const handleChange = (e) => {
         setData({
             ...data,
@@ -39,12 +44,12 @@ const ExtendReturnDate = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("extend date")
         axios
             .put(
                 `http://localhost:5000/issueBook/${id}`,
                 data,
             );
+        console.log(data)
         Swal.fire('Return Date Updated Successfully')
         navigate("/")
     };
@@ -70,7 +75,6 @@ const ExtendReturnDate = () => {
             }
         })
     }
-
 
     return (
         <div className='d-flex justify-content-center'>
@@ -98,9 +102,11 @@ const ExtendReturnDate = () => {
                         </div>
                     </Card.Text>
                     <div className='d-flex justify-content-between align-items-center'>
+
                         <div className='w-50'>
-                            <button className='btn btn-success' onClick={() => handleDeletBtn(book._id)}>RETURNED</button>
+                            <Link className='btn btn-danger' to="/">  BACK</Link>
                         </div>
+
                         <div className='w-50'>
                             <Form className='w-100 rounded bg-secondary myForm' onSubmit={handleSubmit}>
                                 <Row className="">
@@ -112,7 +118,13 @@ const ExtendReturnDate = () => {
                                 <Form.Group as={Col} sm='12' md='6' >
                                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>EXTEND DATE</button>
                                 </Form.Group>
+
+
                             </Form>
+                            <Form.Group as={Col} sm='12' md='6' >
+                                <button className='btn btn-success w-100 p-2 mt-3' onClick={() => handleDeletBtn(book._id)}>RETURNED</button>
+
+                            </Form.Group>
                         </div>
                     </div>
                 </Card.Body>

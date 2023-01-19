@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ModalForHundred from './ModalForHundred';
 
-const ModalForTen = ({setModalShowTen,setSelectedCategory,...props}) => {
+const ModalForTen = ({ setModalShowTen, setSelectedCategory, ...props }) => {
     const [modalShow, setModalShow] = useState(false);
     const [selectedKey, setSelectedKey] = useState(null);
 
@@ -23,7 +23,7 @@ const ModalForTen = ({setModalShowTen,setSelectedCategory,...props}) => {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Ten Category
                 </Modal.Title>
@@ -33,24 +33,24 @@ const ModalForTen = ({setModalShowTen,setSelectedCategory,...props}) => {
             <Modal.Body>
                 {
                     tenCategory.map(singleOfTen => {
-                        
+
                         return (
-                            <div key={singleOfTen.key}>                                                
-                            <Button className='mb-2 w-100' variant="light" onClick={() => {
-                                setModalShow(true)
-                                setSelectedKey(singleOfTen.key)
+                            <div key={singleOfTen.key}>
+                                <Button className='mb-2 w-100' variant="light" onClick={() => {
+                                    setModalShow(true)
+                                    setSelectedKey(singleOfTen.key)
                                 }}>
-                                {singleOfTen.key}. {singleOfTen.title}
-                            </Button>
-                             <ModalForHundred
-                                show={modalShow}
-                                 onHide={() => setModalShow(false)}
-                                 setSelectedCategory={setSelectedCategory}
-                                 setModalShowTen={setModalShowTen}
-                                 setModalShowHundred={setModalShow}
-                                 selectedKey= {parseInt(selectedKey)/100}
-                            />
-                                
+                                    {singleOfTen.key}. {singleOfTen.title}
+                                </Button>
+                                <ModalForHundred
+                                    show={modalShow}
+                                    onHide={() => setModalShow(false)}
+                                    setSelectedCategory={setSelectedCategory}
+                                    setModalShowTen={setModalShowTen}
+                                    setModalShowHundred={setModalShow}
+                                    selectedKey={parseInt(selectedKey) / 100}
+                                />
+
                                 <br />
                             </div>
                         )
@@ -59,8 +59,9 @@ const ModalForTen = ({setModalShowTen,setSelectedCategory,...props}) => {
             </Modal.Body>
 
 
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+            <Modal.Footer className='d-flex justify-content-between'>
+                <Button className='w-25'  onClick={props.onHide}>Back</Button>
+                <Button className='w-25' variant='danger' onClick={props.onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
     );

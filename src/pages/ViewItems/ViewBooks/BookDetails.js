@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 const BookDetails = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
+    console.log("this book", book)
     useEffect(() => {
         const url = `http://localhost:5000/viewBooks/${id}`;
         fetch(url)
@@ -49,11 +50,11 @@ const handleDeletBtn = (id) => {
                         <h3><span className='text-dark fw-bold'>Author:</span> {book.authors} </h3>
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>Call Number:</span> {book.callNo}</p>
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>ISBN:</span> {book.ISBN10? book.ISBN10:book.ISBN13}</p>
-                        <p className='m-0 fs-4 text-uppercase'><span className='text-dark fw-bold text-capitalize'>Accession Number:</span>1</p>
+                        <p className='m-0 fs-4 text-uppercase'><span className='text-dark fw-bold text-capitalize'>Accession Number:</span>{book.accessionNumber}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Publication:</span> {book.publisher}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Publish Year:</span> {book.publicationYear}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span> {book.edition} </p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Price:</span> 550 $</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Price: </span>{book.price && book.price}$</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Copies:</span> 1</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Available:</span> 2</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Location:</span> {book.library}</p>
@@ -61,10 +62,14 @@ const handleDeletBtn = (id) => {
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
+                            to={`/viewBooks`}
+                            className='btn btn-primary w-25'
+                        >Back</Link>
+                        <Link
                             to={`/updateBook/${book._id}`}
-                            className='btn btn-primary'
+                            className='btn btn-success w-25'
                         >Update Book Info</Link>
-                        <Button variant="danger"  onClick={() => handleDeletBtn(book._id)}>Delete Book</Button>
+                        <Button className='w-25' variant="danger"  onClick={() => handleDeletBtn(book._id)}>Delete Book</Button>
                     </div>
                 </Card.Body>
             </Card>

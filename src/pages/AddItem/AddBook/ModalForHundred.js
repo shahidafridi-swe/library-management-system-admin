@@ -19,6 +19,10 @@ const ModalForHundred = ({setModalShowTen,setModalShowHundred,setSelectedCategor
     const end = ((selectedKey+1)*10);
     const newList = hundredCategory.slice(start,end) 
 
+    const closeModal = () =>{
+      setModalShowTen(false);
+      setModalShowHundred(false);
+    }
 
     return (
         <Modal
@@ -27,7 +31,7 @@ const ModalForHundred = ({setModalShowTen,setModalShowHundred,setSelectedCategor
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title id="contained-modal-title-vcenter">
             Hundred Division Category
           </Modal.Title>
@@ -62,9 +66,10 @@ const ModalForHundred = ({setModalShowTen,setModalShowHundred,setSelectedCategor
         </Modal.Body>
 
         
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
+        <Modal.Footer className='d-flex justify-content-between'>
+                <Button className='w-25'  onClick={props.onHide}>Back</Button>
+                <Button className='w-25' variant='danger' onClick={closeModal}>Close</Button>
+            </Modal.Footer>
       </Modal>
     );
 };

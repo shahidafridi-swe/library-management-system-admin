@@ -31,10 +31,14 @@ const UserProfile = () => {
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
+                            to={`/userList`}
+                            className='btn btn-danger w-25'
+                        >Back</Link>
+                        <Link
                             to={`/updateUserProfile/${user._id}`}
-                            className='btn btn-primary'
+                            className='btn btn-primary w-25'
                         >Update Profile</Link>
-                        <Button variant="danger">Delete Profile</Button>
+                       
                     </div>
                 </Card.Body>
             </Card>

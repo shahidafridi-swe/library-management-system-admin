@@ -60,11 +60,11 @@ function AddThesis() {
                         </Form.Select>
                     </Form.Group>
                 </Row>
-                <Row className="text-center mt-5">
+                <Row className="text-center mt-2">
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Team Members</Form.Label>
                     </Form.Group>
-                </Row>               
+                </Row>
                 <Row className=" mt-3">
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Name </Form.Label>
@@ -107,10 +107,15 @@ function AddThesis() {
                         <Form.Control type="text" placeholder="Member5 ID"   {...register("mem5id")} />
                     </Form.Group>
                 </Row>
-               
-                <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ADD THESIS</button>
-                </Form.Group>
+                <Row className="mb-5 d-flex justify-content-between">
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <a href='/' className='btn btn-danger w-100 p-2 '>CANCEL</a>
+                    </Form.Group>
+
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <button className='btn btn-primary w-100 p-2 ' type='submit'>ADD THESIS</button>
+                    </Form.Group>
+                </Row>
             </Form>
         </div>
     );

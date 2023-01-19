@@ -27,8 +27,8 @@ function Header() {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} bg="primary" sticky="top" expand={expand} className="mb-3">
-          <Container fluid>
+        <Navbar key={expand} bg="primary"  sticky="top" expand={expand} className="mb-3">
+          <Container fluid >
             <Navbar.Brand as={Link} to="/">
               <img style={{ width: "7%" }} src={puLogo} alt="" /> <span>Presidency
                 University</span>
@@ -93,7 +93,7 @@ function Header() {
                   <hr className="p-0 m-0" />
 
                   <NavDropdown
-                    title="ITEM ISSUE"
+                    title="Item Issue"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item as={Link} to="/issueBook">
@@ -109,7 +109,7 @@ function Header() {
                   <hr className="p-0 m-0" />
 
                   <NavDropdown
-                    title="MEMBERS"
+                    title="Members"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     { loginUser && loginUser.adminType !== null && loginUser.adminType === 'root-admin' &&
@@ -142,13 +142,13 @@ function Header() {
                   </NavDropdown>
                   <hr className="p-0 m-0" />
                   <Nav.Link as={Link} to="/issueRequest">
-                    ISSUE REQUEST
+                    Issue Request
                   </Nav.Link>
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
                   <hr className="p-0 m-0" />
-                  <Nav.Link className="fw-bold text-uppercase text-center" as={Link} to="/profile">
+                  <Nav.Link className="fw-bold text-uppercase text-center" as={Link} >
                     {
                       loginUser ? loginUser.name : "Admin name"
                     }

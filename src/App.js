@@ -13,7 +13,7 @@ import UserProfile from "./pages/Members/userProfile";
 import Header from "./pages/Shared/Header";
 import ViewBooks from "./pages/ViewItems/ViewBooks/ViewBooks";
 import ViewThesis from "./pages/ViewItems/ViewTheses/ViewThesis";
-import ThesisDetails from "./pages/ViewItems/ViewTheses/ViewThesis";
+import ThesisDetails from "./pages/ViewItems/ViewTheses/ThesisDetails";
 import BookDetails from "./pages/ViewItems/ViewBooks/BookDetails";
 import UpdateBook from "./pages/AddItem/AddBook/UpdateBook";
 import IssueBook from "./pages/Issue/IssueBook";
@@ -101,7 +101,7 @@ function App() {
 
         <Route path="/issueBook" element={<ProtectedIssueBook/>}></Route>
         <Route path="/issueRequest" element={<ProtectedIssueRequest/>}></Route>
-        <Route path="/issueRequestForABook/:id" element={<ProtectedSingleRequestDetails/>}></Route>
+        <Route path="/userIssueRequestForABook/:id" element={<ProtectedSingleRequestDetails/>}></Route>
 
         
         <Route path="/extendReturnDate/:id" element={<ProtectedExtendReturnDate/>}></Route>

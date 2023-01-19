@@ -14,20 +14,21 @@ const UpdateUserProfile = () => {
     const [data, setData] = useState({
         fullName: user?.fullName,
         instituteId: user?.instituteId,
-        phoneNumber: user?.phoneNo,
+        phoneNumber: user?.phoneNumber,
         userType: user?.userType,
         password: user?.password,
         instituteEmail: user?.instituteEmail,
         personalEmail: user?.personalEmail,
         presentAdd: user?.presentAdd,
         department: user?.department,
-    })
+    });
+    console.log(data)
     useEffect(() => {
         const url = `http://localhost:5000/userList/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setUser(data))
-    }, [id]);
+    }, [id]); 
 
     const handleChange = (e) => {
         setData({
@@ -41,10 +42,10 @@ const UpdateUserProfile = () => {
             .put(
                 `http://localhost:5000/updateUserProfile/${id}`,
                 data
-            ); Swal.fire('Profile Update Successfully')
+            ); 
+            Swal.fire('Profile Update Successfully')
             window.location.href = "/userList";
     };
-    console.log(user);
     return (
         <div className='d-flex justify-content-center'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white py-3">
@@ -53,11 +54,11 @@ const UpdateUserProfile = () => {
                     <Card.Text>
                         <div className='d-flex justify-content-center w-100'>
                             <Form onSubmit={handleSubmit} className='w-75 rounded bg-secondary myForm'>
-                                <FormTitle>Information of {user.FullName}</FormTitle>
+                                <FormTitle>Information of {user.fullName}</FormTitle>
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Full Name</Form.Label>
-                                        <Form.Control type="text" name='FullName' defaultValue={user.fullName} required  onChange={handleChange} />
+                                        <Form.Control type="text" name='fullName' defaultValue={user.fullName} required  onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -67,7 +68,7 @@ const UpdateUserProfile = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Phone Number</Form.Label>
-                                        <Form.Control type="text" name='phoneNo' defaultValue={user.phoneNumber} required   onChange={handleChange}/>
+                                        <Form.Control type="text" name='phoneNumber' defaultValue={user.phoneNumber} required   onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -110,7 +111,7 @@ const UpdateUserProfile = () => {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Present Address </Form.Label>
-                                        <Form.Control type="text" name='presentAddress' defaultValue={user.presentAdd} required  onChange={handleChange}/>
+                                        <Form.Control type="text" name='presentAdd' defaultValue={user.presentAdd} required  onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row>

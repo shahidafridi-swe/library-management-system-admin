@@ -138,7 +138,7 @@ function UpdateBook() {
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <Link
                                         className='btn btn-danger w-100 p-2 mt-3'
-                                        to={`/viewBooks/}`}
+                                        to={`/viewBooks`}
                                     >CANCEL</Link>
                                 </Form.Group>
                             </Form>

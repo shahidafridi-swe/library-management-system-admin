@@ -15,7 +15,7 @@ const Total = () => {
         .then(data => setBooks(data))
     },[])
     useEffect(()=>{
-        fetch('')
+        fetch('http://localhost:5000/viewThesis')
         .then(res=> res.json())
         .then(data => setThesis(data))
     },[])

@@ -38,19 +38,16 @@ function ViewThesis() {
 
                     {thesisList.map((thesis, index) => (
                         <tr key={thesis._id}>
-                            
-                            <td className='text-center'>{index+1}</td>
+
+                            <td className='text-center'>{index + 1}</td>
                             <td>{thesis.ThesisTitle}</td>
                             <td>{thesis.instructor}</td>
                             <td>{thesis.semester}</td>
-                            <td>
+                            <td className='text-center'>
                                 <Link to={`/viewTheses/${thesis._id}`}
-                                // {`/viewBooks/${book._id}`}
                                     className='btn btn-warning btn-sm'
                                 >View</Link>
-                                <Link to={`/issueThesis/`}
-                                    className='btn btn-success btn-sm m-1'
-                                >Issue</Link>
+
                             </td>
                         </tr>
                     ))

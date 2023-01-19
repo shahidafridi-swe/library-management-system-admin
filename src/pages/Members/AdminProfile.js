@@ -37,8 +37,12 @@ const AdminProfile = () => {
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Link
+                            to={`/adminList`}
+                            className='btn btn-danger w-25'
+                        >Back</Link>
+                        <Link
                             to={`/updateAdminProfile/${admin._id}`}
-                            className='btn btn-primary'
+                            className='btn btn-primary w-25'
                         >Update Profile</Link>
                        
                     </div>

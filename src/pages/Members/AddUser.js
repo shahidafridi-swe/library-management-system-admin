@@ -24,8 +24,8 @@ const AddUser = () => {
             })
     };
     return (
-        <div className='d-flex justify-content-center'>
-            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 rounded bg-secondary '>
+        <div className='d-flex w-100 justify-content-center'>
+            <Form onSubmit={handleSubmit(onSubmit)} className='p-4 w-100 rounded bg-secondary '>
                 <FormTitle>Add a User</FormTitle>
                 <Row className="">
                     <Form.Group as={Col} sm='12' md='12'>
@@ -69,9 +69,15 @@ const AddUser = () => {
                         <Form.Control type="text" name='address' placeholder="Present Address" required {...register("presentAdd")} />
                     </Form.Group>
                 </Row>
-                <Form.Group as={Col} sm='12' md='12' >
-                    <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD ADMIN</button>
-                </Form.Group>
+                <Row className="d-flex justify-content-between">
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <a href='/' className='btn btn-primary w-100 p-2 mt-3'>CANCEL</a>
+                    </Form.Group>
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD ADMIN</button>
+                    </Form.Group>
+                </Row>
+
             </Form>
         </div>
 

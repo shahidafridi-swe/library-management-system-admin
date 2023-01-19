@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-const ModalForThousand = ({setModalShowTen, setModalShowHundred, setModalShowThousand,setSelectedCategory,selectedKeyFromHundred,...props}) => {
+const ModalForThousand = ({ setModalShowTen, setModalShowHundred, setModalShowThousand, setSelectedCategory, selectedKeyFromHundred, ...props }) => {
 
     const [thousandCategory, setThousandCategory] = useState([])
     useEffect(() => {
@@ -12,17 +12,23 @@ const ModalForThousand = ({setModalShowTen, setModalShowHundred, setModalShowTho
             .then(data => setThousandCategory(data))
     }, []);
 
-    const start = parseInt(selectedKeyFromHundred)*10;
-    const end = ((parseInt(selectedKeyFromHundred)+1)*10);
-    const newList = thousandCategory.slice(start,end) 
+    const start = parseInt(selectedKeyFromHundred) * 10;
+    const end = ((parseInt(selectedKeyFromHundred) + 1) * 10);
+    const newList = thousandCategory.slice(start, end)
 
     const selectHandler = (val) => {
         setSelectedCategory(val);
         // model close
+        closeModal();
+        // setModalShowTen(false);
+        // setModalShowHundred(false);
+        // setModalShowThousand(false);
+    }
+    const closeModal = () =>{
         setModalShowTen(false);
         setModalShowHundred(false);
         setModalShowThousand(false);
-    }
+      }
 
     return (
         <Modal
@@ -31,7 +37,7 @@ const ModalForThousand = ({setModalShowTen, setModalShowHundred, setModalShowTho
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Thousand Division Category
                 </Modal.Title>
@@ -52,10 +58,12 @@ const ModalForThousand = ({setModalShowTen, setModalShowHundred, setModalShowTho
             </Modal.Body>
 
 
-            <Modal.Footer>
-                <Button onClick={props.onHide}>Close</Button>
+            <Modal.Footer className='d-flex justify-content-between'>
+                <Button className='w-25' onClick={props.onHide}>Back</Button>
+                <Button className='w-25' variant='danger'  onClick={closeModal}>Close</Button>
             </Modal.Footer>
         </Modal>
+
     );
 };
 
