@@ -101,7 +101,7 @@ function App() {
 
         <Route path="/issueBook" element={<ProtectedIssueBook/>}></Route>
         <Route path="/issueRequest" element={<ProtectedIssueRequest/>}></Route>
-        <Route path="/issueRequestForABook/:id" element={<ProtectedSingleRequestDetails/>}></Route>
+        <Route path="/userIssueRequestForABook/:id" element={<ProtectedSingleRequestDetails/>}></Route>
 
         
         <Route path="/extendReturnDate/:id" element={<ProtectedExtendReturnDate/>}></Route>

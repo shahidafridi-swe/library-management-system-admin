@@ -15,7 +15,7 @@ const IssueBook = () => {
     console.log("issue book", book)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/issueRequestForABook', {
+        fetch('http://localhost:5000/adminRequestForABook', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -37,8 +37,6 @@ const IssueBook = () => {
             .then(res => res.json())
             .then(data => setBook(data))
     }, [id]);
-
-
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
     return (
@@ -108,11 +106,7 @@ const IssueBook = () => {
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Issue Date</Form.Label>
                                         {/* <Form.Control> */}
-                                        <input id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} />
-                                        {/* <input id="startDate" class="form-control" type="date" /> */}
-                                        {/* <input type="date" id="date" name="trip-start" /> */}
-
-
+                                        <input id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} /> 
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -138,11 +132,8 @@ const IssueBook = () => {
                                     </Form.Group>
                                 </Row>
                             </Form>
-
                         </div>
-
                     </Card.Text>
-
                 </Card.Body>
             </Card>
         </div >

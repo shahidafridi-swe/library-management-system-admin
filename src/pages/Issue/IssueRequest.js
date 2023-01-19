@@ -8,7 +8,7 @@ const IssueRequest = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Issue Date", "Return Date", "Actions"];
     const [issueRequests, setIssueRequests] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/issueRequestForABook')
+        fetch('http://localhost:5000/UserRequestBooks')
             .then(res => res.json())
             .then(data => setIssueRequests(data))
 
@@ -43,7 +43,7 @@ const IssueRequest = () => {
                                     <td>{singleRequest.issueDate}</td>
                                     <td>{singleRequest.returnDate}</td>
                                     <td>
-                                        <Link to={`/issueRequestForABook/${singleRequest._id}`}
+                                        <Link to={`/userIssueRequestForABook/${singleRequest._id}`}
                                             className='btn btn-warning btn-sm'
                                         >View</Link>
     
@@ -62,22 +62,3 @@ const IssueRequest = () => {
 };
 
 export default IssueRequest;
-/* 
-<tr>
-                                            <td>{singleRequest.FullName}</td>
-                                            <td>{singleRequest.InstituteId}</td>
-                                            <td>{singleRequest.userType}</td>
-                                            <td>{singleRequest.title}</td>
-                                            <td>{singleRequest.author}</td>
-                                            <td>{singleRequest.edition}</td>
-                                            <td>{singleRequest.accessionNumber}</td>
-                                            <td>{singleRequest.issueDate}</td>
-                                            <td>{singleRequest.returnDate}</td>
-                                            <td>
-                                                <Link to={`/extendReturnDate/${singleRequest._id}`}
-                                                    className='btn btn-warning btn-sm'
-                                                >View</Link>
-                                            </td>
-                                        </tr>
-
-*/

@@ -33,7 +33,6 @@ function AddBook() {
             return
         }
         const category1 = categoryRef.current.value;
-        console.log(category1)
         const formData = new FormData()
         formData.append('category', category1)
         formData.append('callNo', callNo)

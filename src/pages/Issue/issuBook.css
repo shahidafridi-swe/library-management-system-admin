@@ -1,7 +1,12 @@
-.datepicker{
+.datepicker {
     border: 1px solid white;
     border-radius: 5px;
     padding: 5px 0;
     width: 100%;
     color: white;
+}
+
+.input_height {
+    width: 100%;
+    max-width: 100%;  
 }
