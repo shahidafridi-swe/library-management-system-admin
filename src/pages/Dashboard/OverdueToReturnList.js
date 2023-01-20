@@ -8,7 +8,7 @@ const OverdueToReturnList = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Accession", "Issue Date", "Return Date", "Actions"];
     const [overdueList, setOverdueList] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/issueRequestForABook')
+        fetch('http://localhost:5000/adminRequestBooks')
             .then(res => res.json())
             .then(data => setOverdueList(data))
 

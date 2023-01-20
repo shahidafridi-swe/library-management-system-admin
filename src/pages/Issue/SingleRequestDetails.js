@@ -19,7 +19,7 @@ const SingleRequestDetails = () => {
             .then(res => res.json())
             .then(data => setSingleRequest(data))
     }, [id]);
-    
+
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5000/issueReqAcceptByAdmin', {
@@ -58,6 +58,28 @@ const SingleRequestDetails = () => {
             }
         })
     }
+    const handleDeletBtn1 = (id) => {
+        if (singleRequest.status === 'accepted') {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete(`http://localhost:5000/returnUserBook/${id}`)
+                    Swal.fire(
+                        'Returned!',
+                        'User returned the book',
+                        'success'
+                    )
+                }
+            })
+        }
+
+    }
     return (
         <div className='d-flex justify-content-center'>
             <Form onSubmit={handleSubmit(onSubmit)} style={{ width: '80%' }} className="text-white p-3">
@@ -68,6 +90,8 @@ const SingleRequestDetails = () => {
                         <Card.Text>
                             <div className='d-flex justify-content-between my-5'>
                                 <div className='w-50'>
+                                    <Form.Control type="hidden" name='adminType' value="accepted" required {...register("status")} />
+
                                     <h3><span className='text-dark fw-bold'>User Name:</span>
                                         <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.FullName}  {...register("FullName")} />
                                     </h3>
@@ -133,7 +157,7 @@ const SingleRequestDetails = () => {
                         </Card.Text>
                         <div className='d-flex justify-content-between'>
                             {/* <Button variant="danger" type='submit' onClick={() => updateStatus(singleRequest._id)}>Accept Request</Button> */}
-                            <Button variant="danger" type='submit'>Accept Request</Button>
+                            <Button variant="danger" onClick={() => handleDeletBtn1(singleRequest._id)} type='submit'>Accept Request</Button>
                             <Button variant="danger" onClick={() => handleDeletBtn(singleRequest._id)}>Deny Request</Button>
                         </div>
                     </Card.Body>
