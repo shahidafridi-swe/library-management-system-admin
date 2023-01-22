@@ -17,10 +17,13 @@ const OverdueToReturnList = () => {
     const current = new Date();
     const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
     const date = current.getTime();
+    
+    const options = {year: 'numeric', month: 'long', day: 'numeric'};
+    const dateString = current.toLocaleDateString('en-US', options)
     return (
         <section className='px-5 vh-50'>
             <Card bg={"danger"}>
-                <Card.Header as="h5">Over Date To Return Book List {currentDate}</Card.Header>
+                <Card.Header as="h5" >Over Date To Return Book List from:   {dateString}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <div className="tableFixHead d-flex justify-content-center "
@@ -50,11 +53,11 @@ const OverdueToReturnList = () => {
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>
                                                         <td>{singlePending.InstituteId}</td>
-                                                        <td>{singlePending.userType}</td>
-                                                        <td>{singlePending.title}</td>
-                                                        <td>{singlePending.author}</td>
-                                                        <td>{singlePending.edition}</td>
-                                                        <td>{singlePending.accessionNumber}</td>
+                                                        <td className='text-capitalize'>{singlePending.userType}</td>
+                                                        <td>{singlePending.book.title}</td>
+                                                        <td>{singlePending.book.author}</td>
+                                                        <td>{singlePending.book.edition}</td>
+                                                        <td>{singlePending.book.accessionNumber}</td>
                                                         <td>{singlePending.issueDate}</td>
                                                         <td>{singlePending.returnDate}</td>
                                                         <td>

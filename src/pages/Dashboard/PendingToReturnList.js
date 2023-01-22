@@ -42,10 +42,10 @@ const PendingToReturnList = () => {
                                         pendingList.map((singlePending) => {
 
                                             const rt = new Date(singlePending.returnDate);
-                                            console.log("cd",date)
-                                            console.log("rd",rt.getTime())
-                                            console.log("status", singlePending?.status);
-
+                                            // console.log("cd",date)
+                                            // console.log("rd",rt.getTime())
+                                            // console.log("status", singlePending?.status);
+                                            console.log("single pe" ,singlePending)
                                             const status = singlePending?.status ? singlePending.status === "acceptRequest" ? true : false : true;
 
                                             if (status && date <= rt.getTime() ) {
@@ -55,11 +55,11 @@ const PendingToReturnList = () => {
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>
                                                         <td>{singlePending.InstituteId}</td>
-                                                        <td>{singlePending.userType}</td>
-                                                        <td>{singlePending.title}</td>
-                                                        <td>{singlePending.author}</td>
-                                                        <td>{singlePending.edition}</td>
-                                                        <td>{singlePending.accessionNumber}</td>
+                                                        <td className='text-capitalize'>{singlePending.userType}</td>
+                                                        <td>{singlePending.book.title}</td>
+                                                        <td >{singlePending.book.authors}</td>
+                                                        <td>{singlePending.book.edition}</td>
+                                                        <td>{singlePending.book.accessionNumber}</td>
                                                         <td>{singlePending.issueDate}</td>
                                                         <td>{singlePending.returnDate}</td>
                                                         <td>

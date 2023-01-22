@@ -14,6 +14,7 @@ const ExtendReturnDate = () => {
         returnDate: extendDate?.returnDate,
     })
     const [book, setBook] = useState({});
+    console.log("ex", book)
     useEffect(() => {
         const url = `http://localhost:5000/extendReturnDate/${id}`;
         fetch(url)
@@ -88,10 +89,10 @@ const ExtendReturnDate = () => {
                                 <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {book.presentAddress}</p>
                             </div>
                             <div className='w-50'>
-                                <h3><span className='text-dark fw-bold'>Book Title:</span> {book.title}</h3>
-                                <h3><span className='text-dark fw-bold'>Author:</span> {book.author}</h3>
-                                <p className='m-0 fs-4'><span className='text-dark fw-bold'>Accession Number:</span> {book.accessionNumber}</p>
-                                <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span> {book.edition}</p>
+                                <h3><span className='text-dark fw-bold'>Book Title:</span> {book?.book?.title}</h3>
+                                <h3><span className='text-dark fw-bold'>Author:</span> {book?.book?.authors}</h3>
+                                <p className='m-0 fs-4'><span className='text-dark fw-bold'>Accession Number:</span> {book?.book?.accessionNumber}</p>
+                                <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span> {book?.book?.edition}</p>
                                 <p className='m-0 fs-4'><span className='text-dark fw-bold'>Issue Date:</span> {book.issueDate}</p>
                                 <p className='m-0 fs-4'><span className='text-dark fw-bold' name="returnDate">Return Date:</span> {book.returnDate}</p>
                             </div>
@@ -108,7 +109,7 @@ const ExtendReturnDate = () => {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Extend Date of Return</Form.Label>
-                                        <input onChange={handleChange} type="date" id="returnDate" className='datepicker' name="returnDate" />
+                                        <input onChange={handleChange} type="date" id="returnDate" className='datepicker' name="returnDate" required/>
                                     </Form.Group>
                                 </Row>
                                 <Form.Group as={Col} sm='12' md='6' >
