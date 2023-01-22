@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const PendingToReturnList = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Accession", "Issue Date", "Return Date", "Actions"];
     const [pendingList, setPendingList] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/adminRequestBooks')
             .then(res => res.json())
@@ -12,6 +13,8 @@ const PendingToReturnList = () => {
     }, []);
 
     // const current = new Date();
+    console.log(pendingList)
+    const current = new Date();
     // const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
     // const date = current.getTime();
 return (
@@ -66,7 +69,6 @@ return (
                                             // console.log("cd",date)
                                             // console.log("rd",rt.getTime())
                                             // console.log("status", singlePending?.status);
-
                                             const status = singlePending?.status ? singlePending.status === "acceptRequest" ? true : false : true;
 
                                             if (status && date <= rt.getTime() ) {
@@ -76,11 +78,11 @@ return (
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>
                                                         <td>{singlePending.InstituteId}</td>
-                                                        <td>{singlePending.userType}</td>
-                                                        <td>{singlePending.title}</td>
-                                                        <td>{singlePending.author}</td>
-                                                        <td>{singlePending.edition}</td>
-                                                        <td>{singlePending.accessionNumber}</td>
+                                                        <td className='text-capitalize'>{singlePending.userType}</td>
+                                                        <td>{singlePending.book.title}</td>
+                                                        <td >{singlePending.book.authors}</td>
+                                                        <td>{singlePending.book.edition}</td>
+                                                        <td>{singlePending.book.accessionNumber}</td>
                                                         <td>{singlePending.issueDate}</td>
                                                         <td>{singlePending.returnDate}</td>
                                                         <td>

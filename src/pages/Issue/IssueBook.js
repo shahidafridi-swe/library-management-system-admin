@@ -12,15 +12,33 @@ import './issuBook.css';
 const IssueBook = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
-    console.log("issue book", book)
+    // console.log("issue book", book)
     const { register, handleSubmit, reset } = useForm();
+    // const onSubmit = data => {
+    //     fetch('http://localhost:5000/issueRequestForABook', {
+    //         method: "POST",
+    //         headers: {
+    //             "content-type": "application/json"
+    //         },
+    //         body: JSON.stringify(data)
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             if (result.acknowledged) {
+    //                 Swal.fire('Request Sent Successfully')
+    //                 window.location.href = "/viewBooks";
+    //                 reset()
+    //             }
+    //         })
+    // };
     const onSubmit = data => {
+        const formData = { ...data, book: book };
         fetch('http://localhost:5000/adminRequestForABook', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(formData)
         })
             .then(res => res.json())
             .then(result => {
@@ -31,6 +49,7 @@ const IssueBook = () => {
                 }
             })
     };
+
     useEffect(() => {
         const url = `http://localhost:5000/viewBooks/${id}`;
         fetch(url)
@@ -39,6 +58,10 @@ const IssueBook = () => {
     }, [id]);
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+
+    // const options = {year: 'numeric', month: 'long', day: 'numeric'};
+    // const dateString = current.toLocaleDateString('en-US', options)
+
     return (
         <div className='d-flex justify-content-center w-100'>
             <Card bg='secondary' style={{ width: '60%' }} className="text-white  py-3">
@@ -62,7 +85,8 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Book Title</Form.Label>
-                                        <Form.Control type="text" name='title' disabled defaultValue={book.title}  {...register("title")} />
+                                        <Form.Control type="text" disabled value={book.title} />
+                                        {/* <Form.Control type="hidden" name='title' value={book.title} required {...register("title")} /> */}
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -72,7 +96,9 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Author</Form.Label>
-                                        <Form.Control type="text" name='autor' disabled defaultValue={book.authors}  {...register("author")} />
+                                        <Form.Control type="text" disabled value={book.authors} />
+                                        {/* <Form.Control type="hidden" name='autor' value={book.authors}  {...register("author")} /> */}
+
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -106,7 +132,13 @@ const IssueBook = () => {
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Issue Date</Form.Label>
                                         {/* <Form.Control> */}
-                                        <input id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} /> 
+                                        {/* <Form.Control id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} /> */}
+                                        {/* <input id="startDate" class="form-control" type="date" /> */}
+                                        {/* <input type="date" id="date" name="trip-start" /> */}
+                                       
+
+
+                                        <Form.Control id="dateRequired" defaultValue={new Date().toISOString().substr(0, 10)} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -117,7 +149,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Return Date </Form.Label>
-                                        <input type="date" id="birthday" className='datepicker' name="birthday" {...register("returnDate")} />
+                                        <input type="date" id="birthday" className='datepicker' name="birthday" {...register("returnDate")} required />
                                     </Form.Group>
                                 </Row>
                                 <Row className="d-flex justify-content-between">

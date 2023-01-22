@@ -114,7 +114,7 @@ const UpdateUserProfile = () => {
                                         <Form.Control type="text" name='presentAdd' defaultValue={user.presentAdd} required  onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
-                                <Row>
+                                {/* <Row>
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Profile Photo</Form.Label>
                                         <Form.Control
@@ -122,7 +122,7 @@ const UpdateUserProfile = () => {
                                             name="file"
                                         />
                                     </Form.Group>
-                                </Row>
+                                </Row> */}
 
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >Update Profile</button>

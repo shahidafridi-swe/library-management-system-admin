@@ -40,7 +40,7 @@ const AllBooks = () => {
                                 {
                                     allBooks.map((book, index) => (
                                         <tr key={book._id}>
-                                            <td>{index}</td>
+                                            <td>{book.accessionNumber}</td>
                                             <td>{book.title}</td>
                                             <td>{book.authors}</td>
                                             <td>{book.publisher}</td>

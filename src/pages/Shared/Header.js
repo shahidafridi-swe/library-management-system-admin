@@ -92,7 +92,7 @@ function Header() {
 
                   <hr className="p-0 m-0" />
 
-                  <NavDropdown
+                  {/* <NavDropdown
                     title="Item Issue"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
@@ -106,7 +106,7 @@ function Header() {
 
                   </NavDropdown>
 
-                  <hr className="p-0 m-0" />
+                  <hr className="p-0 m-0" /> */}
 
                   <NavDropdown
                     title="Members"
