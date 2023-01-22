@@ -41,8 +41,8 @@ const UpdateAdminProfile = () => {
                 `http://localhost:5000/updateProfile/${id}`,
                 data
             );
-            Swal.fire('Profile Update Successfully')
-            window.location.href = "/adminList";
+        Swal.fire('Profile Update Successfully')
+        window.location.href = "/adminList";
     };
     // console.log(admin);
     return (
@@ -64,6 +64,7 @@ const UpdateAdminProfile = () => {
                                             onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
+                               
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Institute ID</Form.Label>
@@ -128,7 +129,7 @@ const UpdateAdminProfile = () => {
                                             onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
-                                <Row>
+                                {/* <Row>
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Profile Photo</Form.Label>
                                         <Form.Control
@@ -137,7 +138,7 @@ const UpdateAdminProfile = () => {
                                             onChange={handleChange}
                                         />
                                     </Form.Group>
-                                </Row>
+                                </Row> */}
 
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >Update Profile</button>

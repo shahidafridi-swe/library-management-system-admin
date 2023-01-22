@@ -64,7 +64,8 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Book Title</Form.Label>
-                                        <Form.Control type="text" name='title' disabled defaultValue={book.title}  {...register("title")} />
+                                        {/* <Form.Control type="text"  disabled value={book.title}  /> */}
+                                        <Form.Control type="hidden" name='title' value={book.title} required {...register("title")} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -74,7 +75,9 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Author</Form.Label>
-                                        <Form.Control type="text" name='autor' disabled defaultValue={book.authors}  {...register("author")} />
+                                        {/* <Form.Control type="text"  disabled value={book.authors}/> */}
+                                        <Form.Control type="hidden" name='autor' value={book.authors}  {...register("author")} />
+
                                     </Form.Group>
                                 </Row>
                                 <Row className="">

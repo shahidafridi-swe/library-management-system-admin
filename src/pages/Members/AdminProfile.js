@@ -27,7 +27,8 @@ const AdminProfile = () => {
                 <Card.Body>
                     <Card.Text>
                         <h2><span className='text-dark fw-bold'>Name:</span> {admin.FullName}</h2>
-                        <h3><span className='text-dark fw-bold'>ID:</span> {admin.InstituteId}</h3>
+                        <h2><span className='text-dark fw-bold'>ID:</span> {admin.InstituteId}</h2>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Admin Type:</span> {admin.adminType}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Designation:</span> {admin.Designation}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Phone:</span> {admin.PhoneNo}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Password:</span> {admin.password}</p>

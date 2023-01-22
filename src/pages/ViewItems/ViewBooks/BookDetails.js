@@ -47,7 +47,8 @@ const handleDeletBtn = (id) => {
                 <Card.Body>
                     <Card.Text>
                         <h2><span className='text-dark fw-bold'>Title:</span>{book.title}</h2>
-                        <h3><span className='text-dark fw-bold'>Author:</span> {book.authors} </h3>
+                        <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>Author:</span> {book.authors} </p>
+                        <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>Category:</span> {book.category} </p>
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>Call Number:</span> {book.callNo}</p>
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>ISBN:</span> {book.ISBN10? book.ISBN10:book.ISBN13}</p>
                         <p className='m-0 fs-4 text-uppercase'><span className='text-dark fw-bold text-capitalize'>Accession Number:</span>{book.accessionNumber}</p>
@@ -55,9 +56,12 @@ const handleDeletBtn = (id) => {
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Publish Year:</span> {book.publicationYear}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span> {book.edition} </p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Price: </span>{book.price && book.price}$</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Copies:</span> 1</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Available:</span> 2</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Location:</span> {book.library}</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Page: </span>{book.pageNumber && book.pageNumber}</p>
+                        {/* <p className='m-0 fs-4'><span className='text-dark fw-bold'>Copies:</span> 1</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Available:</span> 1 </p> */}
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Branch:</span> {book.branch}</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Location:</span> {book.location}</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Tags:</span> {book.tags}</p>
                       
                     </Card.Text>
                     <div className='d-flex justify-content-between'>

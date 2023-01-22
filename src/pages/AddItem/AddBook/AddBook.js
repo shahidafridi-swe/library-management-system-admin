@@ -12,7 +12,6 @@ function AddBook() {
     const [modalShow, setModalShow] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const categoryRef = useRef();
-    const [image, setImage] = useState(null);
     const [callNo, setCallNo] = useState('');
     const [title, setTitle] = useState('');
     const [isbn, setisbn] = useState('');
@@ -25,13 +24,11 @@ function AddBook() {
     const [accessionNumber, setAccessionNumber] = useState('');
     const [tags, setTags] = useState('');
     const [branch, setBranch] = useState('');
-    const [description, setDescription] = useState('');
+    const [location, setLocation] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!image) {
-            return
-        }
+        
         const category1 = categoryRef.current.value;
         console.log(category1)
         const formData = new FormData()
@@ -48,8 +45,8 @@ function AddBook() {
         formData.append('accessionNumber', accessionNumber)
         formData.append('tags', tags)
         formData.append('branch', branch)
-        formData.append('description', description)
-        formData.append('image', image)
+        formData.append('location', location)
+      
 
         fetch('http://localhost:5000/addBooks', {
             method: 'POST',
@@ -111,7 +108,7 @@ function AddBook() {
 
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>ISBN</Form.Label>
-                        <input className='category' required onChange={e => setisbn(e.target.value)} type="text" placeholder="ISBN10" />
+                        <input className='category' required onChange={e => setisbn(e.target.value)} type="text" placeholder="ISBN" />
                     </Form.Group>
                 </Row>
                 <Row className="">
@@ -156,8 +153,8 @@ function AddBook() {
                     </Form.Group>
 
                     <Form.Group as={Col} sm='12' md='6'>
-                        <Form.Label>Location</Form.Label>
-                        <input className='category' required onChange={e => setDescription(e.target.value)} type="text" placeholder="Location" />
+                        <Form.Label>Location of Book In Library</Form.Label>
+                        <input className='category' required onChange={e => setLocation(e.target.value)} type="text" placeholder="Location of Book In Library" />
                     </Form.Group>
                 </Row>
                 <Row className="">
@@ -169,8 +166,8 @@ function AddBook() {
                     <Form.Group as={Col} sm='12' md='6'>
                         <Form.Label>Branch</Form.Label>
                         <Form.Select className='text-light' name='userType' aria-label="Default select example" onChange={e => setBranch(e.target.value)}>
-                            <option className='text-dark' value="baridhara">Baridhara</option>
-                            <option className='text-dark' value="gulshan">Gulshan</option>
+                            <option className='text-dark' value="Baridhara">Baridhara</option>
+                            <option className='text-dark' value="Gulshan">Gulshan</option>
                         </Form.Select>
                     </Form.Group>
                     <Form.Group as={Col} sm='12' md='6'>
@@ -178,7 +175,7 @@ function AddBook() {
                         <input className='category' required onChange={e => setPageNumber(e.target.value)} type="number" placeholder="Page Number" />
                     </Form.Group>
                 </Row>
-                <Row className="">                   
+                {/* <Row className="">                   
                     <Form.Group as={Col} sm='12' md='12'>
                         <Form.Label>Cover Photo</Form.Label>
                         <input className='category'
@@ -188,13 +185,22 @@ function AddBook() {
                             onChange={e => setImage(e.target.files[0])}
                         />
                     </Form.Group>
+                </Row> */}
+                <Row className="mt-2 d-flex justify-content-between">
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <a href='/' className='btn btn-danger w-100 p-2 '>CANCEL</a>
+                    </Form.Group>
+                
+                    <Form.Group as={Col} sm='12' md='5' >
+                        <button className='btn btn-primary w-100 p-2 ' type='submit'>ADD BOOK</button>
+                    </Form.Group>
                 </Row>
-                <Form.Group as={Col} sm='12' md='12' >
+                {/* <Form.Group as={Col} sm='12' md='12' >
                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit'>ADD BOOK</button>
                 </Form.Group>
                 <Form.Group as={Col} sm='12' md='12' >
                     <a href='/' className='btn btn-danger w-100 p-2 mt-3'>CANCEL</a>
-                </Form.Group>
+                </Form.Group> */}
             </Form>
          
         </div >

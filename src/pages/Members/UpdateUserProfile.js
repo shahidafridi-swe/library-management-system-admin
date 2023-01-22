@@ -14,7 +14,7 @@ const UpdateUserProfile = () => {
     const [data, setData] = useState({
         fullName: user?.fullName,
         instituteId: user?.instituteId,
-        phoneNumber: user?.phoneNo,
+        phoneNo: user?.phoneNo,
         userType: user?.userType,
         password: user?.password,
         instituteEmail: user?.instituteEmail,
@@ -57,7 +57,7 @@ const UpdateUserProfile = () => {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Full Name</Form.Label>
-                                        <Form.Control type="text" name='FullName' defaultValue={user.fullName} required  onChange={handleChange} />
+                                        <Form.Control type="text" name='fullName' defaultValue={user.fullName} required  onChange={handleChange} />
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -67,7 +67,7 @@ const UpdateUserProfile = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Phone Number</Form.Label>
-                                        <Form.Control type="text" name='phoneNo' defaultValue={user.phoneNumber} required   onChange={handleChange}/>
+                                        <Form.Control type="text" name='phoneNumber' defaultValue={user.phoneNumber} required   onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
                                 <Row className="">
@@ -110,10 +110,10 @@ const UpdateUserProfile = () => {
                                 <Row className="">
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Present Address </Form.Label>
-                                        <Form.Control type="text" name='presentAddress' defaultValue={user.presentAdd} required  onChange={handleChange}/>
+                                        <Form.Control type="text" name='presentAdd' defaultValue={user.presentAdd} required  onChange={handleChange}/>
                                     </Form.Group>
                                 </Row>
-                                <Row>
+                                {/* <Row>
                                     <Form.Group as={Col} sm='12' md='12'>
                                         <Form.Label>Profile Photo</Form.Label>
                                         <Form.Control
@@ -121,7 +121,7 @@ const UpdateUserProfile = () => {
                                             name="file"
                                         />
                                     </Form.Group>
-                                </Row>
+                                </Row> */}
 
                                 <Form.Group as={Col} sm='12' md='12' >
                                     <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >Update Profile</button>

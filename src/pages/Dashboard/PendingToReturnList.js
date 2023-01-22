@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 const PendingToReturnList = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Accession", "Issue Date", "Return Date", "Actions"];
     const [pendingList, setPendingList] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/issueRequestForABook')
             .then(res => res.json())
             .then(data => setPendingList(data))
     }, []);
-
+    console.log(pendingList)
     const current = new Date();
     // const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
     const date = current.getTime();
