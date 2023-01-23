@@ -49,7 +49,7 @@ const SingleRequestDetails = () => {
             confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/issueRequestForABook/${id}`)
+                axios.delete(`http://localhost:5000/denyIssueReq/${id}`)
                 Swal.fire(
                     'Returned!',
                     'User returned the book',

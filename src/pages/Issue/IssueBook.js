@@ -12,25 +12,8 @@ import './issuBook.css';
 const IssueBook = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
-    // console.log("issue book", book)
     const { register, handleSubmit, reset } = useForm();
-    // const onSubmit = data => {
-    //     fetch('http://localhost:5000/issueRequestForABook', {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json"
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             if (result.acknowledged) {
-    //                 Swal.fire('Request Sent Successfully')
-    //                 window.location.href = "/viewBooks";
-    //                 reset()
-    //             }
-    //         })
-    // };
+
     const onSubmit = data => {
         const formData = { ...data, book: book };
         fetch('http://localhost:5000/adminRequestForABook', {
@@ -132,12 +115,7 @@ const IssueBook = () => {
                                     </Form.Group>
                                     <Form.Group as={Col} sm='12' md='6'>
                                         <Form.Label>Issue Date</Form.Label>
-                                        {/* <Form.Control> */}
-                                        {/* <Form.Control id="dateRequired" defaultValue={date} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} /> */}
-                                        {/* <input id="startDate" class="form-control" type="date" /> */}
-                                        {/* <input type="date" id="date" name="trip-start" /> */}
-                                       
-
+    
 
                                         <Form.Control id="dateRequired" defaultValue={new Date().toISOString().substr(0, 10)} type="date" name="dateRequired" className='datepicker' {...register("issueDate")} />
                                     </Form.Group>

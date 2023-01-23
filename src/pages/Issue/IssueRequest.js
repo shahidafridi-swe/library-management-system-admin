@@ -8,7 +8,7 @@ const IssueRequest = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Issue Date", "Return Date", "Actions"];
     const [issueRequests, setIssueRequests] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/UserRequestBooks')
+        fetch('http://localhost:5000/userissuedBooks')
             .then(res => res.json())
             .then(data => setIssueRequests(data))
 
