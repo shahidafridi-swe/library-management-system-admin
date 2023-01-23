@@ -15,6 +15,7 @@ const PendingToReturnList = () => {
     // const current = new Date();
     console.log(pendingList)
     const current = new Date();
+    const date = current.getTime();
     // const date = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
     // const date = current.getTime();
 return (
@@ -39,13 +40,18 @@ return (
                                 <tbody>
                                     {
                                         pendingList.map((singlePending) => {
+                                            const rt = new Date(singlePending.returnDate);
+
+                                            console.log(date, rt.getTime(), date >= rt.getTime())
+                                            if (date <= rt.getTime()) {
+                                              
                                             return (
                                                 <tr>
                                                     <td>{singlePending.FullName}</td>
                                                     <td>{singlePending.InstituteId}</td>
                                                     <td>{singlePending.userType}</td>
                                                     <td>{singlePending?.book?.title}</td>
-                                                    <td>{singlePending?.book?.author}</td>
+                                                    <td>{singlePending?.book?.authors}</td>
                                                     <td>{singlePending?.book?.edition}</td>
                                                     <td>{singlePending?.book?.accessionNumber}</td>
                                                     <td>{singlePending.issueDate}</td>
@@ -56,7 +62,7 @@ return (
                                                         >View</Link>
                                                     </td>
                                                 </tr>
-                                            )
+                                            )}
                                         })
                                     }
                                 </tbody>

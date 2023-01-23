@@ -8,7 +8,7 @@ const OverdueToReturnList = () => {
     const titleList = ["User Name", "User Id", "User Type", "Book Title", "Author", "Edition", "Accession", "Issue Date", "Return Date", "Actions"];
     const [overdueList, setOverdueList] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/adminRequestBooks')
+        fetch('http://localhost:5000/adminissuedBooks')
             .then(res => res.json())
             .then(data => setOverdueList(data))
 
@@ -47,17 +47,17 @@ const OverdueToReturnList = () => {
                                             const rt = new Date(singlePending.returnDate);
 
                                             console.log(date, rt.getTime(), date >= rt.getTime())
-                                            if (date >= rt.getTime()) {
+                                            if (date > rt.getTime()) {
                                            
                                                 return (
                                                     <tr>
                                                         <td>{singlePending.FullName}</td>
                                                         <td>{singlePending.InstituteId}</td>
                                                         <td className='text-capitalize'>{singlePending.userType}</td>
-                                                        <td>{singlePending.book.title}</td>
-                                                        <td>{singlePending.book.author}</td>
-                                                        <td>{singlePending.book.edition}</td>
-                                                        <td>{singlePending.book.accessionNumber}</td>
+                                                        <td>{singlePending?.book.title}</td>
+                                                        <td>{singlePending?.book.authors}</td>
+                                                        <td>{singlePending?.book.edition}</td>
+                                                        <td>{singlePending?.book.accessionNumber}</td>
                                                         <td>{singlePending.issueDate}</td>
                                                         <td>{singlePending.returnDate}</td>
                                                         <td>
