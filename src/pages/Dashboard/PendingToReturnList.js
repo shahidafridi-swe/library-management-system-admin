@@ -7,7 +7,7 @@ const PendingToReturnList = () => {
     const [pendingList, setPendingList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/adminRequestBooks')
+        fetch('http://localhost:5000/adminissuedBooks')
             .then(res => res.json())
             .then(data => setPendingList(data))
     }, []);
@@ -44,10 +44,10 @@ return (
                                                     <td>{singlePending.FullName}</td>
                                                     <td>{singlePending.InstituteId}</td>
                                                     <td>{singlePending.userType}</td>
-                                                    <td>{singlePending.title}</td>
-                                                    <td>{singlePending.author}</td>
-                                                    <td>{singlePending.edition}</td>
-                                                    <td>{singlePending.accessionNumber}</td>
+                                                    <td>{singlePending?.book?.title}</td>
+                                                    <td>{singlePending?.book?.author}</td>
+                                                    <td>{singlePending?.book?.edition}</td>
+                                                    <td>{singlePending?.book?.accessionNumber}</td>
                                                     <td>{singlePending.issueDate}</td>
                                                     <td>{singlePending.returnDate}</td>
                                                     <td>
@@ -57,48 +57,9 @@ return (
                                                     </td>
                                                 </tr>
                                             )
-
                                         })
                                     }
                                 </tbody>
-                                {/* <tbody>
-                                    {
-                                        pendingList.map((singlePending) => {
-
-                                            const rt = new Date(singlePending.returnDate);
-                                            // console.log("cd",date)
-                                            // console.log("rd",rt.getTime())
-                                            // console.log("status", singlePending?.status);
-                                            const status = singlePending?.status ? singlePending.status === "acceptRequest" ? true : false : true;
-
-                                            if (status && date <= rt.getTime() ) {
-                                            //    console.log(date, 'and', singlePending.returnDate)
-                                               
-                                                return (
-                                                    <tr>
-                                                        <td>{singlePending.FullName}</td>
-                                                        <td>{singlePending.InstituteId}</td>
-                                                        <td className='text-capitalize'>{singlePending.userType}</td>
-                                                        <td>{singlePending.book.title}</td>
-                                                        <td >{singlePending.book.authors}</td>
-                                                        <td>{singlePending.book.edition}</td>
-                                                        <td>{singlePending.book.accessionNumber}</td>
-                                                        <td>{singlePending.issueDate}</td>
-                                                        <td>{singlePending.returnDate}</td>
-                                                        <td>
-                                                            <Link to={`/extendReturnDate/${singlePending._id}`}
-                                                                className='btn btn-warning btn-sm'
-                                                            >View</Link>
-                                                        </td>
-                                                    </tr>
-                                                )
-
-                                            }
-                                            return null
-                                        }
-                                        )
-                                    }
-                                </tbody> */}
                             </Table>
                         </div>
                     </Card.Text>
