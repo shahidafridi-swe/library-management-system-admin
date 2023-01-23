@@ -86,7 +86,7 @@ const SingleRequestDetails = () => {
 
                 <Card bg='secondary' >
                     <Card.Body>
-                        <FormTitle>Book Request Details Of User</FormTitle>
+                        <FormTitle>Book Request Details Of {singleRequest.FullName}</FormTitle>
                         <Card.Text>
                             <div className='d-flex justify-content-between my-5'>
                                 <div className='w-50'>
