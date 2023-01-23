@@ -37,9 +37,9 @@ const IssueRequest = () => {
                                     <td>{singleRequest.FullName}</td>
                                     <td>{singleRequest.InstituteId}</td>
                                     <td>{singleRequest.userType}</td>
-                                    <td>{singleRequest.title}</td>
-                                    <td>{singleRequest.author}</td>
-                                    <td>{singleRequest.edition}</td>
+                                    <td>{singleRequest?.book.title}</td>
+                                    <td>{singleRequest?.book.authors}</td>
+                                    <td>{singleRequest?.book.edition}</td>
                                     <td>{singleRequest.issueDate}</td>
                                     <td>{singleRequest.returnDate}</td>
                                     <td>

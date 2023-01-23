@@ -22,12 +22,13 @@ const SingleRequestDetails = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/issueReqAcceptByAdmin', {
+        // const formData = { ...data, book: singleRequest };
+        fetch('http://localhost:5000/adminRequestForABook', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(singleRequest)
         })
             .then(res => res.json())
             .then(result => {
@@ -51,10 +52,11 @@ const SingleRequestDetails = () => {
             if (result.isConfirmed) {
                 axios.delete(`http://localhost:5000/denyIssueReq/${id}`)
                 Swal.fire(
-                    'Returned!',
+                    'Deny!',
                     'User returned the book',
                     'success'
                 )
+                window.location.href = "/issueRequest"
             }
         })
     }
@@ -92,33 +94,38 @@ const SingleRequestDetails = () => {
                                 <div className='w-50'>
                                     <Form.Control type="hidden" name='adminType' value="accepted" required {...register("status")} />
 
-                                    <h3><span className='text-dark fw-bold'>User Name:</span>
-                                        <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.FullName}  {...register("FullName")} />
+                                    <h3><span className='text-dark fw-bold'>User Name:</span> {singleRequest.FullName}
+                                        {/* <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.FullName}  {...register("FullName")} /> */}
                                     </h3>
-                                    <h3><span className='text-dark fw-bold'>User ID:</span> <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.InstituteId}  {...register("InstituteId")} />
-                                    </h3>
-                                    <p className='m-0 fs-4 '><span className='text-dark fw-bold'>User Type:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.userType} {...register("userType")} />
+                                    <h3><span className='text-dark fw-bold'>User ID:</span>{singleRequest.InstituteId}</h3>
+                                    {/* <h3><span className='text-dark fw-bold'>User ID:</span> <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.InstituteId}  {...register("InstituteId")} />
+                                    </h3> */}
+                                    <p className='m-0 fs-4 '><span className='text-dark fw-bold'>User Type:</span>  {singleRequest.userType}</p>
+                                    {/* <p className='m-0 fs-4 '><span className='text-dark fw-bold'>User Type:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.userType} {...register("userType")} />
+                                    </p> */}
+                                    <p className='m-0 fs-4 '><span className='text-dark fw-bold'>Phone:</span>{singleRequest.phone}                                     </p>
+                                    {/* <p className='m-0 fs-4 '><span className='text-dark fw-bold'>Phone:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.phone} {...register("phone")} />
+                                    </p> */}
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span>{singleRequest.instituteEmail} 
                                     </p>
-                                    <p className='m-0 fs-4 '><span className='text-dark fw-bold'>Phone:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.phone} {...register("phone")} />
-                                    </p>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.instituteEmail} {...register("instituteEmail")} />
-                                    </p>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.presentAddress} {...register("presentAddress")} />
+                                    {/* <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.instituteEmail} {...register("instituteEmail")} />
+                                    </p> */}
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span>{singleRequest.presentAddress} 
                                     </p>
                                 </div>
                                 <div className='w-50'>
                                     <h3><span className='text-dark fw-bold'>Book Title: </span>
-                                        <input type="text" name="" className='bg-secondary border-0 text-light input_height' value={singleRequest.title} {...register("title")} />
+                                        {singleRequest?.book?.title} 
                                     </h3>
-                                    <h3><span className='text-dark fw-bold'>Author:</span> <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.author} {...register("author")} />
+                                    <h3><span className='text-dark fw-bold'>Author:</span> {singleRequest?.book?.authors}
                                     </h3>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Accession Number:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.accessionNumber}  {...register("accessionNumber")} />
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Accession Number:</span>{singleRequest?.book?.accessionNumber} 
                                     </p>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.edition} {...register("edition")} />
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span>{singleRequest?.book?.edition}
                                     </p>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Issue Date:</span><input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.issueDate} {...register("issueDate")} />
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Issue Date:</span>{singleRequest.issueDate}
                                     </p>
-                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Return Email:</span> <input type="text" name="" className='bg-secondary border-0 text-light' value={singleRequest.returnDate} {...register("returnDate")} />
+                                    <p className='m-0 fs-4'><span className='text-dark fw-bold'>Return Email:</span> {singleRequest.returnDate} 
                                     </p>
                                 </div>
                             </div>
