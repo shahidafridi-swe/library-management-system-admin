@@ -51,8 +51,8 @@ const ExtendReturnDate = () => {
                 data,
             );
         console.log(data)
-        // Swal.fire('Return Date Updated Successfully')
-        // navigate("/")
+        Swal.fire('Return Date Updated Successfully')
+        navigate("/")
     };
 
     // handle delet button

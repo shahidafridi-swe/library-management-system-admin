@@ -44,7 +44,7 @@ const IssueBook = () => {
             .then(result => {
                 if (result.acknowledged) {
                     Swal.fire('Request Sent Successfully')
-                    window.location.href = "/viewBooks";
+                    window.location.href = "/";
                     reset()
                 }
             })
