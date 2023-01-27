@@ -55,7 +55,7 @@ const handleDeletBtn = (id) => {
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Publication:</span> {book.publisher}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Publish Year:</span> {book.publicationYear}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Edition:</span> {book.edition} </p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Price: </span>{book.price && book.price}$</p>
+                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Price: </span>{book.price && book.price} BDT</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Page: </span>{book.pageNumber && book.pageNumber}</p>
                         {/* <p className='m-0 fs-4'><span className='text-dark fw-bold'>Copies:</span> 1</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Available:</span> 1 </p> */}

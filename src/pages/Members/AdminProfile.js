@@ -31,7 +31,6 @@ const AdminProfile = () => {
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Admin Type:</span> {admin.adminType}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Designation:</span> {admin.Designation}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Phone:</span> {admin.PhoneNo}</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Password:</span> {admin.password}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span> {admin.instituteEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Personal Email:</span> {admin.personalEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {admin.presentAddress}</p>

@@ -24,7 +24,6 @@ const UserProfile = () => {
                         <p className='m-0 fs-4 text-capitalize'><span className='text-dark fw-bold'>User Type:</span> {user.userType}</p>
                         <p className='m-0 fs-4 text-uppercase'><span className='text-dark fw-bold text-capitalize'>Department:</span> {user.department}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Phone:</span> {user.phoneNumber}</p>
-                        <p className='m-0 fs-4'><span className='text-dark fw-bold'>Password:</span> {user.password}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Institution Email:</span> {user.instituteEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Personal Email:</span> {user.personalEmail}</p>
                         <p className='m-0 fs-4'><span className='text-dark fw-bold'>Address:</span> {user.presentAdd}</p>

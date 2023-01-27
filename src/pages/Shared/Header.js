@@ -112,7 +112,7 @@ function Header() {
                     title="Members"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    { loginUser && loginUser.adminType !== null && loginUser.adminType === 'root-admin' &&
+                    { loginUser && loginUser.adminType !== null && loginUser.adminType === 'master-admin' &&
                       <>
                         <NavDropdown.Item as={Link} to="/adminList">
                           Admin List
@@ -127,7 +127,7 @@ function Header() {
                     <NavDropdown.Divider />
 
                     {
-                    loginUser && loginUser.adminType !== null && loginUser.adminType === 'root-admin' &&
+                    loginUser && loginUser.adminType !== null && loginUser.adminType === 'master-admin' &&
                       <>
                         <NavDropdown.Divider />
                         <NavDropdown.Item as={Link} to="/addNewAdmin">

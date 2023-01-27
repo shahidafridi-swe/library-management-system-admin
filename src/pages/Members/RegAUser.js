@@ -125,7 +125,7 @@ export default class RegAUser extends Component {
                             <a href='/' className='btn btn-danger w-100 p-2 mt-3'>CANCEL</a>
                         </Form.Group>
                         <Form.Group as={Col} sm='12' md='5' >
-                            <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD ADMIN</button>
+                            <button className='btn btn-primary w-100 p-2 mt-3' type='submit' >ADD USER</button>
                         </Form.Group>
                     </Row>
                    
