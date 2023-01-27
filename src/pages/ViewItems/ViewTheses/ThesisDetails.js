@@ -10,7 +10,7 @@ const ThesisDetails = () => {
     const [thesis, setThesis] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/viewTheses/${id}`;
+        const url = `http://localhost:5000/viewThesis/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setThesis(data))

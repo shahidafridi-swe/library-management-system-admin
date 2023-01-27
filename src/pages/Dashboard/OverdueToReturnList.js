@@ -23,7 +23,7 @@ const OverdueToReturnList = () => {
     return (
         <section className='px-5 vh-50'>
             <Card bg={"danger"}>
-                <Card.Header as="h5" >Over Date To Return Book List from:   {dateString}</Card.Header>
+                <Card.Header as="h5" >Overdue Books from:   {dateString}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <div className="tableFixHead d-flex justify-content-center "

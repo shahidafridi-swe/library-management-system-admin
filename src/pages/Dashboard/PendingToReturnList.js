@@ -21,7 +21,7 @@ const PendingToReturnList = () => {
 return (
         <section className='px-5 mb-2'>
             <Card bg='warning'>
-                <Card.Header as="h5">Pending To Return Book List  {pendingList.length}</Card.Header>
+                <Card.Header as="h5">Pending Books: {pendingList.length}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <div className="tableFixHead d-flex justify-content-center "
